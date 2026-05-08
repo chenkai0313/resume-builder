@@ -1,5 +1,6 @@
 import type { ResumeData } from '@/lib/types'
 import { t } from '@/lib/titles'
+import ResumeAvatar from '../ResumeAvatar'
 
 export default function Timeline({ data, lang = 'en' }: { data: ResumeData; lang?: string }) {
   const { personalInfo: p } = data
@@ -7,6 +8,7 @@ export default function Timeline({ data, lang = 'en' }: { data: ResumeData; lang
   return (
     <div className="bg-white text-gray-800 font-sans p-8 max-w-[210mm] mx-auto">
       <div className="text-center mb-8">
+        <ResumeAvatar src={p.avatar} size={64} className="mx-auto mb-3" />
         <h1 className="text-3xl font-bold text-gray-900">{p.name || 'Your Name'}</h1>
         <p className="text-gray-500">{p.title}</p>
         <p className="text-sm text-gray-400">{p.email}{p.phone && ` | ${p.phone}`}</p>

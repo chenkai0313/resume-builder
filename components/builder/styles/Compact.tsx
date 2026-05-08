@@ -1,6 +1,7 @@
 import type { ResumeData } from '@/lib/types'
 import { t } from '@/lib/titles'
 import { proficiencyDisplay } from '@/lib/display'
+import ResumeAvatar from '../ResumeAvatar'
 
 export default function Compact({ data, lang = 'en' }: { data: ResumeData; lang?: string }) {
   const { personalInfo: p } = data
@@ -8,6 +9,7 @@ export default function Compact({ data, lang = 'en' }: { data: ResumeData; lang?
   return (
     <div className="bg-white text-gray-800 font-sans p-6 max-w-[210mm] mx-auto text-xs leading-snug">
       <div className="text-center mb-3 border-b border-gray-300 pb-2">
+        <ResumeAvatar src={p.avatar} size={48} className="mx-auto mb-2" />
         <h1 className="text-lg font-bold">{p.name || 'Your Name'}</h1>
         <p className="text-gray-600">{[p.title, p.email, p.phone].filter(Boolean).join(' | ')}</p>
       </div>

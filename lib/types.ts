@@ -20,6 +20,7 @@ export interface PersonalInfo {
   employmentStatus: string
   salaryExpectation: string
   workMode: string
+  avatar: string
 }
 
 export interface WorkExperience {

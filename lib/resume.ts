@@ -14,6 +14,7 @@ export function getDefaultResume(lang: string): ResumeData {
       employmentStatus: 'employed',
       salaryExpectation: '30_50',
       workMode: 'hybrid',
+      avatar: '',
     },
     advantages: isZh
       ? '<strong>6 年前端开发经验</strong>，精通 React、Vue、TypeScript。拥有大型项目架构设计经验，善于团队协作与技术分享。<strong>英语流利</strong>，可无障碍阅读英文技术文档并进行跨国团队沟通。具备良好的产品思维，能从用户视角出发推动技术方案落地。'

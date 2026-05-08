@@ -1,6 +1,7 @@
 import type { ResumeData } from '@/lib/types'
 import { t } from '@/lib/titles'
 import { proficiencyDisplay } from '@/lib/display'
+import ResumeAvatar from '../ResumeAvatar'
 
 export default function Sidebar({ data, lang = 'en' }: { data: ResumeData; lang?: string }) {
   const { personalInfo: p } = data
@@ -8,6 +9,7 @@ export default function Sidebar({ data, lang = 'en' }: { data: ResumeData; lang?
   return (
     <div className="bg-white text-gray-800 font-sans max-w-[210mm] mx-auto flex min-h-[297mm]">
       <div className="w-[35%] bg-gray-50 p-6 border-r border-gray-200">
+        <ResumeAvatar src={p.avatar} size={96} className="mx-auto mb-4" />
         <div className="mb-6">
           <h1 className="text-xl font-bold text-gray-900">{p.name || 'Your Name'}</h1>
           <p className="text-sm text-gray-600 mt-1">{p.title}</p>

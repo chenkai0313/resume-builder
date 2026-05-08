@@ -1,14 +1,18 @@
 import type { ResumeData } from '@/lib/types'
 import { t } from '@/lib/titles'
+import ResumeAvatar from '../ResumeAvatar'
 
 export default function Minimal({ data, lang = 'en' }: { data: ResumeData; lang?: string }) {
   const { personalInfo: p } = data
   const T = t(lang)
   return (
     <div className="bg-white text-gray-800 font-sans p-10 max-w-[210mm] mx-auto">
-      <div className="mb-8">
-        <h1 className="text-4xl font-light text-gray-900">{p.name || 'Your Name'}</h1>
-        <p className="text-sm text-gray-400 mt-2">{[p.email, p.phone, p.title].filter(Boolean).join(' / ')}</p>
+      <div className="mb-8 flex items-start gap-5">
+        <ResumeAvatar src={p.avatar} size={56} className="mt-1" />
+        <div className="min-w-0">
+          <h1 className="text-4xl font-light text-gray-900">{p.name || 'Your Name'}</h1>
+          <p className="text-sm text-gray-400 mt-2">{[p.email, p.phone, p.title].filter(Boolean).join(' / ')}</p>
+        </div>
       </div>
 
       {data.advantages && (

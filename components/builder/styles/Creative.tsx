@@ -1,5 +1,6 @@
 import type { ResumeData } from '@/lib/types'
 import { t } from '@/lib/titles'
+import ResumeAvatar from '../ResumeAvatar'
 
 export default function Creative({ data, lang = 'en' }: { data: ResumeData; lang?: string }) {
   const { personalInfo: p } = data
@@ -8,12 +9,15 @@ export default function Creative({ data, lang = 'en' }: { data: ResumeData; lang
     <div className="bg-white text-gray-800 font-sans max-w-[210mm] mx-auto flex">
       <div className="w-2 bg-gradient-to-b from-pink-500 via-purple-500 to-indigo-500" />
       <div className="flex-1 p-8">
-        <div className="mb-6">
-          <h1 className="text-3xl font-extrabold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">{p.name || 'Your Name'}</h1>
-          <p className="text-sm text-gray-500 mt-1">{p.title}</p>
-          <div className="flex flex-wrap gap-x-4 text-xs text-gray-400 mt-2">
-            {p.email && <span>✉ {p.email}</span>}
-            {p.phone && <span>📞 {p.phone}</span>}
+        <div className="mb-6 flex items-start gap-4">
+          <ResumeAvatar src={p.avatar} size={56} className="mt-1" />
+          <div className="min-w-0">
+            <h1 className="text-3xl font-extrabold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">{p.name || 'Your Name'}</h1>
+            <p className="text-sm text-gray-500 mt-1">{p.title}</p>
+            <div className="flex flex-wrap gap-x-4 text-xs text-gray-400 mt-2">
+              {p.email && <span>✉ {p.email}</span>}
+              {p.phone && <span>📞 {p.phone}</span>}
+            </div>
           </div>
         </div>
 

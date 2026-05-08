@@ -31,6 +31,11 @@ export default function Footer() {
           </a>
         </nav>
       </div>
+      <div className="border-t border-border-default/50">
+        <div className="max-w-6xl mx-auto px-4 py-2 text-center text-xs text-text-tertiary/70">
+          {t.footer.contact} <a href="mailto:ckck0313@gmail.com" className="text-accent-emerald hover:underline">ckck0313@gmail.com</a>
+        </div>
+      </div>
     </footer>
   )
 }

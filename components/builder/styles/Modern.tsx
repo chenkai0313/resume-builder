@@ -1,6 +1,7 @@
 import type { ResumeData } from '@/lib/types'
 import { salaryDisplay, employmentStatusDisplay, workModeDisplay, proficiencyDisplay } from '@/lib/display'
 import { t } from '@/lib/titles'
+import ResumeAvatar from '../ResumeAvatar'
 
 export default function Modern({ data, lang = 'en' }: { data: ResumeData; lang?: string }) {
   const { personalInfo: p } = data
@@ -8,19 +9,24 @@ export default function Modern({ data, lang = 'en' }: { data: ResumeData; lang?:
   return (
     <div className="bg-white text-gray-800 font-sans p-8 max-w-[210mm] mx-auto">
       <div className="border-b-4 border-blue-600 pb-4 mb-6">
-        <h1 className="text-3xl font-bold text-gray-900">{p.name || 'Your Name'}</h1>
-        <p className="text-lg text-blue-600 mt-1">{p.title}</p>
-        <div className="flex flex-wrap gap-x-4 text-sm text-gray-500 mt-2">
-          {p.email && <span>{p.email}</span>}
-          {p.phone && <span>{p.phone}</span>}
-        </div>
-        {(p.employmentStatus || p.salaryExpectation || p.workMode) && (
-          <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500 mt-1">
-            {p.employmentStatus && <span>{employmentStatusDisplay(p.employmentStatus, lang)}</span>}
-            {p.salaryExpectation && <span>💰 {salaryDisplay(p.salaryExpectation, lang)}</span>}
-            {p.workMode && <span>🏢 {workModeDisplay(p.workMode, lang)}</span>}
+        <div className="flex items-start gap-4">
+          <ResumeAvatar src={p.avatar} size={56} className="mt-1" />
+          <div className="min-w-0">
+            <h1 className="text-3xl font-bold text-gray-900">{p.name || 'Your Name'}</h1>
+            <p className="text-lg text-blue-600 mt-1">{p.title}</p>
+            <div className="flex flex-wrap gap-x-4 text-sm text-gray-500 mt-2">
+              {p.email && <span>{p.email}</span>}
+              {p.phone && <span>{p.phone}</span>}
+            </div>
+            {(p.employmentStatus || p.salaryExpectation || p.workMode) && (
+              <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500 mt-1">
+                {p.employmentStatus && <span>{employmentStatusDisplay(p.employmentStatus, lang)}</span>}
+                {p.salaryExpectation && <span>💰 {salaryDisplay(p.salaryExpectation, lang)}</span>}
+                {p.workMode && <span>🏢 {workModeDisplay(p.workMode, lang)}</span>}
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </div>
 
       {data.advantages && (

@@ -54,6 +54,12 @@ const en = {
       skillsPlaceholder: 'Type a skill and press Enter...',
       typeAndEnter: 'Type and press Enter',
       addSkill: 'Add Skill',
+      avatar: 'Photo',
+      uploadPhoto: 'Upload',
+      changePhoto: 'Change',
+      removePhoto: 'Remove',
+      avatarErrorSize: 'File too large. Max 5MB.',
+      avatarErrorType: 'Unsupported file type. Use JPEG or PNG.',
       bold: 'Bold',
       italic: 'Italic',
       proficiencyOptions: {
@@ -104,6 +110,7 @@ const en = {
     privacy: 'Privacy Policy',
     terms: 'Terms of Service',
     friendLink: 'Tool Site',
+    contact: 'Have suggestions? Contact us at',
   },
   privacy: {
     title: 'Privacy Policy',

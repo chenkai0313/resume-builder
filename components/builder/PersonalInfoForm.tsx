@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import AvatarUpload from './AvatarUpload'
 
 export default function PersonalInfoForm() {
   const { t } = useTranslations()
@@ -27,6 +28,15 @@ export default function PersonalInfoForm() {
         <CardTitle>{t.builder.personalInfo}</CardTitle>
       </CardHeader>
       <CardContent>
+        <div className="mb-5">
+          <Label>{t.builder.form.avatar}</Label>
+          <div className="mt-2">
+            <AvatarUpload
+              value={data.personalInfo.avatar}
+              onChange={(val) => updatePersonalInfo('avatar', val)}
+            />
+          </div>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {fields.map(({ key, type }) => (
             <div key={key} className="grid gap-2">

@@ -1,6 +1,7 @@
 import type { ResumeData } from '@/lib/types'
 import { t } from '@/lib/titles'
 import { proficiencyDisplay } from '@/lib/display'
+import ResumeAvatar from '../ResumeAvatar'
 
 export default function Professional({ data, lang = 'en' }: { data: ResumeData; lang?: string }) {
   const { personalInfo: p } = data
@@ -8,12 +9,17 @@ export default function Professional({ data, lang = 'en' }: { data: ResumeData; 
   return (
     <div className="bg-white text-gray-800 font-sans max-w-[210mm] mx-auto">
       <div className="bg-slate-800 text-white px-8 py-6">
-        <h1 className="text-2xl font-bold">{p.name || 'Your Name'}</h1>
-        <p className="text-blue-300 text-sm mt-1">{p.title}</p>
-        <div className="flex flex-wrap gap-x-6 text-xs text-gray-300 mt-3">
-          {p.email && <span>{p.email}</span>}
-          {p.phone && <span>{p.phone}</span>}
-          {p.website && <span>{p.website}</span>}
+        <div className="flex items-start gap-5">
+          <ResumeAvatar src={p.avatar} size={64} className="ring-2 ring-white/20" />
+          <div className="min-w-0">
+            <h1 className="text-2xl font-bold">{p.name || 'Your Name'}</h1>
+            <p className="text-blue-300 text-sm mt-1">{p.title}</p>
+            <div className="flex flex-wrap gap-x-6 text-xs text-gray-300 mt-3">
+              {p.email && <span>{p.email}</span>}
+              {p.phone && <span>{p.phone}</span>}
+              {p.website && <span>{p.website}</span>}
+            </div>
+          </div>
         </div>
       </div>
 

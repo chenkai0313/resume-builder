@@ -56,6 +56,12 @@ const zh: Translations = {
       skillsPlaceholder: '输入技能后按回车...',
       typeAndEnter: '输入后按回车添加',
       addSkill: '添加技能',
+      avatar: '头像',
+      uploadPhoto: '上传',
+      changePhoto: '更换',
+      removePhoto: '删除',
+      avatarErrorSize: '文件过大，最大 5MB。',
+      avatarErrorType: '不支持的格式，请使用 JPEG 或 PNG。',
       bold: '加粗',
       italic: '斜体',
       proficiencyOptions: {
@@ -106,6 +112,7 @@ const zh: Translations = {
     privacy: '隐私政策',
     terms: '服务条款',
     friendLink: '站长工具',
+    contact: '有任何建议？请联系',
   },
   privacy: {
     title: '隐私政策',

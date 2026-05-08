@@ -1,17 +1,21 @@
 import type { ResumeData } from '@/lib/types'
 import { t } from '@/lib/titles'
 import { proficiencyDisplay } from '@/lib/display'
+import ResumeAvatar from '../ResumeAvatar'
 
 export default function Simple({ data, lang = 'en' }: { data: ResumeData; lang?: string }) {
   const { personalInfo: p } = data
   const T = t(lang)
   return (
     <div className="bg-white text-black font-sans p-8 max-w-[210mm] mx-auto text-sm">
-      <div className="mb-6">
-        <h1 className="text-2xl font-bold">{p.name || 'Your Name'}</h1>
-        <p className="text-base mt-0.5">{p.title}</p>
-        <div className="text-xs text-gray-500 mt-2">
-          {[p.email, p.phone].filter(Boolean).join(' | ')}
+      <div className="mb-6 flex items-start gap-4">
+        <ResumeAvatar src={p.avatar} size={56} className="mt-1" />
+        <div className="min-w-0">
+          <h1 className="text-2xl font-bold">{p.name || 'Your Name'}</h1>
+          <p className="text-base mt-0.5">{p.title}</p>
+          <div className="text-xs text-gray-500 mt-2">
+            {[p.email, p.phone].filter(Boolean).join(' | ')}
+          </div>
         </div>
       </div>
 

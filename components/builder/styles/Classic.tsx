@@ -1,6 +1,7 @@
 import type { ResumeData } from '@/lib/types'
 import { salaryDisplay, employmentStatusDisplay, workModeDisplay, proficiencyDisplay } from '@/lib/display'
 import { t } from '@/lib/titles'
+import ResumeAvatar from '../ResumeAvatar'
 
 export default function Classic({ data, lang = 'en' }: { data: ResumeData; lang?: string }) {
   const { personalInfo: p } = data
@@ -8,6 +9,7 @@ export default function Classic({ data, lang = 'en' }: { data: ResumeData; lang?
   return (
     <div className="bg-white text-gray-800 font-serif p-8 max-w-[210mm] mx-auto">
       <div className="text-center border-b-2 border-gray-400 pb-4 mb-6">
+        <ResumeAvatar src={p.avatar} size={56} className="mx-auto mb-3" />
         <h1 className="text-3xl font-bold text-gray-900">{p.name || 'Your Name'}</h1>
         <p className="text-base text-gray-600 italic mt-1">{p.title}</p>
         <p className="text-sm text-gray-500 mt-2">{[p.email, p.phone].filter(Boolean).join(' | ')}</p>

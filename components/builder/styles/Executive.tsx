@@ -1,5 +1,6 @@
 import type { ResumeData } from '@/lib/types'
 import { t } from '@/lib/titles'
+import ResumeAvatar from '../ResumeAvatar'
 
 export default function Executive({ data, lang = 'en' }: { data: ResumeData; lang?: string }) {
   const { personalInfo: p } = data
@@ -7,13 +8,18 @@ export default function Executive({ data, lang = 'en' }: { data: ResumeData; lan
   return (
     <div className="bg-white text-gray-800 font-sans max-w-[210mm] mx-auto">
       <div className="bg-slate-900 px-8 py-7">
-        <h1 className="text-2xl font-bold text-white">{p.name || 'Your Name'}</h1>
-        <p className="text-amber-400 text-sm font-medium mt-1">{p.title}</p>
-        <div className="flex flex-wrap gap-x-5 text-xs text-gray-400 mt-3">
-          {p.email && <span>{p.email}</span>}
-          {p.phone && <span>{p.phone}</span>}
+        <div className="flex items-start gap-5">
+          <ResumeAvatar src={p.avatar} size={64} className="ring-2 ring-amber-400/30" />
+          <div className="min-w-0">
+            <h1 className="text-2xl font-bold text-white">{p.name || 'Your Name'}</h1>
+            <p className="text-amber-400 text-sm font-medium mt-1">{p.title}</p>
+            <div className="flex flex-wrap gap-x-5 text-xs text-gray-400 mt-3">
+              {p.email && <span>{p.email}</span>}
+              {p.phone && <span>{p.phone}</span>}
+            </div>
+            <div className="h-0.5 w-12 bg-amber-500 mt-3" />
+          </div>
         </div>
-        <div className="h-0.5 w-12 bg-amber-500 mt-3" />
       </div>
 
       <div className="p-8">

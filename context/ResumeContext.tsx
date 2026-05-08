@@ -179,7 +179,7 @@ export function ResumeProvider({ children }: { children: ReactNode }) {
   const clearResume = () => {
     localStorage.removeItem(STORAGE_KEY)
     setData({
-      personalInfo: { name: '', email: '', phone: '', title: '', website: '', github: '', linkedin: '', employmentStatus: '', salaryExpectation: '', workMode: '' },
+      personalInfo: { name: '', email: '', phone: '', title: '', website: '', github: '', linkedin: '', employmentStatus: '', salaryExpectation: '', workMode: '', avatar: '' },
       advantages: '',
       workExperience: [],
       education: [],
