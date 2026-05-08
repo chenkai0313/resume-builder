@@ -1,6 +1,4 @@
-const PDF_API = process.env.NODE_ENV === 'development'
-  ? 'http://127.0.0.1:8088/api/v1/pdf/generate'
-  : 'https://sitehub.schg.xyz/api/v1/pdf/generate'
+const PDF_API = 'https://sitehub.schg.xyz/api/v1/pdf/generate'
 
 function inlineComputedStyles(node: HTMLElement) {
   // 跳过非 Element 节点

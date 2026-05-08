@@ -25,6 +25,10 @@ export default function Footer() {
           <Link href={`/${lang}/terms`} className="hover:text-foreground transition-colors">
             {t.footer.terms}
           </Link>
+          <span aria-hidden>·</span>
+          <a href="https://schg.xyz/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+            {t.footer.friendLink}
+          </a>
         </nav>
       </div>
     </footer>

@@ -105,6 +105,7 @@ const zh: Translations = {
     about: '关于我们',
     privacy: '隐私政策',
     terms: '服务条款',
+    friendLink: '站长工具',
   },
   privacy: {
     title: '隐私政策',

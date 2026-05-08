@@ -103,6 +103,7 @@ const en = {
     about: 'About Us',
     privacy: 'Privacy Policy',
     terms: 'Terms of Service',
+    friendLink: 'Tool Site',
   },
   privacy: {
     title: 'Privacy Policy',
