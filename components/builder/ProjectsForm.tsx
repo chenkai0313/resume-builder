@@ -11,6 +11,7 @@ import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { Plus, Trash2 } from 'lucide-react'
 
+
 export default function ProjectsForm() {
   const { t } = useTranslations()
   const { data, addProject, updateProject, removeProject } = useResume()
@@ -46,7 +47,7 @@ export default function ProjectsForm() {
         )}
 
         {data.projects.map((proj) => (
-          <div key={proj.id} className="rounded-lg border bg-card p-4">
+                <div key={proj.id} className="rounded-lg border bg-card p-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="grid gap-2">
                 <Label>{t.builder.form.projectName}</Label>
@@ -110,7 +111,7 @@ export default function ProjectsForm() {
             >
               <Trash2 className="w-4 h-4" />
             </Button>
-          </div>
+                </div>
         ))}
       </CardContent>
     </Card>

@@ -10,10 +10,12 @@ import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { Plus, Trash2 } from 'lucide-react'
 
+
 export default function WorkExperienceForm() {
   const { t } = useTranslations()
   const { data, addWorkExperience, updateWorkExperience, removeWorkExperience } = useResume()
   const { lang } = useTranslations()
+  const showMetrics = data.category === 'executive' || data.category === 'creative'
 
   return (
     <Card>
@@ -30,9 +32,9 @@ export default function WorkExperienceForm() {
           <p className="text-sm text-muted-foreground text-center py-6">{t.builder.add} {t.builder.workExperience}</p>
         )}
 
-        {data.workExperience.map((exp, idx) => (
-          <div key={exp.id} className="rounded-lg border bg-card p-4 relative">
-            <div className="absolute right-2 top-2 text-xs text-muted-foreground">#{idx + 1}</div>
+            {data.workExperience.map((exp, idx) => (
+                <div key={exp.id} className="rounded-lg border bg-card p-4 relative">
+                  <div className="absolute right-2 top-2 text-xs text-muted-foreground">#{idx + 1}</div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="grid gap-2">
                 <Label>{t.builder.form.company}</Label>
@@ -111,6 +113,17 @@ export default function WorkExperienceForm() {
                 + {t.builder.form.addPoint}
               </Button>
             </div>
+            {showMetrics && (
+              <div className="mt-3 grid gap-2">
+                <Label>{t.builder.form.metrics}</Label>
+                <RichTextBullet
+                  value={exp.metrics || ''}
+                  onChange={(html) => updateWorkExperience(exp.id, 'metrics', html)}
+                  placeholder="e.g. Increased revenue by 30%, Led team of 15"
+                  className="w-full"
+                />
+              </div>
+            )}
             <Button
               variant="ghost" size="icon-sm"
               onClick={() => removeWorkExperience(exp.id)}
@@ -118,8 +131,8 @@ export default function WorkExperienceForm() {
             >
               <Trash2 className="w-4 h-4" />
             </Button>
-          </div>
-        ))}
+                </div>
+            ))}
       </CardContent>
     </Card>
   )

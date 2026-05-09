@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Button } from '@/components/ui/button'
 import { Plus, Trash2 } from 'lucide-react'
 
+
 export default function LanguagesForm() {
   const { t } = useTranslations()
   const { data, addLanguage, updateLanguage, removeLanguage } = useResume()
@@ -29,7 +30,7 @@ export default function LanguagesForm() {
         )}
 
         {data.languages.map((lang) => (
-          <div key={lang.id} className="rounded-lg border bg-card p-4">
+                <div key={lang.id} className="rounded-lg border bg-card p-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="grid gap-2">
                 <Label>{t.builder.form.language}</Label>
@@ -64,7 +65,7 @@ export default function LanguagesForm() {
             >
               <Trash2 className="w-4 h-4" />
             </Button>
-          </div>
+                </div>
         ))}
       </CardContent>
     </Card>

@@ -3,10 +3,10 @@
 import { useState, useRef, useCallback } from 'react'
 import { useResume } from '@/context/ResumeContext'
 import { useTranslations } from '@/lib/i18n'
-import { styles } from './styles/registry'
+import { styles, categories } from './styles/registry'
 import { X, Download } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import type { ResumeStyle } from '@/lib/types'
+import type { ResumeCategory } from '@/lib/types'
 import { generatePDF, downloadPDF } from '@/lib/pdf-service'
 
 interface Props {
@@ -14,13 +14,17 @@ interface Props {
 }
 
 export default function PreviewModal({ onClose }: Props) {
-  const { data } = useResume()
+  const { data, updateCategory } = useResume()
   const { t, lang } = useTranslations()
-  const [selectedStyle, setSelectedStyle] = useState<ResumeStyle>('modern')
+  const [activeCategory, setActiveCategory] = useState<ResumeCategory>(data.category || 'general')
+  const [selectedStyle, setSelectedStyle] = useState(
+    () => styles.filter(s => s.category === (data.category || 'general'))[0]?.id || styles[0].id
+  )
   const previewRef = useRef<HTMLDivElement>(null)
   const [downloading, setDownloading] = useState(false)
   const [pdfError, setPdfError] = useState('')
 
+  const filteredStyles = styles.filter(s => s.category === activeCategory)
   const currentStyle = styles.find(s => s.id === selectedStyle)!
   const PreviewComponent = currentStyle.component
 
@@ -28,11 +32,9 @@ export default function PreviewModal({ onClose }: Props) {
     if (!previewRef.current) return
     setDownloading(true)
     setPdfError('')
-
     try {
       const el = previewRef.current
       const blob = await generatePDF(el)
-
       downloadPDF(blob)
     } catch (err) {
       console.error('PDF generation failed:', err)
@@ -69,22 +71,53 @@ export default function PreviewModal({ onClose }: Props) {
         )}
 
         <div className="flex flex-1 overflow-hidden">
-          <div className="w-48 border-r border-border p-3 overflow-y-auto bg-muted/30">
-            <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">{t.builder.style}</h3>
-            <div className="space-y-1.5">
-              {styles.map((s) => (
-                <button
-                  key={s.id}
-                  onClick={() => setSelectedStyle(s.id)}
-                  className={'w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ' + (
-                    selectedStyle === s.id
-                      ? 'bg-accent-emerald/10 text-accent-emerald border border-accent-emerald/20'
-                      : 'text-muted-foreground hover:bg-muted hover:text-foreground border border-transparent'
-                  )}
-                >
-                  {s.name[lang as keyof typeof s.name]}
-                </button>
-              ))}
+          <div className="w-52 border-r border-border p-3 overflow-y-auto bg-muted/30 flex flex-col gap-3">
+            {/* Category tabs */}
+            <div className="flex flex-col gap-1">
+              {categories.map((cat) => {
+                const isActive = activeCategory === cat.id
+                const catStyles = styles.filter(s => s.category === cat.id)
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => {
+                      setActiveCategory(cat.id)
+                      updateCategory(cat.id)
+                      setSelectedStyle(catStyles[0]?.id || styles[0].id)
+                    }}
+                    className={'w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors ' + (
+                      isActive
+                        ? 'bg-accent-emerald/10 text-accent-emerald border border-accent-emerald/20'
+                        : 'text-muted-foreground hover:bg-muted hover:text-foreground border border-transparent'
+                    )}
+                  >
+                    <span>{cat.name[lang as keyof typeof cat.name]}</span>
+                    <span className="ml-2 text-xs text-muted-foreground/60">{catStyles.length}</span>
+                  </button>
+                )
+              })}
+            </div>
+
+            {/* Templates in active category */}
+            <div className="border-t border-border pt-2">
+              <h3 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-2 px-1">
+                {t.builder.style}
+              </h3>
+              <div className="space-y-1">
+                {filteredStyles.map((s) => (
+                  <button
+                    key={s.id}
+                    onClick={() => setSelectedStyle(s.id)}
+                    className={'w-full text-left px-3 py-1.5 rounded-lg text-xs transition-colors ' + (
+                      selectedStyle === s.id
+                        ? 'bg-accent-emerald/10 text-accent-emerald border border-accent-emerald/20'
+                        : 'text-muted-foreground hover:bg-muted hover:text-foreground border border-transparent'
+                    )}
+                  >
+                    {s.name[lang as keyof typeof s.name]}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 

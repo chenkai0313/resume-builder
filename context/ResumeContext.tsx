@@ -2,13 +2,14 @@
 
 import { createContext, useContext, useState, useEffect, type ReactNode } from 'react'
 import { useParams } from 'next/navigation'
-import { ResumeData } from '@/lib/types'
+import { ResumeData, ResumeCategory } from '@/lib/types'
 import { getDefaultResume, genId } from '@/lib/resume'
 
 const STORAGE_KEY = 'resume-data'
 
 interface ResumeContextType {
   data: ResumeData
+  updateCategory: (category: ResumeCategory) => void
   updatePersonalInfo: (field: string, value: string) => void
   updateAdvantages: (value: string) => void
   addWorkExperience: () => void
@@ -28,6 +29,9 @@ interface ResumeContextType {
   addLanguage: () => void
   updateLanguage: (id: string, field: string, value: string) => void
   removeLanguage: (id: string) => void
+  addCustomField: () => void
+  updateCustomField: (id: string, field: 'label' | 'value', value: string) => void
+  removeCustomField: (id: string) => void
   clearResume: () => void
   loadDefaultResume: () => void
 }
@@ -48,6 +52,9 @@ export function ResumeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
   }, [data])
+
+  const updateCategory = (category: ResumeCategory) =>
+    setData(prev => ({ ...prev, category }))
 
   const updatePersonalInfo = (field: string, value: string) =>
     setData(prev => ({ ...prev, personalInfo: { ...prev.personalInfo, [field]: value } }))
@@ -176,10 +183,40 @@ export function ResumeProvider({ children }: { children: ReactNode }) {
       languages: prev.languages.filter(l => l.id !== id),
     }))
 
+  const addCustomField = () =>
+    setData(prev => ({
+      ...prev,
+      personalInfo: {
+        ...prev.personalInfo,
+        customFields: [...(prev.personalInfo.customFields || []), { id: genId(), label: '', value: '' }],
+      },
+    }))
+
+  const updateCustomField = (id: string, field: 'label' | 'value', value: string) =>
+    setData(prev => ({
+      ...prev,
+      personalInfo: {
+        ...prev.personalInfo,
+        customFields: (prev.personalInfo.customFields || []).map(cf =>
+          cf.id === id ? { ...cf, [field]: value } : cf
+        ),
+      },
+    }))
+
+  const removeCustomField = (id: string) =>
+    setData(prev => ({
+      ...prev,
+      personalInfo: {
+        ...prev.personalInfo,
+        customFields: (prev.personalInfo.customFields || []).filter(cf => cf.id !== id),
+      },
+    }))
+
   const clearResume = () => {
     localStorage.removeItem(STORAGE_KEY)
     setData({
-      personalInfo: { name: '', email: '', phone: '', title: '', website: '', github: '', linkedin: '', employmentStatus: '', salaryExpectation: '', workMode: '', avatar: '' },
+      category: 'general',
+      personalInfo: { name: '', email: '', phone: '', title: '', website: '', github: '', linkedin: '', employmentStatus: '', salaryExpectation: '', workMode: '', avatar: '', customFields: [] },
       advantages: '',
       workExperience: [],
       education: [],
@@ -192,13 +229,14 @@ export function ResumeProvider({ children }: { children: ReactNode }) {
 
   const loadDefaultResume = () => {
     localStorage.removeItem(STORAGE_KEY)
-    setData(getDefaultResume(lang))
+    setData(getDefaultResume(lang, data.category || 'general'))
   }
 
   return (
     <ResumeContext.Provider
       value={{
         data,
+        updateCategory,
         updatePersonalInfo,
         updateAdvantages,
         addWorkExperience,
@@ -218,6 +256,9 @@ export function ResumeProvider({ children }: { children: ReactNode }) {
         addLanguage,
         updateLanguage,
         removeLanguage,
+        addCustomField,
+        updateCustomField,
+        removeCustomField,
         clearResume,
         loadDefaultResume,
       }}

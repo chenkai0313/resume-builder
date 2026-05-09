@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
 import { Plus, Trash2 } from 'lucide-react'
 
+
 export default function CertificationsForm() {
   const { t } = useTranslations()
   const { data, addCertification, updateCertification, removeCertification } = useResume()
@@ -30,7 +31,7 @@ export default function CertificationsForm() {
         )}
 
         {data.certifications.map((cert) => (
-          <div key={cert.id} className="rounded-lg border bg-card p-4">
+                <div key={cert.id} className="rounded-lg border bg-card p-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="grid gap-2">
                 <Label>{t.builder.form.certName}</Label>
@@ -55,7 +56,7 @@ export default function CertificationsForm() {
             >
               <Trash2 className="w-4 h-4" />
             </Button>
-          </div>
+                </div>
         ))}
       </CardContent>
     </Card>

@@ -1,4 +1,7 @@
+export type ResumeCategory = 'general' | 'tech' | 'executive' | 'creative'
+
 export interface ResumeData {
+  category: ResumeCategory
   personalInfo: PersonalInfo
   advantages: string
   workExperience: WorkExperience[]
@@ -7,6 +10,12 @@ export interface ResumeData {
   projects: Project[]
   certifications: Certification[]
   languages: Language[]
+}
+
+export interface CustomField {
+  id: string
+  label: string
+  value: string
 }
 
 export interface PersonalInfo {
@@ -21,6 +30,7 @@ export interface PersonalInfo {
   salaryExpectation: string
   workMode: string
   avatar: string
+  customFields: CustomField[]
 }
 
 export interface WorkExperience {
@@ -31,6 +41,7 @@ export interface WorkExperience {
   endDate: string
   current: boolean
   description: string[]
+  metrics?: string
 }
 
 export interface Education {
@@ -40,6 +51,8 @@ export interface Education {
   major: string
   startDate: string
   endDate: string
+  gpa?: string
+  awards?: string
 }
 
 export interface Project {
@@ -76,3 +89,12 @@ export type ResumeStyle =
   | 'sidebar'
   | 'timeline'
   | 'simple'
+  | 'web3'
+  | 'aiml'
+  | 'remote-worker'
+  | 'data-scientist'
+  | 'devops'
+  | 'creative-designer'
+  | 'freelancer'
+  | 'sales-bd'
+  | 'marketing-digital'
