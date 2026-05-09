@@ -21,8 +21,8 @@ export default function Modern({ data, lang = 'en' }: { data: ResumeData; lang?:
             {(p.employmentStatus || p.salaryExpectation || p.workMode) && (
               <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500 mt-1">
                 {p.employmentStatus && <span>{employmentStatusDisplay(p.employmentStatus, lang)}</span>}
-                {p.salaryExpectation && <span>💰 {salaryDisplay(p.salaryExpectation, lang)}</span>}
-                {p.workMode && <span>🏢 {workModeDisplay(p.workMode, lang)}</span>}
+                {p.salaryExpectation && <span>{salaryDisplay(p.salaryExpectation, lang)}</span>}
+                {p.workMode && <span>{workModeDisplay(p.workMode, lang)}</span>}
               </div>
             )}
           </div>

@@ -18,9 +18,9 @@ export default function Sidebar({ data, lang = 'en' }: { data: ResumeData; lang?
         <div className="mb-5">
           <h2 className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-2">{T.contact}</h2>
           <div className="space-y-1.5 text-xs text-gray-600">
-            {p.email && <p>✉ {p.email}</p>}
-            {p.phone && <p>📞 {p.phone}</p>}
-{p.website && <p>🌐 {p.website}</p>}
+            {p.email && <p>{p.email}</p>}
+            {p.phone && <p>{p.phone}</p>}
+{p.website && <p>{p.website}</p>}
           </div>
         </div>
 

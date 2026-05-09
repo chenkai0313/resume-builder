@@ -15,8 +15,8 @@ export default function Creative({ data, lang = 'en' }: { data: ResumeData; lang
             <h1 className="text-3xl font-extrabold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">{p.name || 'Your Name'}</h1>
             <p className="text-sm text-gray-500 mt-1">{p.title}</p>
             <div className="flex flex-wrap gap-x-4 text-xs text-gray-400 mt-2">
-              {p.email && <span>✉ {p.email}</span>}
-              {p.phone && <span>📞 {p.phone}</span>}
+              {p.email && <span>{p.email}</span>}
+              {p.phone && <span>{p.phone}</span>}
             </div>
           </div>
         </div>
