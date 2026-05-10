@@ -14,11 +14,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       : ['free resume builder', 'online resume maker', 'CV builder', 'resume template', 'professional resume', 'create resume online', 'resume generator'],
     alternates: {
       languages: {
-        'en': 'https://resbu.top/en',
+        'en': 'https://resbu.top',
         'zh': 'https://resbu.top/zh',
-        'x-default': 'https://resbu.top/en',
+        'x-default': 'https://resbu.top',
       },
-      canonical: `https://resbu.top/${lang}`,
+      canonical: lang === 'en' ? 'https://resbu.top' : `https://resbu.top/${lang}`,
     },
   }
 }
