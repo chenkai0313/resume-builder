@@ -12,9 +12,7 @@ export function proxy(request: NextRequest) {
   if (pathnameHasLocale) return NextResponse.next()
 
   const cookieLocale = request.cookies.get('locale')?.value
-  const acceptLanguage = request.headers.get('accept-language')
-  const preferred = acceptLanguage?.startsWith('zh') ? 'zh' : DEFAULT_LOCALE
-  const locale = cookieLocale || preferred
+  const locale = cookieLocale || DEFAULT_LOCALE
 
   request.nextUrl.pathname = `/${locale}${pathname === '/' ? '' : pathname}`
   return NextResponse.redirect(request.nextUrl)
