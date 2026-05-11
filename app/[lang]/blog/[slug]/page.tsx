@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { posts, categories } from '@/lib/blog-data'
+import SimpleMarkdown from '@/components/SimpleMarkdown'
 
 export function generateStaticParams() {
   return posts.flatMap((post) => [{ lang: 'en', slug: post.slug }, { lang: 'zh', slug: post.slug }])
@@ -63,16 +64,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ lang:
 
         {/* Article body */}
         {content ? (
-          <div>
-            {content.map((paragraph, i) => (
-              <p
-                key={i}
-                className="text-text-secondary leading-relaxed mb-6 text-[15px] sm:text-base"
-                style={{ animation: `fade-in-up 0.5s ease-out ${0.1 + i * 0.1}s forwards`, opacity: 0 }}
-              >
-                {paragraph}
-              </p>
-            ))}
+          <div className="mt-8">
+            <SimpleMarkdown content={content} />
           </div>
         ) : (
           <div className="text-center py-16">

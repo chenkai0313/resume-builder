@@ -1,0 +1,214 @@
+1:"$Sreact.fragment"
+2:I[36281,["/_next/static/chunks/0w0-01oenf7_1.js","/_next/static/chunks/0a0xhy._6~v2g.js","/_next/static/chunks/04cu6mj6xa8sf.js","/_next/static/chunks/0i9f97z2xmh-6.js"],""]
+3:I[97632,["/_next/static/chunks/0w0-01oenf7_1.js","/_next/static/chunks/0a0xhy._6~v2g.js","/_next/static/chunks/04cu6mj6xa8sf.js","/_next/static/chunks/0i9f97z2xmh-6.js"],"default"]
+8:I[71496,["/_next/static/chunks/0w0-01oenf7_1.js","/_next/static/chunks/0a0xhy._6~v2g.js"],"OutletBoundary"]
+9:"$Sreact.suspense"
+4:T42c0,## Flash Sale / High-Concurrency Purchase System
+
+### How do you design a flash sale system architecture?
+
+The core tension in any flash sale system is simple: massive instantaneous traffic, limited inventory, zero tolerance for overselling, and the system must not collapse under peak load.
+
+Here is the layered architecture that actually works in production.
+
+**Frontend / Gateway Layer**
+
+First, filter out bots and scripted traffic at the outermost layer. CAPTCHAs, slider puzzles, and quiz questions all serve the same purpose — shaving peaks and blocking automated scripts. Gray out the purchase button until the sale window opens and implement client-side rate limiting to cut down meaningless clicks. Serve product detail pages and activity landing pages from CDN as static content so origin traffic stays low.
+
+**Access Layer**
+
+Nginx or your API gateway enforces rate limits by IP, user ID, and per-endpoint QPS. Deduplication is critical: the same user, the same activity, within a short time window, only one purchase request gets through. Use a token or idempotency key to enforce this.
+
+**Service Layer**
+
+This is a read-heavy, write-light pattern. Cache inventory counts and activity metadata in Redis so reads never hit the database. For writes, pre-deduct inventory in Redis using DECR or an atomic Lua script. Once the counter hits zero (or goes negative), immediately reject further requests — fail fast. The remaining successful requests go into a message queue, where order services consume them at a controlled pace. Database writes happen asynchronously or in batch, only for eventual consistency.
+
+**Data Layer**
+
+The inventory table uses optimistic locking (a version column) or conditional updates with `WHERE stock >= ?` to prevent overselling at the database level. Shard orders and inventory by user or order ID to spread write pressure.
+
+Summary: gateway edge trimming → cache-based read + pre-deduction → MQ peak shaving → DB final consistency + oversell guard.
+
+### How to prevent overselling in flash sales?
+
+Multiple layers of defense.
+
+**Redis pre-deduction**
+
+Use `DECR` to decrement inventory, checking `GET` first, or better — use a Lua script that atomizes the "check + decrement" operation. Success means the request proceeds to order creation. Failure means "sold out" returned immediately.
+
+**Database-level guard**
+
+Optimistic locking: add a `version` column, update with `UPDATE ... SET stock=stock-1, version=version+1 WHERE id=? AND version=? AND stock>=1`. If affected rows is zero, retry or fail. Alternatively, conditional update: `UPDATE product SET stock=stock-1 WHERE id=? AND stock>=1`. This relies on the database row lock and atomicity — if no rows are updated, inventory is insufficient.
+
+**Unique constraints for dedup**
+
+A composite unique index on (user_id, activity_id, product_id) ensures one user can only succeed once per flash sale item. Combine this with an idempotent API.
+
+The winning combination: Redis for fast pre-deduction + sold-out gating, database for final deduction and oversell prevention.
+
+### How to keep Redis and DB inventory in sync?
+
+The principle: the database is the source of truth. Redis is a cache and pre-deduction layer for "sellable quantity."
+
+On initialization (before the sale starts), sync DB inventory into Redis (`SET stock:activity_id 1000`). During the sale, deduct in Redis first. Successful deductions flow to order creation, then asynchronously sync remaining or deducted counts back to the database — typically via a scheduled job or an MQ consumer that executes the actual DB decrement.
+
+Run a reconciliation job periodically comparing Redis remaining vs. DB remaining. If the gap exceeds a threshold, correct Redis from the database and alert. Short-term inconsistency between Redis and DB is acceptable as long as overselling is impossible — the database conditional update acts as the final gate.
+
+## Membership System: Tiers, Benefits & Growth Points
+
+### How to design a membership tier / growth-value system?
+
+Key tables:
+
+- **User membership table**: user_id, tier level, growth points, expiration date, activation/renewal time.
+- **Tier config table**: level, required growth points, benefits (discount, free shipping, priority support).
+- **Growth point ledger**: user_id, delta, source (order, check-in, task), business reference number, timestamp — essential for reconciliation and auditing.
+
+Tier calculation:
+
+Option A — Real-time: query the ledger summary or current growth points, compare against tier config. Works when rules are simple and query volume is manageable.
+
+Option B — Cached tier: when growth points change, asynchronously or periodically recalculate the tier, writing it to the user membership table. Reads just grab the cached tier. Better for high concurrency.
+
+Consistency: when growth points change, insert into the ledger first (with a unique constraint for idempotency), then update the user's current growth points. Use a transaction or an outbox pattern with async compensation — the invariant is "every ledger entry has a corresponding balance update."
+
+### How to not over-issue or double-use membership benefits?
+
+Treat benefits as: total allowance + used amount. Every usage performs "deduction + validation."
+
+A benefits table, scoped by user or user + benefit type, records total count/amount, used count, and reset cycle (monthly/yearly). On use, check remaining count first, then `UPDATE ... SET used = used + 1 WHERE user_id=? AND type=? AND used < total` (or optimistic locking). Only after a successful update do you actually issue the benefit — a coupon, a discount, etc.
+
+Idempotency: every usage carries a business reference number (order ID, request ID). A table or Redis-based unique constraint on this key ensures one reference only takes effect once. Expiration and reset are handled by scheduled jobs that zero out or recalculate `used` by cycle, taking care to handle concurrent "in-use" operations with version numbers or time windows.
+
+## Points System
+
+### How to design the points system tables and flow?
+
+Tables:
+
+- **Account table**: user_id, current point balance, last updated timestamp.
+- **Ledger table**: user_id, point delta (positive or negative), balance snapshot (optional), business type (order, refund, activity, expiry), business reference number, creation time. Shard by user_id or time.
+
+Flow for earning points: insert into the ledger first (unique business reference prevents duplicates), then `UPDATE account SET balance = balance + ? WHERE user_id = ?`. Wrap both in a transaction — the rule is "if a ledger entry exists, the balance reflects it." Roll back entirely on failure.
+
+Flow for spending points: check if balance is sufficient first, then insert the deduction ledger entry, then `UPDATE ... SET balance = balance - ? WHERE user_id = ? AND balance >= ?` to prevent over-spending.
+
+Expiry: a scheduled job scans "about to expire" points, generates deduction ledger entries, and updates balances. The ledger type is marked as "expiry deduction."
+
+Key consistency points: ledger and balance change within the same transaction; spending uses conditional updates to prevent over-deduction; unique business references prevent double-issuance or double-deduction.
+
+### How to keep points consistent with orders and payments?
+
+This is eventual consistency + idempotency + compensation.
+
+When an order is paid (or completed), the event goes to MQ. The points service consumes the message and uses "order ID + type" as an idempotency key: if already processed, skip. Otherwise, insert the ledger entry and increase the balance.
+
+When a refund happens, the refund event goes to MQ. The points service deducts the points earned from that order, using the same idempotency key. The deduction uses a `balance >= ?` conditional update — if the balance is insufficient (the user already spent those points), log an anomaly for manual or automated handling.
+
+The key insight: don't try to keep points and orders in the same database transaction. Treat the order/payment state as authoritative, and let points follow asynchronously. A reconciliation job periodically compares orders with points ledger entries — discrepancies trigger alerts or auto-compensation.
+
+### Two approaches to calculating balance: ledger aggregation vs. account field
+
+A critical design choice: should the current balance be computed by summing the ledger in real time, or stored as a field on the account table that gets incremented/decremented on every transaction?
+
+**Approach A: Ledger as source of truth, real-time aggregation**
+
+No standalone balance field (or it exists only as a cache). Current balance = `SUM(delta) WHERE user_id = ?`.
+
+Pros: the ledger is the single source of truth — balance and ledger can never diverge. Reconciliation is trivial or unnecessary. Audit and historical balance at any point in time are naturally supported.
+
+Cons: every balance read requires aggregating the ledger, which gets slow and expensive at scale. High-concurrency reads need an aggregation layer or cache, adding architectural complexity.
+
+Best for: compliance-heavy, strong audit requirements, manageable read volume (e.g., some B2B financial systems).
+
+**Approach B: Account field stores balance, read the field directly (the common choice)**
+
+An account table has a `balance` column (and optionally `frozen`). Every transaction inserts a ledger entry, then `UPDATE account SET balance = balance ± ?`. Reads just grab the field.
+
+Pros: reads are simple, fast, and high-concurrency friendly. Implementation is straightforward — the ledger records "what happened," the balance field says "what the current state is."
+
+Cons: balance and ledger are two sources of data. Bugs or exceptions can cause them to diverge. Reconciliation is mandatory: periodically compare "opening balance + ledger sum" against the current `balance` field. Discrepancies trigger alerts or auto-correction.
+
+Best for: high-concurrency, read-heavy points, balance, and wallet systems in consumer internet.
+
+Verdict: most points/balance systems use Approach B (account field + ledger table). Reads use the field, writes use "insert ledger + update balance" in one transaction, with reconciliation as a safety net. Approach A fits scenarios with low read volume or strict regulatory requirements.
+
+## Balance / Fund Account System
+
+### How to design a user balance system (top-up, spend, refund)?
+
+Tables:
+
+- **Account table**: user_id, balance, frozen amount, version (optimistic lock), updated timestamp.
+- **Ledger table**: user_id, amount, direction (credit/debit), type (top-up/spend/refund/withdraw/freeze/unfreeze), business reference number, balance snapshot, timestamp. Shard by user_id.
+
+Operations:
+
+- **Top-up**: insert credit ledger entry (idempotent by order number), then `UPDATE account SET balance = balance + ?, version = version + 1 WHERE user_id = ? AND version = ?`.
+- **Spend**: verify balance >= amount first, insert debit ledger entry, then `UPDATE ... SET balance = balance - ? WHERE user_id = ? AND version = ? AND balance >= ?`. If no rows updated, return "insufficient balance."
+- **Refund**: insert credit ledger entry (original order number + refund ID as idempotency key), increase balance with the same conditional update.
+- **Freeze/unfreeze**: deduct from balance and add to frozen; unfreeze deducts from frozen and adds to balance, or deducts from frozen as a spend. Each leg has its own ledger entry. The invariant: balance + frozen = ledger sum.
+
+Consistency: ledger insertion and balance update happen in the same database transaction. All mutations carry a business reference number with a unique constraint for idempotency. Use optimistic locking or conditional updates to prevent concurrent over-deduction.
+
+### How to prevent over-deduction and accounting errors under high concurrency?
+
+1. Database-level: conditional updates — `UPDATE account SET balance = balance - ? WHERE user_id = ? AND balance >= ?`. Zero affected rows means the deduction failed. Or optimistic locking with `WHERE version = ?`, retrying or failing on conflict.
+2. Idempotency: every debit/credit maps to a unique business reference (order number, payment number). The ledger table has a unique constraint on this key — duplicate requests only take effect once.
+3. Same transaction: insert the ledger entry first, then update the balance, commit together. Never allow "balance changed but no ledger entry" or the reverse.
+4. Reconciliation: periodically compare "opening balance + ledger sum" with current balance and frozen amount. Discrepancies trigger alerts and correction (adjust balance from ledger or manual review).
+
+### How to prevent duplicate deductions in a distributed system?
+
+Use an idempotency key. The caller generates a unique request_id or uses the business reference (order number + operation type). The server enforces this with a unique constraint or a "check then insert" pattern on the ledger.
+
+The ledger table has a composite unique index like (user_id, biz_type, biz_no). One business reference can only produce one ledger entry. A duplicate request hits a unique conflict and returns "already processed" or the original result immediately.
+
+A state machine also helps: a deduction record has states (processing / success / failed). Set it to "processing" first, then upon success update to "success." A duplicate request sees "success" and returns directly.
+
+## General Design Questions
+
+### How to prevent duplicate submissions / duplicate orders?
+
+Frontend: disable the submit button after the first click.
+
+Backend: issue an idempotency token (or order token) when the user enters the checkout page. The submission must carry this token. The server records "this token has been used" in Redis or a database table — one-time use, expire after a window.
+
+Alternative: business-level uniqueness — a composite unique index on (user_id, product_id, activity_id, time_window) in the orders table. A duplicate order hits the unique constraint and returns "please do not resubmit."
+
+### Cache and DB inconsistency: update cache first or DB first?
+
+The standard pattern is Cache Aside. On reads, check the cache first. On a miss, load from DB and backfill the cache. On writes, update the database first, then delete the cache (not update it). The next read will reload from the database.
+
+Why delete rather than update? If you update the cache and the update fails, or a concurrent write produces a dirty cache, you have corrupted data. Deleting is safer.
+
+For tighter consistency, use delayed double-delete: after updating the DB and deleting the cache, wait a few hundred milliseconds and delete again. This shrinks the window where a concurrent "read old data + backfill cache" race can occur.
+
+For complex scenarios, subscribe to the binlog. The database change goes through Canal or similar to a message queue, and a dedicated consumer deletes or updates the cache. Business code only writes to the database — consistency concerns are decoupled.
+
+Principle: treat the database as the source of truth. The write path follows "update DB + delete cache." The read path follows "no cache → load from DB." Complex cases use binlog-based sync or delayed double-delete.
+
+### How to design API idempotency?
+
+Use a unique business key. For payment callbacks, use the payment number or "order number + payment channel + status" as the idempotency key. The processing table or ledger table has a unique constraint on this key — one reference only processes once. Before processing, check if it exists; if yes, return success directly.
+
+An idempotency table stores request_id or tokens in Redis or a database with expiration. Use "check then insert" or `SET NX` — only proceed with business logic if the key was not previously set, then mark it as used.
+
+State machines help too: an order or record has states (pending / paid / refunded). Only transition from "pending" to "paid" triggers balance increases or point grants. A duplicate callback sees "paid" and returns success immediately.
+
+### How to protect the system during mega-sales or peak events?
+
+Rate limiting: the gateway or access layer enforces QPS and concurrency limits by IP, user, and endpoint. Token bucket or leaky bucket algorithms. Core endpoints get separate, stricter limits.
+
+Degradation: non-core features (recommendations, points display, activity banners) are turned off or return defaults. The primary chain — ordering, payment, inventory — stays protected.
+
+Circuit breaking: if a downstream service times out or its error rate exceeds a threshold, the circuit opens and calls are short-circuited with a fallback response. This prevents cascading failures.
+
+Scaling and isolation: core databases and services get dedicated resources. Read replicas and caches absorb read traffic. Message queues shave write peaks so the database is never overwhelmed.
+
+Preparation: load testing before the event, capacity planning, and feature flags that can turn off non-critical functionality at any moment.0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen relative overflow-hidden","children":[["$","div",null,{"className":"fixed inset-0 pointer-events-none z-0","children":[["$","div",null,{"className":"absolute inset-0 bg-grid-animated opacity-50"}],["$","div",null,{"className":"absolute top-[5%] right-0 w-[500px] h-[600px] rounded-full bg-accent-emerald/2 blur-[150px]"}],["$","div",null,{"className":"absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent-teal/2 blur-[120px]"}]]}],["$","article",null,{"className":"relative z-10 max-w-3xl mx-auto px-4 py-12 sm:py-20","children":[["$","$L2",null,{"href":"/en/blog","className":"inline-flex items-center gap-2 text-sm text-text-tertiary hover:text-accent-emerald transition-colors mb-10 group","children":[["$","svg",null,{"className":"w-4 h-4 group-hover:-translate-x-1 transition-transform","fill":"none","viewBox":"0 0 24 24","stroke":"currentColor","children":["$","path",null,{"strokeLinecap":"round","strokeLinejoin":"round","strokeWidth":2,"d":"M7 16l-4-4m0 0l4-4m-4 4h18"}]}],"Back to Blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex items-center gap-3 mb-5","children":[["$","span",null,{"className":"text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full","style":{"color":"#69F0AE","backgroundColor":"#69F0AE14"},"children":"Interview Prep"}],["$","span",null,{"className":"w-1 h-1 rounded-full bg-border-subtle"}],["$","time",null,{"className":"text-sm text-text-tertiary","children":"2026-05-11"}],["$","span",null,{"className":"w-1 h-1 rounded-full bg-border-subtle"}],["$","span",null,{"className":"text-sm text-text-tertiary","children":[22," min read"]}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl lg:text-5xl font-extrabold text-text-primary leading-[1.15] tracking-tight","children":"Backend System Design Interview Guide: Flash Sales, Membership, Points & Balance Systems"}]]}],["$","div",null,{"className":"mt-8","children":["$","$L3",null,{"content":"$4"}]}],"$L5",false]}]]}],["$L6"],"$L7"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"Q5q2Ay_apSsZieWJREtc6"}
+5:["$","div",null,{"className":"my-16 border-t border-border-subtle"}]
+6:["$","script","script-0",{"src":"/_next/static/chunks/0i9f97z2xmh-6.js","async":true}]
+7:["$","$L8",null,{"children":["$","$9",null,{"name":"Next.MetadataOutlet","children":"$@a"}]}]
+a:null
