@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useTranslations } from '@/lib/i18n'
 import { usePathname } from 'next/navigation'
-import { FileText } from 'lucide-react'
+import { FileText, BookOpen } from 'lucide-react'
 import { useCallback } from 'react'
 
 function switchPath(pathname: string, currentLang: string, targetLang: string): string {
@@ -40,6 +40,10 @@ export default function Header() {
         <nav className="flex items-center gap-6 text-sm">
           <Link href={homeHref} className="text-muted-foreground hover:text-foreground transition-colors">{t.nav.home}</Link>
           <Link href={`/${lang}/builder`} className="text-muted-foreground hover:text-foreground transition-colors">{t.nav.builder}</Link>
+          <Link href={`/${lang}/blog`} className="text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5">
+            <BookOpen className="w-3.5 h-3.5" />
+            <span>{lang === 'zh' ? '博客' : 'Blog'}</span>
+          </Link>
           <Link href={targetPath} onClick={handleSwitch} className="text-xs text-muted-foreground hover:text-foreground transition-colors border border-border rounded px-2 py-0.5">
             {lang === 'zh' ? 'English' : '中文'}
           </Link>
