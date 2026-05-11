@@ -20,6 +20,23 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       },
       canonical: lang === 'en' ? 'https://resbu.top' : `https://resbu.top/${lang}`,
     },
+    openGraph: {
+      title: lang === 'zh' ? '免费在线简历生成器 - 制作专业简历 | resbu.top' : 'Free Online Resume Builder - Create Professional Resumes | resbu.top',
+      description: lang === 'zh'
+        ? '免费在线制作专业简历，支持20种精美模板，实时预览，一键下载PDF。无需注册，不限次数，立即开始制作你的简历。'
+        : 'Create a professional resume online for free. 20 templates across 4 categories, live preview, PDF download. No sign-up required, unlimited downloads.',
+      url: lang === 'en' ? 'https://resbu.top' : `https://resbu.top/${lang}`,
+      siteName: 'Resume Builder - resbu.top',
+      locale: lang === 'zh' ? 'zh_CN' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: lang === 'zh' ? '免费在线简历生成器 - 制作专业简历 | resbu.top' : 'Free Online Resume Builder - Create Professional Resumes | resbu.top',
+      description: lang === 'zh'
+        ? '免费在线制作专业简历，支持20种精美模板，实时预览，一键下载PDF。无需注册，不限次数。'
+        : 'Create a professional resume online for free. 20 templates, live preview, PDF download. No sign-up required.',
+    },
   }
 }
 

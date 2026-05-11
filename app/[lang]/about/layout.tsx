@@ -18,6 +18,23 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       },
       canonical: `https://resbu.top/${lang}/about`,
     },
+    openGraph: {
+      title: lang === 'zh' ? '关于我们 - 免费在线简历生成器' : 'About Us - Free Online Resume Builder',
+      description: lang === 'zh'
+        ? '了解我们的免费在线简历生成器。我们致力于让每个人都能免费制作专业简历。'
+        : 'Learn about our free online resume builder. We are on a mission to make professional resume creation accessible to everyone.',
+      url: `https://resbu.top/${lang}/about`,
+      siteName: 'Resume Builder - resbu.top',
+      locale: lang === 'zh' ? 'zh_CN' : 'en_US',
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: lang === 'zh' ? '关于我们 - 免费在线简历生成器' : 'About Us - Free Online Resume Builder',
+      description: lang === 'zh'
+        ? '了解我们的免费在线简历生成器。我们致力于让每个人都能免费制作专业简历。'
+        : 'Learn about our free online resume builder.',
+    },
   }
 }
 

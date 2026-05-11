@@ -34,7 +34,9 @@ export const posts: BlogPostMeta[] = [
       zh: '涵盖秒杀、会员、积分、余额等热门后端架构面试题的设计思路与数据一致性方案，从表结构到分布式方案一网打尽。',
     },
     content: {
-      en: `## Flash Sale / High-Concurrency Purchase System
+      en: `If you are preparing for a backend system design interview, you will almost certainly encounter questions about building high-traffic, transactional systems. Flash sales, membership tiers, points engines, and balance ledgers are the bread and butter of senior backend roles. I have spent years working on precisely these systems, and in this guide I will walk you through the architecture, data models, and consistency patterns that actually work in production — not just textbook answers.
+
+## Flash Sale / High-Concurrency Purchase System
 
 ### How do you design a flash sale system architecture?
 
@@ -239,7 +241,9 @@ Circuit breaking: if a downstream service times out or its error rate exceeds a 
 Scaling and isolation: core databases and services get dedicated resources. Read replicas and caches absorb read traffic. Message queues shave write peaks so the database is never overwhelmed.
 
 Preparation: load testing before the event, capacity planning, and feature flags that can turn off non-critical functionality at any moment.`,
-      zh: `## 秒杀 / 高并发抢购系统
+      zh: `如果你正在准备后端系统设计面试，你几乎一定会遇到高流量事务系统的设计问题——秒杀、会员体系、积分引擎、余额账本，这些都是高级后端岗位的核心考点。我在实际工作中长期维护这类系统，本文将从架构设计、数据模型到一致性方案，逐一拆解生产环境中真正有效的做法。
+
+## 秒杀 / 高并发抢购系统
 
 ### 秒杀系统整体架构思路？
 

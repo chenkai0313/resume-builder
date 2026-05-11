@@ -11,13 +11,20 @@ export const metadata: Metadata = {
   description: 'Create professional resumes online for free. Build, preview, and download your resume in minutes.',
   icons: { icon: '/favicon.svg' },
   keywords: ['free resume builder', 'online resume maker', 'CV builder', 'resume template', 'professional resume', 'resume generator', 'create resume online'],
+  alternates: {
+    canonical: 'https://resbu.top',
+    languages: {
+      'en': 'https://resbu.top',
+      'zh': 'https://resbu.top/zh',
+      'x-default': 'https://resbu.top',
+    },
+  },
   openGraph: {
     title: 'Free Online Resume Builder',
     description: 'Create professional resumes online for free. Build, preview, and download your resume in minutes.',
     url: 'https://resbu.top',
-    siteName: 'Resume Builder',
+    siteName: 'Resume Builder - resbu.top',
     locale: 'en_US',
-    alternateLocale: 'zh_CN',
     type: 'website',
   },
   twitter: {
@@ -28,19 +35,30 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const orgJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'resbu.top',
+    alternateName: 'Resume Builder',
+    url: 'https://resbu.top',
+    description: 'Free online resume builder with 20 templates across 4 categories. Live preview, PDF download, no sign-up required.',
+    knowsLanguage: ['en', 'zh'],
+  }
+
   return (
     <html lang="en" className={cn(GeistSans.className, "font-sans", geist.variable, "dark")}>
       <head>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2997084266989115" crossOrigin="anonymous" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
         <script dangerouslySetInnerHTML={{
           __html: `
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?9b959e198583587f1266dfee59545ea4";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?9b959e198583587f1266dfee59545ea4";
+	  var s = document.getElementsByTagName("script")[0];
+	  s.parentNode.insertBefore(hm, s);
+	})();
 `
         }} />
       </head>
