@@ -5,7 +5,6 @@
 ```
 POST /api/pdf/generate
 ```
-
 ## Request
 
 `Content-Type: application/json`
