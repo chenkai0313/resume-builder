@@ -412,7 +412,7 @@ Preparation: load testing before the event, capacity planning, and feature flags
   },
   {
     slug: 'architect-tob-interview-guide',
-    category: 'tech',
+    category: 'interview',
     date: '2026-05-12',
     title: {
       en: 'Architect & To B Interview Guide: High Availability, Distributed Systems & Multi-Tenancy',
