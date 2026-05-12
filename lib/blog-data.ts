@@ -410,4 +410,423 @@ Preparation: load testing before the event, capacity planning, and feature flags
     },
     readTime: 22,
   },
+  {
+    slug: 'architect-tob-interview-guide',
+    category: 'tech',
+    date: '2026-05-12',
+    title: {
+      en: 'Architect & To B Interview Guide: High Availability, Distributed Systems & Multi-Tenancy',
+      zh: '架构师 / To B 常见面试题：高可用、分布式、多租户与权限',
+    },
+    excerpt: {
+      en: '23 real-world architecture interview questions covering high availability design, concurrency bottlenecks, microservices, distributed transactions, message queues, caching strategies, multi-tenant data isolation, RBAC, and tech leadership — with battle-tested answers.',
+      zh: '23 道架构师与 To B 方向高频面试题，覆盖高可用设计、高并发优化、微服务拆分、分布式事务、消息队列、缓存策略、多租户隔离、权限设计及技术管理，附实战答案。',
+    },
+    content: {
+      en: `If you are interviewing for a staff engineer, architect, or technical lead role — especially one with a To B or enterprise focus — the questions shift. They stop being about how to invert a binary tree and start being about how to keep a system alive at 3 AM when a downstream dependency melts down, or how to design tenant isolation that won't leak customer data when someone fat-fingers a SQL query.
+
+I have sat on both sides of this table. Here are the 23 questions that actually get asked, with answers grounded in production experience rather than textbook recitation.
+
+## System Design & High Availability
+
+### How do you design a high-availability system? What dimensions do you evaluate?
+
+No single points of failure anywhere. Services run in multiple instances behind a load balancer. Databases use primary-standby or multi-primary replication. Storage has redundant copies. Avoid single-machine, single-AZ, single-region architectures.
+
+Fault isolation is equally important. Split services with independent thread pools or coroutine pools. Use circuit breakers and fallbacks so one failing dependency does not cascade.
+
+Observability is non-negotiable. Metrics, distributed tracing, structured logging, and alerting must let you detect, locate, and postmortem any incident. Then disaster recovery: multi-region active-active or active-passive, regular backup drills, and clearly defined RTO and RPO targets. Finally, shipping: canary deploys, blue-green, feature flags, and a rollback plan for every release.
+
+### What do SLA, RTO, and RPO mean in practice?
+
+Availability is measured in nines. 99.9% means roughly 8.76 hours of downtime per year. 99.99% means about 52 minutes. You measure it as successful requests over total requests, or uptime over total time.
+
+SLA — Service Level Agreement — is the external promise you make: latency, error rate, availability. It is often tied to billing or compensation clauses. RTO — Recovery Time Objective — is "how long can the service be down before the business screams." RPO — Recovery Point Objective — is "how much data can we afford to lose," measured in time. RPO dictates whether you go synchronous replication (near-zero RPO, higher latency and cost) or asynchronous (some data loss window, cheaper).
+
+### How do you do capacity planning? What happens before a major sale or new product launch?
+
+You start by estimating QPS, data volume, and downstream call fan-out. Then benchmark a single instance to find its ceiling. From there, calculate how many instances, how many DB connections, how much Redis memory you need.
+
+Stress testing follows. Full-link tests with shadow tables or isolated traffic. Single-API benchmarks. Push to 1.2x-1.5x of expected peak and find the bottleneck — usually the database, sometimes a downstream RPC, a thread pool, or GC.
+
+Then provisioning: set elastic scaling policies or reserve capacity. Pre-configure rate limits and degradation switches. Write runbooks for what gets degraded first. After the event, compare actual QPS, latency, and error rates against predictions and update your capacity model.
+
+## High Concurrency & Performance
+
+### Where do bottlenecks hide in high-concurrency systems? How do you find and fix them?
+
+The usual suspects: the database (connection pool exhaustion, slow queries, row-level locks), cache stampedes, downstream RPC timeouts, saturated thread pools, GC pauses, or single-machine CPU/IO saturation.
+
+Tracing is your first tool — follow a single request through every hop and find where time disappears. Then dig into DB slow logs and lock waits. Profile CPU, memory, and goroutines with pprof or async profiler. Check Redis for big keys, hot keys, and slow commands.
+
+Fixes are layered: add caching, separate reads from writes, shard databases, apply backpressure with rate limiting and circuit breakers, offload work to message queues, tune connection pools and timeouts, and in code reduce lock contention, reduce serialization overhead, and batch where possible.
+
+### How do you design a read service that handles millions of QPS?
+
+Multiple cache tiers. First, in-process cache (like a bounded LRU). Then a distributed cache layer (Redis cluster). Hot data lives as close to the CPU as possible — the fewer network hops, the better.
+
+Shard everything. Data sharded by key means stateless service instances scale horizontally. Route read requests by user ID or key hash to a fixed node so local cache hit rates stay high.
+
+Serve from the edge where possible. CDN for static assets and even short-lived API responses. Multi-region deployment with geo-routed traffic.
+
+Degrade gracefully. If cache expires and the downstream is slow, return stale data rather than nothing. Rate-limit to protect the origin. Use read replicas or specialized read-optimized stores for the hot path.
+
+### When the database is the bottleneck, what optimization and sharding strategies work?
+
+Start with the easy wins: indexing, slow query optimization, avoiding large transactions and long-held locks, connection pooling, and read-write splitting with read replicas.
+
+When that stops working, shard. Vertical sharding first — split by business domain (users in one cluster, orders in another). Then horizontal sharding: pick a shard key (user_id modulo N, or a hash range) and route queries accordingly. Use a sharding middleware or a smart client library.
+
+Separate hot and cold data. Archive old records to cold storage or object stores. Keep only the working set in the online database. Introduce fit-for-purpose stores: Elasticsearch for search, Redis for cache, columnar or OLAP engines for analytics.
+
+## Microservices & Distributed Systems
+
+### What are the principles for splitting microservices? What happens if you go too fine-grained?
+
+Split along business boundaries and bounded contexts. High cohesion within a service, loose coupling between them. Each service should be independently deployable and independently scalable. Start with business closure — what does the business need to function — before technical seams. Avoid circular dependencies.
+
+When you over-split, call chains grow long, latency stacks up, and the blast radius of any failure widens. Operational overhead explodes: more pipelines, more dashboards, more on-call rotations. Distributed transactions become harder. Team coordination costs rise. The right grain size is what a single team can own and reason about, balanced against how often the boundary actually changes.
+
+### How do service discovery and load balancing work in a microservice world?
+
+When an instance starts, it registers with a registry — Nacos, Consul, Etcd — providing its address and metadata. Callers pull or subscribe to the registry for the service's instance list and cache it locally, refreshing periodically. When instances go down, they deregister or their heartbeat times out and they are evicted.
+
+For load balancing, client-side LB is common: the caller picks an instance from the cached list using round-robin, random, weighted, or least-connections. Server-side LB routes through a gateway or LB appliance. Canary deployments route by version tag or header to a subset of instances.
+
+### What are the common distributed transaction patterns and when do you use each?
+
+Two-phase commit (2PC): A coordinator orchestrates prepare and commit across participants. Strong consistency but blocking, and the coordinator is a single point of failure. Use it for short transactions with few participants where strong consistency is mandatory.
+
+TCC (Try-Confirm-Cancel): Try reserves resources, Confirm finalizes, Cancel releases. You write the compensation logic yourself. Flexible but expensive to build. Good for business workflows that demand precise control.
+
+Saga: Decompose a long transaction into a sequence of local transactions, each with a compensating action. If any step fails, run the compensations for completed steps in reverse order. Eventually consistent. Works well for long-running flows like order-plus-inventory-plus-points.
+
+Transactional outbox / transactional messaging: Write the business change and the message in the same database transaction. A separate process polls and publishes to MQ. Consumers are idempotent. Simple, eventually consistent, and suitable for most async decoupling needs.
+
+My rule of thumb: if eventual consistency is acceptable, use MQ + idempotent consumers. If strong consistency is required and the scope is small, 2PC or TCC. Long workflows, use Saga.
+
+### How do you design a distributed ID? What are the trade-offs of Snowflake?
+
+Requirements: globally unique, roughly ordered (helps database indexes), highly available, compact.
+
+Options: UUID (random, long, ruins index locality). Database auto-increment (single point, poor scalability). Segment-based allocation like Meituan Leaf (batch allocate ID ranges). Snowflake: timestamp + worker ID + sequence number, generated locally, time-ordered.
+
+Snowflake's strength is that it requires no coordination and is very fast. Its weakness is clock dependency — clock rollback can cause duplicates and must be handled explicitly. Worker ID assignment across machines and regions needs careful planning. Variants like Leaf-snowflake use etcd or Redis for worker ID allocation.
+
+## Message Queues & Async Processing
+
+### How do you choose an MQ? When Kafka vs RocketMQ vs RabbitMQ?
+
+The decision matrix: throughput, latency, durability, ordering guarantees, transaction/delay message support, operational complexity, ecosystem, and team familiarity.
+
+Kafka: extreme throughput, log-oriented, great for streaming, event sourcing, and analytics workloads. Excellent persistence and replay capability.
+
+RocketMQ: strong support for ordered messages, delayed messages, and transactional messages. Rich Chinese documentation. Well suited for order processing, trading systems, and peak-shaving.
+
+RabbitMQ: flexible routing with exchanges and bindings. Good for complex routing topologies and when latency and feature richness matter more than raw throughput.
+
+Choose based on which dimension matters most: throughput (Kafka), messaging features (RocketMQ), or routing flexibility (RabbitMQ).
+
+### How do you guarantee no message loss, no duplicates, and ordered consumption?
+
+No loss: producer waits for broker acknowledgment after persistence (acks=all). Broker replicates to multiple nodes. Consumer processes first, then commits offset. Failures trigger retry or dead-letter routing.
+
+No duplicates: make consumers idempotent. Deduplicate by business key (order ID, etc.) or check-before-write. Attach a unique message ID and enforce a uniqueness constraint in the database.
+
+Ordering: within a single partition, order is preserved. Publish with the same key to land in the same partition. Single consumer within a partition processes sequentially. If global order is not required — and it rarely is — partition by business key and you are done.
+
+## Caching & Storage
+
+### What are cache penetration, hot-key invalidation, and cache avalanche? How do you handle each?
+
+Penetration: a request for a key that does not exist in the database either, so it passes straight through cache and DB every time. Fix with a Bloom filter to reject impossible keys, or cache a nil value with a short TTL.
+
+Hot-key invalidation: a heavily accessed key expires and suddenly all requests pound the database. Fix by never expiring hot keys (use logical expiry with async refresh) or use a mutex so only one caller goes to origin while others wait.
+
+Avalanche: many keys expire simultaneously, or the cache cluster goes down entirely. Fix by adding random jitter to expiration times, using multi-level caching, circuit breaking, and running the cache in a highly available cluster so it does not fail as a single point.
+
+### How do you design a multi-level cache (local + Redis)? How to handle consistency?
+
+Requests hit the local cache first (in-process, bounded LRU). On miss, go to Redis. On Redis miss, query the database and backfill both Redis and the local cache.
+
+Consistency anchors on the database. On writes: update DB first, then invalidate Redis, then broadcast to all instances to invalidate their local caches (or just wait for short TTL expiry). For read paths, if a brief dirty read is tolerable, rely on TTL alone. For tighter consistency, use a binlog listener like Canal to trigger cache invalidation.
+
+Watch for local cache memory pressure, eviction policies, and the risk of thundering herd when many nodes discover a cold key simultaneously. Mutual exclusion or single-flight patterns help.
+
+## To B / Enterprise & Multi-Tenancy
+
+### What are the key architectural differences between To B and To C systems?
+
+Tenancy and isolation: To B systems are inherently multi-tenant — enterprises, organizations — each needing data, configuration, and resource isolation. Roles and permissions are far more complex: RBAC, data-level ACLs, approval workflows.
+
+Customization: enterprises demand customizations, private deployments, and integration with their internal systems. This requires configurability, plugin architectures, open APIs, and metadata-driven design to avoid one-off code branches.
+
+Compliance and security: audit logs, data masking, regulatory requirements. Permissions must be fine-grained and every operation must be traceable.
+
+Stability and SLAs: enterprise customers care deeply about availability and data security. Contracts often include SLAs with penalties. You need multi-AZ or multi-region disaster recovery, backup and restore, and defined change windows.
+
+Performance profile: To C is spiky high-concurrency. To B may have lower concurrency but each request is complex, data volumes are large, and there are heavy reporting and export workloads. Optimize for single-request depth and batch throughput.
+
+### What are the common approaches to multi-tenant data isolation?
+
+Database-per-tenant: each tenant gets its own database. Maximum isolation, independent backup and scaling, highest cost. For large customers or strict compliance requirements.
+
+Shared database, separate schema: within a single instance, each tenant has its own schema. Good isolation, backup and scaling per schema. For mid-to-large tenants.
+
+Shared tables with tenant_id: all tenants share tables, differentiated by a tenant_id column. Simplest to implement, lowest cost, but requires strict discipline — every query must include the tenant_id filter or you leak data. For SaaS with many small tenants.
+
+Hybrid: flagship customers get dedicated databases; the long tail shares tables. Choose based on customer tier and isolation requirements.
+
+### How do you design enterprise-grade permissions (RBAC + data scope)?
+
+RBAC at its core: users are assigned roles, roles carry permissions (menu items, buttons, API endpoints). Roles can inherit or compose. The API layer checks "does the current user's role include this permission before executing."
+
+Data scope controls what data a user can see, not just what they can do. For example: only their own records, their department's, their department and sub-departments, or everything. Implement by injecting data scope conditions into queries automatically (e.g., WHERE dept_id IN (...)). Data scope is typically configured per role or via a rules engine.
+
+Extensions: approval workflows, step-up authentication for sensitive operations, permission change auditing, SSO and LDAP integration.
+
+### How do you design an open API platform for enterprise customers?
+
+Authentication: AppKey + AppSecret for server-to-server, or OAuth2 for delegated access. The gateway validates tokens or signatures and identifies the caller.
+
+Authorization and rate limiting: throttle by application or tenant — QPS, concurrent connections, daily quotas. Authorize per API or per subscription tier. Reject unauthorized calls at the gateway.
+
+Security: HTTPS everywhere, request signing to prevent tampering, sensitive field encryption, IP allowlists, anti-replay via timestamp and nonce.
+
+Observability: log every call with latency and error codes. Give customers a dashboard showing their usage, quota, and error breakdowns.
+
+Versioning and compatibility: API versioning via URL path or header. Deprecate old versions with advance notice and canary cutovers. Maintain backward compatibility wherever possible.
+
+## Technology Selection & Execution
+
+### What factors do you weigh when making a technology choice?
+
+Business fit first: does it solve the functional, performance, and scalability needs? Are there proven reference cases at similar scale?
+
+Team and operations: does the team know it or can ramp up quickly? Is the community healthy, documentation solid, hiring pool deep? How complex is the operational surface — monitoring, troubleshooting, upgrading?
+
+Cost: licensing, cloud service fees, and engineering maintenance cost. Build vs. buy vs. self-host vs. managed service.
+
+Ecosystem and lock-in: how well does it integrate with the existing stack? Avoid excessive vendor lock-in unless the benefits clearly outweigh the cost.
+
+Evolution: can you upgrade smoothly? Is there a migration path? Is the community active and the project likely to be maintained for years?
+
+### How do you drive technical decisions through a team? What if there is resistance?
+
+Build alignment first. Explain the context, the goals, the expected payoff, and the risks. Back it with data or a proof of concept. Connect the decision to business value.
+
+Ship incrementally. Pilot first, then expand. Feature flags, canary deploys, rollback plans — all reduce perceived risk and make adoption easier.
+
+Bring key engineers into the design review. Incorporate their feedback genuinely. People resist less when they helped shape the outcome.
+
+When there is pushback, listen for the real concern — technical doubt, historical scar tissue, resource anxiety. Address it concretely: compatibility plans, migration tooling, training. Escalate priority alignment with leadership only when necessary. Let the pilot results speak louder than any argument.
+
+## Soft Skills & Architectural Thinking
+
+### How do you run a technical design review? What do you look at first?
+
+Scope and boundaries: are the requirements clear? Are non-functional concerns — performance, availability, security — explicitly addressed?
+
+Architecture soundness: module boundaries, dependency direction, extension points. Are there single points of failure? Can a failure cascade?
+
+Data and consistency: storage design, sharding strategy, consistency guarantees. Are there risks of double-charge, oversell, or data corruption?
+
+Operability: deployment, rollback, monitoring, alerting, capacity planning, rate limiting. What does the on-call experience look like?
+
+Risk and cost: technical risk, migration risk, resource and timeline estimates. Is there a fallback or rollback path if it does not work?
+
+### What does an architect do during a production incident?
+
+Stop the bleeding first. Work with the on-call engineer to execute immediate mitigation — rate limit, degrade, rollback, drain traffic, remove the sick node. Restore service before finding root cause.
+
+Then triage. Look at dashboards, logs, and traces. Narrow the scope: which service, which instance, which dependency. Preserve evidence — thread dumps, heap dumps, core dumps — before restarting anything.
+
+Afterward, postmortem. Root cause analysis using 5 Whys and a timeline. Turn findings into concrete improvements: code changes, config changes, process changes, monitoring gaps. Assign owners and track follow-through. The goal is not to assign blame but to prevent recurrence.
+
+### How do you manage technical debt? When do you refactor vs. live with it?
+
+Identify and quantify. Code complexity, duplication, testability. Incident frequency and change difficulty. The modules the team is afraid to touch.
+
+Prioritize ruthlessly. Debt that threatens stability, security, or team velocity gets paid first. Purely cosmetic issues can wait.
+
+Refactor when there is a business need touching that area, or when incidents keep happening there, or when new team members need to ramp up. Always refactor with tests alongside the actual feature work — never refactor for its own sake.
+
+Live with it when business pressure is high, the team is stretched, and the module is stable and rarely changed. Document the known issues, add guardrails (monitoring, integration tests), and schedule the cleanup for a quieter period. Never do a big-bang rewrite on a critical path unless you have no choice.`,
+      zh: `## 一、系统设计与高可用
+
+### 1. 如何设计一个高可用的系统？从哪些维度考虑？
+
+- **无单点**：服务多实例部署，负载均衡；DB 主从/多主，存储多副本；避免单机、单机房、单运营商。
+- **故障隔离**：服务拆分、线程池/协程池隔离、熔断降级，避免一个依赖拖垮整体。
+- **可观测**：日志、指标、链路追踪、告警；故障可发现、可定位、可复盘。
+- **容灾与恢复**：多机房/多活或主备；定期备份与恢复演练；RTO/RPO 目标明确。
+- **变更与发布**：灰度、蓝绿、金丝雀；回滚预案；配置与特性开关，出问题可快速关闭。
+
+### 2. 高可用指标有哪些？如何理解 SLA、RTO、RPO？
+
+- **可用性**：如 99.9%（年停机约 8.76 小时）、99.99%（约 52 分钟），通常用"正常请求数/总请求数"或"正常时间/总时间"衡量。
+- **SLA（服务等级协议）**：对外的可用性、延迟、错误率等承诺；常与赔偿、计费挂钩。
+- **RTO（恢复时间目标）**：从故障发生到业务恢复可接受的最长时间，即"能停多久"。
+- **RPO（恢复点目标）**：能接受丢失多少数据，即"最多丢到哪个时间点"；决定备份与同步策略（同步复制 vs 异步）。
+
+### 3. 如何做容量规划？大促/新业务上线前要做哪些事？
+
+- **容量评估**：根据 QPS、数据量、依赖调用量，估算 CPU/内存/磁盘/网络；单机压测得到单机能力，再算需要多少实例、多少 DB 连接等。
+- **压测**：全链路压测（流量隔离或影子表）、单接口压测、峰值压测到 1.2～1.5 倍预期流量，找到瓶颈（DB、缓存、下游、线程池）。
+- **扩容与限流**：确定弹性伸缩策略或预留机器；限流阈值、降级开关提前配置；预案（降级哪些功能、关哪些入口）写好并演练。
+- **复盘**：大促后看实际 QPS、延迟、错误率，与预估对比，迭代容量模型。
+
+## 二、高并发与性能
+
+### 4. 高并发下常见瓶颈在哪？如何排查和优化？
+
+- **常见瓶颈**：DB（连接数、慢 SQL、锁）、缓存穿透/击穿/雪崩、下游 RPC 超时、线程池/协程池打满、GC 停顿、单机 CPU/IO。
+- **排查**：链路追踪看慢在哪一环；DB 慢查询、锁等待；CPU/内存/GC 用 pprof；Redis 大 key、热 key、慢命令。
+- **优化**：加缓存、读写分离、分库分表；限流熔断；异步化、MQ 削峰；连接池、协程数、超时时间调优；代码层减少锁、减少序列化、批量处理。
+
+### 5. 如何设计一个能支撑百万 QPS 的读服务？
+
+- **多级缓存**：本地缓存（进程内）+ 分布式缓存（Redis/集群），热点数据尽量在本地，减少网络与 Redis 压力。
+- **分片与水平扩展**：数据按 key 分片，服务无状态水平扩容；读请求可按 user_id 或 key hash 到固定节点，利于本地缓存命中。
+- **就近接入**：CDN 做静态或接口缓存；多机房部署，用户就近访问。
+- **降级与限流**：缓存失效或下游挂时返回默认/旧数据，避免打穿 DB；限流保护下游与自身。
+- **存储**：读多写少可读写分离、从库/只读实例扩展；或时序/列存等适合大批量读的引擎。
+
+### 6. 数据库成为瓶颈时，有哪些常见优化与拆分手段？
+
+- **单机优化**：索引、慢 SQL 优化、避免大事务与长锁；连接池；读写分离，读走从库。
+- **分库分表**：按业务维度（用户、订单、商户）做垂直拆库；单表过大按 shard key（如 user_id、order_id 取模或范围）分表；路由层或中间件按 key 查库表。
+- **冷热分离**：历史数据归档到冷库或对象存储，在线库只保留热数据。
+- **引入其他存储**：搜索用 ES；缓存用 Redis；宽表/分析用数仓或 OLAP，减轻主库压力。
+
+## 三、微服务与分布式
+
+### 7. 微服务拆分原则？拆得过细会有什么问题？
+
+- **原则**：按业务边界、领域拆分，高内聚低耦合；服务可独立部署、独立扩展；先考虑业务闭环，再考虑技术边界；避免循环依赖。
+- **过细的问题**：调用链长、延迟与故障放大的概率增加；运维与治理成本高（发布、监控、链路）；分布式事务与一致性更复杂；团队协作与边界划分成本上升。一般按"团队能维护的粒度"和"变更频率"平衡。
+
+### 8. 服务发现、负载均衡在微服务里怎么做的？
+
+- **服务发现**：实例启动时向注册中心（Nacos、Consul、Etcd 等）注册自身地址与元数据；调用方从注册中心拉取或订阅实例列表，本地缓存并定期刷新；下线时反注册或心跳超时剔除。
+- **负载均衡**：客户端 LB：调用方从实例列表中按轮询、随机、加权、最少连接等策略选一个；服务端 LB：经过网关或 LB 设备再转发。灰度可按版本/标签路由到部分实例。
+
+### 9. 分布式事务有哪些常见方案？各适合什么场景？
+
+- **两阶段提交（2PC）**：协调者协调多参与者 prepare/commit，强一致但阻塞、协调者单点；适合短事务、强一致、参与方少的场景（如传统 DB 的 XA）。
+- **TCC**：Try 预留资源，Confirm 确认，Cancel 取消；业务自己实现补偿，灵活但开发成本高；适合对一致性和可控性要求高的场景。
+- **Saga**：长事务拆成多个本地事务，每个有对应补偿；顺序执行，失败则执行已完成的补偿；最终一致，适合长流程、可补偿的业务（订单+库存+积分）。
+- **本地消息表 / 事务消息**：业务与消息在同一 DB 事务中写入，异步投递 MQ，消费者幂等消费；最终一致，实现简单，适合大部分异步解耦场景。
+- **选型**：能接受最终一致优先 MQ+幂等；必须强一致且参与方少可考虑 2PC/TCC；长流程用 Saga。
+
+### 10. 分布式 ID 如何设计？雪花算法有什么优缺点？
+
+- **要求**：全局唯一、趋势递增（利于 DB 索引）、高可用、尽量短。
+- **方案**：UUID（无序、较长）；DB 自增（单点、扩展性差）；号段/批号（如美团 Leaf 号段模式）；雪花（Snowflake）：时间戳+机器位+序列号，本地生成、趋势递增。
+- **雪花优点**：无中心、高性能、趋势递增；**缺点**：依赖时钟，时钟回拨要处理；机器位需要分配，多机房/多实例要规划好，否则可能冲突。改进：用 etcd/Redis 分配 workerId、或引入"序列号+时间"的变种（如 Leaf-snowflake）。
+
+## 四、消息队列与异步
+
+### 11. MQ 选型会考虑哪些因素？Kafka 和 RocketMQ 适用场景？
+
+- **因素**：吞吐、延迟、持久化与可靠性、顺序、事务/延迟消息、运维与生态、团队熟悉度。
+- **Kafka**：高吞吐、日志/大数据场景、多消费者组、持久化与回溯能力强；适合日志采集、流计算、事件总线。
+- **RocketMQ**：顺序消息、延迟消息、事务消息支持好；阿里系、中文文档多；适合订单、交易、削峰填谷。
+- **RabbitMQ**：协议丰富、路由灵活；适合复杂路由、对延迟和功能要求高的业务。选型看业务侧重吞吐、顺序还是功能丰富度。
+
+### 12. 如何保证消息不丢、不重复、顺序消费？
+
+- **不丢**：生产者发后等 broker 持久化确认（acks=all）；broker 多副本；消费者先处理再 commit offset，处理失败可重试或进死信。
+- **不重复**：消费者幂等——以业务键（订单号等）去重，或"先查再写"；必要时消息带唯一 id，落表唯一约束。
+- **顺序**：单分区内有序；发消息时指定同一 key 进同一分区；单分区单消费者顺序处理；不要求全局顺序时可按业务键分区即可。
+
+## 五、缓存与存储
+
+### 13. 缓存穿透、击穿、雪崩分别是什么？如何应对？
+
+- **穿透**：查不存在的数据，请求直打 DB。应对：布隆过滤器挡掉不可能存在的 key；或对"空值"也缓存短 TTL，避免重复查库。
+- **击穿**：热点 key 过期瞬间大量请求打到 DB。应对：热点 key 永不过期或逻辑过期（异步刷新）；或加互斥锁，只有一个请求回源，其他等锁后读缓存。
+- **雪崩**：大量 key 同时过期或缓存整体不可用，流量压到 DB。应对：过期时间加随机偏移；多级缓存、限流降级；集群与高可用，避免单点挂掉。
+
+### 14. 如何设计一个多级缓存（本地 + Redis）？一致性怎么处理？
+
+- **结构**：请求先查本地缓存（如进程内 LRU），未命中再查 Redis，再未命中查 DB 并回写 Redis 与本地。
+- **一致性**：以 DB 为准；写时先更新 DB，再删 Redis，再通知或广播各节点删本地缓存（或设短 TTL 自然过期）；读时允许短暂脏读则只设 TTL。复杂场景可用 canal 等同步 binlog 触发删缓存。
+- **注意**：本地缓存容量与淘汰策略、与 Redis 的更新顺序、避免缓存风暴（互斥或单飞）。
+
+## 六、To B / 企业级与多租户
+
+### 15. To B 和 To C 在架构上主要差异有哪些？
+
+- **租户与隔离**：To B 常多租户（企业/组织），数据、配置、资源要按租户隔离；权限与角色更复杂（RBAC、数据权限、审批流）。
+- **定制与扩展**：企业客户常有定制需求、私有化部署、对接内部系统；需要配置化、插件化、开放 API、元数据驱动，减少改代码。
+- **合规与安全**：审计日志、数据脱敏、合规要求（等保、行业规范）；权限细粒度、操作可追溯。
+- **稳定性与 SLA**：企业客户对可用性、数据安全敏感；合同常有 SLA，需要多活/容灾、备份与恢复、变更窗口。
+- **性能模型**：To C 偏瞬时高并发；To B 可能并发不高但单请求复杂、数据量大、报表与导出多，需优化单请求与批处理。
+
+### 16. 多租户数据隔离有哪几种常见方案？各有什么优缺点？
+
+- **独立库（库级隔离）**：每租户一个 DB，隔离最好、可独立备份与扩展，成本高，适合大客户或强合规。
+- **共享库、独立 schema**：同一实例下每租户一个 schema，隔离较好，备份与扩展按 schema，适合中大型客户。
+- **共享库表、tenant_id 隔离**：所有租户同一套表，用 tenant_id 区分；实现简单、成本低，需严格在查询和索引中带 tenant_id，否则易数据泄露；适合 SaaS、小租户多。
+- **混合**：核心大客户独立库，长尾共享表；按客户等级选择策略。
+
+### 17. 企业级权限设计（RBAC、数据权限）一般怎么做？
+
+- **RBAC**：用户 → 角色 → 权限（菜单、按钮、接口）；角色可继承或组合；接口层校验"当前用户角色是否包含该接口权限"。
+- **数据权限**：在"能看到哪些数据"的维度控制，如：仅本人、本部门、本部门及子部门、全部；实现上在查询条件中自动加"数据范围"（如 dept_id in (?)），可由角色配置或规则引擎生成条件。
+- **扩展**：审批流、敏感操作二次校验、权限变更审计；与 SSO、LDAP 等集成。
+
+### 18. 如何设计开放平台 / API 给企业客户对接？
+
+- **认证**：AppKey + AppSecret、或 OAuth2；网关层校验 token 或签名，识别调用方。
+- **鉴权与限流**：按应用/租户限流（QPS、并发、日调用量）；按 API 或套餐授权，未授权接口拒绝。
+- **安全**：HTTPS、签名防篡改、敏感参数加密；IP 白名单、防重放（timestamp+nonce）。
+- **可观测**：调用日志、耗时、错误率；给客户控制台查看调用量、配额、问题排查。
+- **版本与兼容**：API 版本（路径或 Header）；废弃旧版本时提前通知与灰度，保证兼容性。
+
+## 七、技术选型与落地
+
+### 19. 做技术选型时会考虑哪些因素？
+
+- **业务匹配**：能否满足功能、性能、扩展性需求；是否有成功案例。
+- **团队与运维**：团队是否熟悉、社区与文档是否完善、招聘与培训成本；运维复杂度、监控与故障处理是否成熟。
+- **成本**： license、云服务费用、人力维护成本；自建 vs 托管。
+- **生态与绑定**：与现有技术栈、中间件、云厂商的集成；避免过度绑定单一厂商。
+- **演进**：是否支持平滑升级、迁移路径；社区活跃度与长期维护预期。
+
+### 20. 如何推动技术方案在团队内落地？遇到阻力怎么处理？
+
+- **共识**：讲清背景、目标、收益与风险；用数据或 POC 证明可行性；和业务/产品对齐价值。
+- **分步**：先试点再推广；灰度、开关、可回滚，降低风险感知。
+- **参与**：让核心开发参与方案讨论与评审，采纳合理意见，减少"被推行"的感觉。
+- **阻力**：倾听反对原因（技术顾虑、历史包袱、资源）；针对性地补充方案（兼容、迁移、培训）；必要时找上级或协作方一起对齐优先级与资源；用试点结果说话，而不是强推。
+
+## 八、软技能与架构思维
+
+### 21. 如何做技术方案评审？你会重点看哪些点？
+
+- **目标与范围**：需求与边界是否清晰；非功能需求（性能、可用性、安全）是否考虑。
+- **架构合理性**：模块划分、依赖关系、扩展点；是否有单点、是否易故障扩散。
+- **数据与一致性**：存储与拆分、一致性方案是否合理、是否有超卖/重复等风险。
+- **可运维与可观测**：发布、回滚、监控、告警、容量与限流。
+- **风险与成本**：技术风险、迁移风险、资源与时间成本；是否有降级与回退方案。
+
+### 22. 线上故障时，作为架构师你会怎么参与处理？
+
+- **先止血**：配合 on-call 快速止损——限流、降级、回滚、切流量、摘除故障节点；优先恢复服务再查根因。
+- **再定位**：看监控、日志、链路；缩小范围（哪一环节、哪一实例）；必要时保留现场（线程 dump、内存 dump）再重启。
+- **后复盘**：根因分析（5 Why、时间线）；改进措施（代码、配置、流程、监控）；责任与改进落实到人，避免同类问题再发生。
+
+### 23. 如何做技术债务管理？什么时候该重构、什么时候先扛？
+
+- **识别与量化**：代码复杂度、重复度、可测试性；线上故障与变更成本；团队反馈的"不敢改"模块。
+- **优先级**：影响稳定性、安全、多人协作的优先还；纯代码风格可延后。
+- **何时重构**：有明确业务需求要改这块、或故障/缺陷频繁、或新人要接手时，结合需求一起重构并加测试；避免为重构而重构。
+- **何时先扛**：业务压力大、人手紧、模块稳定且动得少时，可先文档化、加防护（测试、监控），排期再还债；避免在关键路径上大动。
+
+*以上覆盖高可用、高并发、微服务、分布式、MQ、缓存、To B 多租户与权限、技术选型与落地、软技能等，可作为架构师与 To B 方向面试准备。*`,
+    },
+    readTime: 25,
+  },
 ]

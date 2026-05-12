@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://resbu.top'
   const languages = ['en', 'zh']
   const routes = ['', '/builder', '/privacy', '/about', '/terms']
-  const blogRoutes = ['/blog', '/blog/backend-system-design-interview-guide']
+  const blogRoutes = ['/blog', '/blog/backend-system-design-interview-guide', '/blog/architect-tob-interview-guide']
 
   const pages = routes.flatMap(route =>
     languages.map(lang => ({
