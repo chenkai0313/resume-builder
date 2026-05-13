@@ -7,12 +7,19 @@ import { FileText, BookOpen } from 'lucide-react'
 import { useCallback } from 'react'
 
 function switchPath(pathname: string, currentLang: string, targetLang: string): string {
-  if (targetLang === 'en') {
-    const stripped = pathname.replace(/^\/zh/, '')
-    return stripped === '' ? '/' : stripped
+  // Strip current language prefix
+  let stripped = pathname
+  if (pathname.startsWith(`/${currentLang}/`)) {
+    stripped = pathname.slice(currentLang.length + 1) // e.g. "/en/builder" → "/builder"
+  } else if (pathname === `/${currentLang}`) {
+    stripped = '/'
   }
-  if (pathname === '/') return '/zh'
-  return pathname.replace(/^\/en/, '/zh')
+
+  // Add target language prefix
+  if (targetLang === 'en') {
+    return stripped === '/' ? '/' : `/en${stripped}`
+  }
+  return stripped === '/' ? '/zh' : `/zh${stripped}`
 }
 
 function setLocaleCookie(locale: string) {
