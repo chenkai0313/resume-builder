@@ -1,0 +1,159 @@
+1:"$Sreact.fragment"
+2:I[56938,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js"],"default"]
+3:I[60055,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js"],"default"]
+4:I[90745,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js"],"default"]
+5:I[66000,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js","/_next/static/chunks/0ld302es.eryw.js"],"default"]
+b:I[26333,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js"],"default",1]
+:HL["/_next/static/chunks/0sttlbc~la864.css","style"]
+:HL["/_next/static/media/Geist_Variable-s.p.0-te~ja_gpvcf.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/caa3a2e1cccd8315-s.p.16t1db8_9y2o~.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+6:T961,{"@context":"https://schema.org","@type":"Blog","name":"Resume Builder Blog","description":"AI tools news, tech articles, and interview preparation for developers.","url":"https://resbu.top/en/blog","blogPost":[{"@type":"BlogPosting","headline":"Backend System Design Interview Guide: Flash Sales, Membership, Points & Balance Systems","description":"A comprehensive walkthrough of the most common backend system design interview questions — flash sale architecture, membership tier systems, points engines, and balance/ledger design — with real-world data consistency patterns.","datePublished":"2026-05-11","url":"https://resbu.top/en/blog/backend-system-design-interview-guide"},{"@type":"BlogPosting","headline":"Architect & To B Interview Guide: High Availability, Distributed Systems & Multi-Tenancy","description":"23 real-world architecture interview questions covering high availability design, concurrency bottlenecks, microservices, distributed transactions, message queues, caching strategies, multi-tenant data isolation, RBAC, and tech leadership — with battle-tested answers.","datePublished":"2026-05-12","url":"https://resbu.top/en/blog/architect-tob-interview-guide"},{"@type":"BlogPosting","headline":"How to Write a Resume That Gets Interviews: A Step-by-Step Guide for 2026","description":"A practical, step-by-step guide to writing a resume that actually gets callbacks. Covers every section from summary to skills, with before-and-after examples and advice from a hiring manager's perspective.","datePublished":"2026-05-13","url":"https://resbu.top/en/blog/how-to-write-a-resume"},{"@type":"BlogPosting","headline":"ATS Resume Guide: How to Beat Applicant Tracking Systems in 2026","description":"Most resumes are rejected by ATS software before a human ever sees them. Learn how ATS actually works, what formatting choices get you auto-rejected, and a keyword strategy that gets your resume through the filter.","datePublished":"2026-05-13","url":"https://resbu.top/en/blog/ats-resume-guide"},{"@type":"BlogPosting","headline":"10 Resume Mistakes That Are Costing You Interviews","description":"From \"References available upon request\" to generic objective statements — these ten common resume mistakes are quietly hurting your chances. Fix them before your next application.","datePublished":"2026-05-13","url":"https://resbu.top/en/blog/resume-mistakes-to-avoid"}]}0:{"P":null,"c":["","en","blog","how-to-write-a-resume"],"q":"","i":false,"f":[[["",{"children":[["lang","en","d",null],{"children":["blog",{"children":[["slug","how-to-write-a-resume","d",null],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0sttlbc~la864.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/0~2p-~xtlhcpn.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0a0xhy._6~v2g.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"geistsans_d5a4f12f-module__q_2uxG__className font-sans geist_da832ead-module__aN_Ytq__variable dark","children":[["$","head",null,{"children":["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@type\":\"Organization\",\"name\":\"resbu.top\",\"alternateName\":\"Resume Builder\",\"url\":\"https://resbu.top\",\"description\":\"Free online resume builder with 20 templates across 4 categories. Live preview, PDF download, no sign-up required.\",\"knowsLanguage\":[\"en\",\"zh\"]}"}}]}],["$","body",null,{"children":[["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L4",null,{}]]}]]}]]}],{"children":[["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/0ld302es.eryw.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]}]]}],{"children":[["$","$1","c",{"children":[null,[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"$6"}}],"$L7"]]}],{"children":["$L8",{"children":["$L9",{},null,false,null]},null,false,null]},null,false,null]},null,false,null]},null,false,null],"$La",false]],"m":"$undefined","G":["$b",["$Lc"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"nX1PiuYccvib-g4Gs0dNU"}
+f:I[71496,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js"],"OutletBoundary"]
+10:"$Sreact.suspense"
+12:I[71496,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js"],"ViewportBoundary"]
+14:I[71496,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js"],"MetadataBoundary"]
+7:["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]
+8:["$","$1","c",{"children":[null,"$Ld"]}]
+9:["$","$1","c",{"children":["$Le",[["$","script","script-0",{"src":"/_next/static/chunks/0i9f97z2xmh-6.js","async":true,"nonce":"$undefined"}]],["$","$Lf",null,{"children":["$","$10",null,{"name":"Next.MetadataOutlet","children":"$@11"}]}]]}]
+a:["$","$1","h",{"children":[null,["$","$L12",null,{"children":"$L13"}],["$","div",null,{"hidden":true,"children":["$","$L14",null,{"children":["$","$10",null,{"name":"Next.Metadata","children":"$L15"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+c:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0sttlbc~la864.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+16:I[36281,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js","/_next/static/chunks/0ld302es.eryw.js","/_next/static/chunks/0i9f97z2xmh-6.js"],""]
+17:I[97632,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js","/_next/static/chunks/0ld302es.eryw.js","/_next/static/chunks/0i9f97z2xmh-6.js"],"default"]
+d:[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://resbu.top\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"Blog\",\"item\":\"https://resbu.top/en/blog\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"How to Write a Resume That Gets Interviews: A Step-by-Step Guide for 2026\",\"item\":\"https://resbu.top/en/blog/how-to-write-a-resume\"}]},{\"@type\":\"Article\",\"headline\":\"How to Write a Resume That Gets Interviews: A Step-by-Step Guide for 2026\",\"description\":\"A practical, step-by-step guide to writing a resume that actually gets callbacks. Covers every section from summary to skills, with before-and-after examples and advice from a hiring manager's perspective.\",\"datePublished\":\"2026-05-13\",\"url\":\"https://resbu.top/en/blog/how-to-write-a-resume\",\"inLanguage\":[\"en\",\"zh\"],\"author\":{\"@type\":\"Organization\",\"name\":\"resbu.top\"},\"publisher\":{\"@type\":\"Organization\",\"name\":\"resbu.top\",\"url\":\"https://resbu.top\"}}]}"}}],["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]
+18:T2264,I have reviewed over 800 resumes in my career as a hiring manager and tech lead. The pattern is so consistent it is almost a law of nature: 80% of resumes are filtered out within 60 seconds of being opened. Not because the candidates are unqualified, but because the resume fails to communicate their qualifications clearly.
+
+This guide is everything I wish every candidate knew before hitting "Apply." No theory, no filler — just what actually works, backed by real hiring experience.
+
+## Who This Guide Is For
+
+If you are writing your first resume, switching careers, or just wondering why you are not getting callbacks despite being qualified — this guide is for you. I will walk through every section of a resume, explain what hiring managers actually look for, and show you concrete before-and-after examples.
+
+## The Golden Rule: Your Resume Is a Marketing Document
+
+Most people treat their resume like a biography. It is not. It is a marketing document with one job: to get you a phone screen.
+
+A good resume does not list everything you have ever done. It highlights the most relevant things you have done, framed in a way that makes the reader think "I want to talk to this person."
+
+Keep this in mind as you work through each section.
+
+## Section 1: Contact Information
+
+This section should take up no more than 3 lines. Include only:
+- Your full name (as you want to be addressed)
+- City and state/province (your full address is unnecessary and can introduce bias)
+- One email address (professional — ideally firstname.lastname@domain.com)
+- One phone number
+- LinkedIn URL
+- GitHub or portfolio URL if relevant to your role
+
+Do not include: your full street address, multiple phone numbers, a photo (unless you are in a market where it is standard), your date of birth, or marital status.
+
+## Section 2: Professional Summary
+
+This is the first thing a recruiter reads, and most summaries are terrible. Here is what a bad summary looks like:
+
+"Hardworking professional with excellent communication skills seeking a challenging position at a growth-oriented company where I can utilize my skills and experience."
+
+This says nothing. Every word except "professional" is a cliche. Compare it with:
+
+"Full-stack engineer with 6 years of experience building payment systems at scale. Led migration of a monolithic Rails app to microservices, reducing deploy time from 45 minutes to 3 minutes. Looking for a senior backend role where I can apply my distributed systems experience."
+
+The second version tells me: what you actually do, at what level, with concrete proof, and what you want next. That is the template. Use it.
+
+**Formula**: [Role] with [X years] of experience in [domain]. [One specific, quantified achievement]. Seeking [what you want next].
+
+If you are entry-level or switching careers, replace the achievement with a relevant project or coursework, and make your target clear.
+
+## Section 3: Work Experience
+
+This is the most important section. It should answer one question for each role: "What did you actually achieve, and why should I care?"
+
+The standard format for each entry:
+- Company name, location (optional)
+- Job title, dates employed
+- 3-5 bullet points of achievements, not responsibilities
+
+The single biggest mistake candidates make is listing responsibilities instead of achievements. Here is the difference:
+
+**Responsibility (bad)**: "Responsible for managing the customer support team."
+**Achievement (good)**: "Managed a team of 8 support agents, reduced average response time from 6 hours to 45 minutes, and improved CSAT from 82% to 94% over 12 months."
+
+Every bullet point should, where possible, follow this structure: "Did X, resulting in Y, measured by Z."
+
+More examples:
+- "Redesigned the checkout flow, increasing conversion from 2.1% to 4.3% (a 105% improvement) within the first quarter."
+- "Built an internal CLI tool that automated database migrations across 12 microservices, saving the team an estimated 40 hours of manual work per release cycle."
+- "Onboarded and mentored 5 junior engineers who all shipped their first production feature within their first month."
+
+Notice how every example includes a number. Numbers make achievements concrete and believable. Even rough estimates are better than none.
+
+**Common questions:**
+
+*What if my job does not have measurable outcomes?* Find them. If you are in retail: "Processed an average of 80 customer transactions per shift with zero register discrepancies over 2 years." If you are an administrative assistant: "Coordinated travel arrangements for 12 executives, reducing travel-related scheduling conflicts by 30%." Every role has metrics. Find yours.
+
+*How many bullet points per role?* For your most recent role: 4-6. For older roles: 3-4. For roles more than 10 years old: consider reducing to 2 or even removing them entirely.
+
+*How far back should I go?* 10-15 years for senior roles. Less for junior roles. If you have relevant experience older than that, you can list it without bullet points under an "Earlier Experience" section.
+
+## Section 4: Education
+
+For experienced professionals, this section is brief: school, degree, major, graduation year (optional). For new graduates, place this section above work experience and include:
+- GPA if above 3.5 (or the equivalent in your country)
+- Relevant coursework
+- Academic honors and awards
+- Leadership roles in student organizations
+
+Do not list every course you took. List 4-6 courses most relevant to the job you want.
+
+## Section 5: Skills
+
+Keep this section a clean, scannable list. Divide it into categories if you have a diverse skill set:
+
+**Languages**: Python, TypeScript, Go, SQL
+**Frameworks**: React, FastAPI, Django
+**Infrastructure**: Kubernetes, Terraform, AWS (ECS, RDS, SQS)
+**Tools**: Datadog, GitHub Actions, pprof
+
+Do not use skill bars, star ratings, or "proficiency percentage" indicators. They are meaningless and waste space. "Python: 4/5 stars" tells me nothing — 4/5 by whose standard? Instead, the skills you list in your work experience bullets already communicate your proficiency through actual usage.
+
+If you are in a non-technical field, the same principle applies: list concrete skills like "Financial modeling, scenario analysis, stakeholder management" instead of vague ratings.
+
+## Section 6: Projects or Portfolio
+
+Include this section if: you are a new graduate, changing careers, or in a field where portfolios matter (design, writing, development).
+
+For each project: name, a one-line description, technologies used, and a link if available. If you have a GitHub profile with good projects, listing 2-3 of the best ones here with a link to your full profile works well.
+
+## Section 7: Certifications and Languages
+
+List certifications that are relevant to the role. "AWS Solutions Architect Associate" matters for a cloud role. "Excel 2013 Certified" does not matter for most roles in 2026. Include the issuing organization and year if it is still active.
+
+Language proficiency: list the language and your level (Native, Fluent, Professional Working, Conversational). Be honest — if someone interviews you in that language, it will become obvious immediately.
+
+## Formatting Rules That Actually Matter
+
+After content, formatting is the quiet signal that separates professional from amateur:
+
+1. **One page for under 10 years of experience.** Two pages for 10+ years or senior/executive roles. Three pages only for academic CVs or 20+ year executives.
+2. **Consistent spacing.** If there is a 12pt gap above one section heading and a 6pt gap above another, it looks sloppy. Hire a template or use a tool that handles this for you (like the one on this site).
+3. **One font, maximum two.** Sans-serif for most roles (cleaner, easier to read on screen). Serif for conservative industries (law, finance). Never more than two fonts.
+4. **PDF format only.** Never send a Word document — formatting shifts between versions of Word. Never send a Google Doc link that requires permissions.
+5. **File name**: FirstName-LastName-Resume.pdf. Not resume_final_v3_FINAL.pdf. Recruiters see your file name. Make it look intentional.
+
+## Before You Hit Send
+
+Run this checklist:
+- Spell-checked three times (read it out loud, have a friend read it, use a tool)
+- Contact info is correct and clickable (email + LinkedIn)
+- Bullet points use action verbs (led, built, designed, shipped, reduced, increased)
+- Every claim is backed by a number or concrete detail
+- File is a PDF with a clean filename
+- The resume answers "Why should I interview this person?" within 15 seconds of reading
+
+Remember, a resume is never really finished — it is just ready for the next application. Tailor it for each role, keep improving it, and when you get the interview, that is where the real conversation begins.e:["$","div",null,{"className":"min-h-screen relative overflow-hidden","children":[["$","div",null,{"className":"fixed inset-0 pointer-events-none z-0","children":[["$","div",null,{"className":"absolute inset-0 bg-grid-animated opacity-50"}],["$","div",null,{"className":"absolute top-[5%] right-0 w-[500px] h-[600px] rounded-full bg-accent-emerald/2 blur-[150px]"}],["$","div",null,{"className":"absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent-teal/2 blur-[120px]"}]]}],["$","article",null,{"className":"relative z-10 max-w-3xl mx-auto px-4 py-12 sm:py-20","children":[["$","$L16",null,{"href":"/en/blog","className":"inline-flex items-center gap-2 text-sm text-text-tertiary hover:text-accent-emerald transition-colors mb-10 group","children":[["$","svg",null,{"className":"w-4 h-4 group-hover:-translate-x-1 transition-transform","fill":"none","viewBox":"0 0 24 24","stroke":"currentColor","children":["$","path",null,{"strokeLinecap":"round","strokeLinejoin":"round","strokeWidth":2,"d":"M7 16l-4-4m0 0l4-4m-4 4h18"}]}],"Back to Blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex items-center gap-3 mb-5","children":[["$","span",null,{"className":"text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full","style":{"color":"#FF6B6B","backgroundColor":"#FF6B6B14"},"children":"Career & Resume"}],["$","span",null,{"className":"w-1 h-1 rounded-full bg-border-subtle"}],["$","time",null,{"className":"text-sm text-text-tertiary","children":"2026-05-13"}],["$","span",null,{"className":"w-1 h-1 rounded-full bg-border-subtle"}],["$","span",null,{"className":"text-sm text-text-tertiary","children":[12," min read"]}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl lg:text-5xl font-extrabold text-text-primary leading-[1.15] tracking-tight","children":"How to Write a Resume That Gets Interviews: A Step-by-Step Guide for 2026"}]]}],["$","div",null,{"className":"mt-8","children":["$","$L17",null,{"content":"$18"}]}],"$L19","$L1a"]}]]}]
+19:["$","div",null,{"className":"my-16 border-t border-border-subtle"}]
+1a:["$","section",null,{"children":[["$","div",null,{"className":"flex items-center gap-3 mb-6","children":[["$","div",null,{"className":"w-1.5 h-1.5 rounded-full","style":{"backgroundColor":"#FF6B6B"}}],["$","h2",null,{"className":"text-sm font-bold text-text-primary uppercase tracking-wider","children":"Related Articles"}]]}],["$","div",null,{"className":"grid grid-cols-1 sm:grid-cols-3 gap-4","children":[["$","$L16","ats-resume-guide",{"href":"/en/blog/ats-resume-guide","className":"group block rounded-xl border border-border-subtle bg-bg-surface/40 backdrop-blur-sm p-5 hover:border-accent-emerald/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent-emerald/5","children":[["$","span",null,{"className":"text-[10px] font-semibold uppercase tracking-wider text-text-tertiary mb-2 block","children":"2026-05-13"}],["$","h3",null,{"className":"font-semibold text-text-primary text-sm leading-snug group-hover:text-accent-emerald transition-colors line-clamp-2","children":"ATS Resume Guide: How to Beat Applicant Tracking Systems in 2026"}]]}],["$","$L16","resume-mistakes-to-avoid",{"href":"/en/blog/resume-mistakes-to-avoid","className":"group block rounded-xl border border-border-subtle bg-bg-surface/40 backdrop-blur-sm p-5 hover:border-accent-emerald/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent-emerald/5","children":[["$","span",null,{"className":"text-[10px] font-semibold uppercase tracking-wider text-text-tertiary mb-2 block","children":"2026-05-13"}],["$","h3",null,{"className":"font-semibold text-text-primary text-sm leading-snug group-hover:text-accent-emerald transition-colors line-clamp-2","children":"10 Resume Mistakes That Are Costing You Interviews"}]]}]]}]]}]
+13:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1b:I[20912,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js"],"IconMark"]
+11:null
+15:[["$","title","0",{"children":"How to Write a Resume That Gets Interviews: A Step-by-Step Guide for 2026"}],["$","meta","1",{"name":"description","content":"A practical, step-by-step guide to writing a resume that actually gets callbacks. Covers every section from summary to skills, with before-and-after examples and advice from a hiring manager's perspective."}],["$","meta","2",{"name":"keywords","content":"backend interview, system design, flash sale, membership system, points system, balance ledger, architecture design, interview questions"}],["$","link","3",{"rel":"canonical","href":"https://resbu.top/en/blog/how-to-write-a-resume"}],["$","link","4",{"rel":"alternate","hrefLang":"en","href":"https://resbu.top/en/blog/how-to-write-a-resume"}],["$","link","5",{"rel":"alternate","hrefLang":"zh","href":"https://resbu.top/zh/blog/how-to-write-a-resume"}],["$","link","6",{"rel":"alternate","hrefLang":"x-default","href":"https://resbu.top/en/blog/how-to-write-a-resume"}],["$","meta","7",{"property":"og:title","content":"How to Write a Resume That Gets Interviews: A Step-by-Step Guide for 2026"}],["$","meta","8",{"property":"og:description","content":"A practical, step-by-step guide to writing a resume that actually gets callbacks. Covers every section from summary to skills, with before-and-after examples and advice from a hiring manager's perspective."}],["$","meta","9",{"property":"og:url","content":"https://resbu.top/en/blog/how-to-write-a-resume"}],["$","meta","10",{"property":"og:site_name","content":"Resume Builder - resbu.top"}],["$","meta","11",{"property":"og:locale","content":"en_US"}],["$","meta","12",{"property":"og:image","content":"https://resbu.top/og-image.png"}],["$","meta","13",{"property":"og:image:width","content":"1200"}],["$","meta","14",{"property":"og:image:height","content":"630"}],["$","meta","15",{"property":"og:image:alt","content":"How to Write a Resume That Gets Interviews: A Step-by-Step Guide for 2026"}],["$","meta","16",{"property":"og:type","content":"article"}],["$","meta","17",{"property":"article:published_time","content":"2026-05-13"}],["$","meta","18",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","19",{"name":"twitter:title","content":"How to Write a Resume That Gets Interviews: A Step-by-Step Guide for 2026"}],["$","meta","20",{"name":"twitter:description","content":"A practical, step-by-step guide to writing a resume that actually gets callbacks. Covers every section from summary to skills, with before-and-after examples and advice from a hiring manager's perspective."}],["$","meta","21",{"name":"twitter:image","content":"https://resbu.top/og-image.png"}],["$","link","22",{"rel":"icon","href":"/favicon.svg"}],["$","$L1b","23",{}]]

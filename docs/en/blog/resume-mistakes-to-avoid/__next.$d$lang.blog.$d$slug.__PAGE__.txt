@@ -1,0 +1,85 @@
+1:"$Sreact.fragment"
+2:I[36281,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js","/_next/static/chunks/0ld302es.eryw.js","/_next/static/chunks/0i9f97z2xmh-6.js"],""]
+3:I[97632,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js","/_next/static/chunks/0ld302es.eryw.js","/_next/static/chunks/0i9f97z2xmh-6.js"],"default"]
+9:I[71496,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T1ec0,Some resume mistakes are obvious, like misspelling your own name. But most are not. They are subtle, widespread, and silently sabotaging candidates who are otherwise perfectly qualified. I have seen every one of these mistakes hundreds of times, across every level of seniority and every industry. Here they are — and how to fix them.
+
+## Mistake 1: A Generic Objective Statement
+
+"Seeking a challenging position where I can utilize my skills and contribute to organizational growth."
+
+This sentence has communicated zero information. It could belong to anyone, from a software engineer to a sales associate. A summary or objective statement is valuable — but only if it is specific.
+
+The fix: Be concrete. "Software engineer with 4 years of Android development experience, seeking a mid-level mobile role on a product team building consumer-facing applications." Now the reader knows exactly who you are and what you want. The generic version goes straight into the mental trash bin.
+
+## Mistake 2: Listing Responsibilities Instead of Achievements
+
+"Was responsible for managing social media accounts." OK, but what happened while you were managing them? Did follower count go up? Engagement improve? Any campaigns that performed particularly well?
+
+Hiring managers do not want to know what your job description said. They want to know whether you were good at the job. Achievement-based bullet points answer that question. Responsibility-based ones do not.
+
+The fix: For every bullet point, ask yourself "so what?" If the answer is not obvious from the bullet point itself, rewrite it until it is. "Grew Instagram following from 2,000 to 25,000 in 8 months through a user-generated content strategy" tells the reader you were good at the job. "Managed social media accounts" tells them you had a job.
+
+## Mistake 3: The "References Available Upon Request" Line
+
+This is the single most unnecessary line in resume history, and yet it persists. Of course your references are available upon request. That is how references work. Writing it out occupies valuable real estate on a one-page document and signals that you are following outdated advice.
+
+The fix: Delete the line. Use the space for something that matters. If a company wants references, they will ask for them.
+
+## Mistake 4: Using an Unprofessional Email Address
+
+If your email is anything like sk8terboi420@domain.com, create a new one. It takes five minutes. Recruiters do judge email addresses — I have seen it happen. A professional email (firstname.lastname@domain.com is the standard) is table stakes.
+
+The fix: Create a new, professional email address and forward it to your personal inbox. No recruiter should ever see an email that embarrasses you.
+
+## Mistake 5: Skill Bars and Self-Ratings
+
+This issue deserves special attention because it has become extremely common in the template era. "Python: 4/5 stars." "Communication: 90%." "React: intermediate." These self-assessments are worse than useless — they are actively harmful.
+
+First, your 4/5 is someone else's 2/5. There is no universal standard, so the numbers communicate nothing. Second, if you rate yourself 3/5 in a skill, you are advertising that you are mediocre at it before the interview even starts. Why would you do that? Third, rating yourself 5/5 in anything comes across as arrogance rather than confidence.
+
+The fix: Delete all skill ratings. Replace them with a clean list of concrete skills. Let your work experience bullets demonstrate your proficiency through actual usage. If you list "PostgreSQL" and your work experience says "Optimized a 200GB PostgreSQL database, reducing query latency from 12s to 800ms," the reader understands your level without a star rating.
+
+## Mistake 6: Too Much Information — Or Not Enough
+
+Some resumes drown the reader in detail: every project, every course, every certificate, every summer internship from 15 years ago. Others are so sparse that the reader learns nothing beyond job titles and dates. Both extremes get rejected.
+
+The Goldilocks zone: enough detail that each role tells a story, but not so much that the story gets lost in noise. A good rule of thumb: if a bullet point does not add new information about your capabilities, remove it. Two bullet points that say the same thing in different words is one too many.
+
+## Mistake 7: Inconsistent Formatting
+
+Spacing changes between sections. Font sizes drift. Dates are formatted "Jan 2022" in one place and "2022.01" in another. Bullet points switch from circles to dashes to arrows. None of these alone is fatal, but together they create an impression of carelessness — and a resume is a document that should demonstrate attention to detail above all else.
+
+The fix: Use a template or a tool that enforces consistency. If formatting by hand, do a final pass looking only at formatting, not content. Check that every date uses the same format, every section has the same spacing, and every font is applied uniformly.
+
+## Mistake 8: Buzzwords Without Substance
+
+"Results-driven professional with a proven track record of success." "Innovative thinker." "Team player." "Detail-oriented." These phrases appear on so many resumes that they have lost all meaning. Worse, they use up space that could contain actual evidence of these qualities.
+
+The fix: Show, do not tell. Do not say you are results-driven — describe the results you drove. Do not say you are detail-oriented — describe a situation where your attention to detail caught a critical issue before it reached production. Every buzzword you remove creates space for a specific example, and specific examples are what convince hiring managers.
+
+## Mistake 9: Not Accounting for the Six-Second Scan
+
+Multiple studies have confirmed that recruiters spend an average of 6-7 seconds on an initial resume scan before deciding whether to read further. In those six seconds, their eyes typically move in an F-shaped pattern: across the top (name, title, summary), then down the left side for section headings, then across the middle for the first bullet point or two.
+
+If your most impressive achievement is buried in the fourth bullet point of your third-listed job, it will not be seen in that initial scan.
+
+The fix: Put your strongest content where the F-pattern catches it. Lead with your best bullet point, not a chronological one. Place your most relevant role first if you are using a hybrid resume format. Make sure your section headings are clearly visible so the eye can navigate quickly.
+
+## Mistake 10: Spelling and Grammar Errors
+
+This should go without saying, but it happens so often that it must be said. A single typo on a resume sends a signal that you either did not review your work or did not care enough to fix it. In a document whose entire purpose is to demonstrate your professionalism and attention to detail, that signal is devastating.
+
+The most common typos I see: "Manger" instead of "Manager." "Lead" past-tense confusion (using "lead" when the correct past tense is "led"). "There/their/they're" confusion. "Principle" vs "Principal" engineer. "Responsible for" followed by a typo in the very first word of the description.
+
+The fix: Read your resume out loud — your ear catches errors your eyes skip over. Have another person read it. Run spell check. Then do all three again. Every round of review will catch something the previous round missed.
+
+## Bonus: Not Using Tools That Exist
+
+It is 2026. You do not need to format a resume from scratch in Microsoft Word, fighting with margins and font spacing for two hours. There are excellent free tools — including the one on this site — that handle formatting, ATS compatibility, and PDF generation instantly. Spend your time on what matters: writing strong bullet points, quantifying your achievements, and tailoring your content to each role. Let the tool handle the layout.0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen relative overflow-hidden","children":[["$","div",null,{"className":"fixed inset-0 pointer-events-none z-0","children":[["$","div",null,{"className":"absolute inset-0 bg-grid-animated opacity-50"}],["$","div",null,{"className":"absolute top-[5%] right-0 w-[500px] h-[600px] rounded-full bg-accent-emerald/2 blur-[150px]"}],["$","div",null,{"className":"absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent-teal/2 blur-[120px]"}]]}],["$","article",null,{"className":"relative z-10 max-w-3xl mx-auto px-4 py-12 sm:py-20","children":[["$","$L2",null,{"href":"/en/blog","className":"inline-flex items-center gap-2 text-sm text-text-tertiary hover:text-accent-emerald transition-colors mb-10 group","children":[["$","svg",null,{"className":"w-4 h-4 group-hover:-translate-x-1 transition-transform","fill":"none","viewBox":"0 0 24 24","stroke":"currentColor","children":["$","path",null,{"strokeLinecap":"round","strokeLinejoin":"round","strokeWidth":2,"d":"M7 16l-4-4m0 0l4-4m-4 4h18"}]}],"Back to Blog"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex items-center gap-3 mb-5","children":[["$","span",null,{"className":"text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full","style":{"color":"#FF6B6B","backgroundColor":"#FF6B6B14"},"children":"Career & Resume"}],["$","span",null,{"className":"w-1 h-1 rounded-full bg-border-subtle"}],["$","time",null,{"className":"text-sm text-text-tertiary","children":"2026-05-13"}],["$","span",null,{"className":"w-1 h-1 rounded-full bg-border-subtle"}],["$","span",null,{"className":"text-sm text-text-tertiary","children":[9," min read"]}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl lg:text-5xl font-extrabold text-text-primary leading-[1.15] tracking-tight","children":"10 Resume Mistakes That Are Costing You Interviews"}]]}],["$","div",null,{"className":"mt-8","children":["$","$L3",null,{"content":"$4"}]}],"$L5","$L6"]}]]}],["$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"nX1PiuYccvib-g4Gs0dNU"}
+5:["$","div",null,{"className":"my-16 border-t border-border-subtle"}]
+6:["$","section",null,{"children":[["$","div",null,{"className":"flex items-center gap-3 mb-6","children":[["$","div",null,{"className":"w-1.5 h-1.5 rounded-full","style":{"backgroundColor":"#FF6B6B"}}],["$","h2",null,{"className":"text-sm font-bold text-text-primary uppercase tracking-wider","children":"Related Articles"}]]}],["$","div",null,{"className":"grid grid-cols-1 sm:grid-cols-3 gap-4","children":[["$","$L2","how-to-write-a-resume",{"href":"/en/blog/how-to-write-a-resume","className":"group block rounded-xl border border-border-subtle bg-bg-surface/40 backdrop-blur-sm p-5 hover:border-accent-emerald/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent-emerald/5","children":[["$","span",null,{"className":"text-[10px] font-semibold uppercase tracking-wider text-text-tertiary mb-2 block","children":"2026-05-13"}],["$","h3",null,{"className":"font-semibold text-text-primary text-sm leading-snug group-hover:text-accent-emerald transition-colors line-clamp-2","children":"How to Write a Resume That Gets Interviews: A Step-by-Step Guide for 2026"}]]}],["$","$L2","ats-resume-guide",{"href":"/en/blog/ats-resume-guide","className":"group block rounded-xl border border-border-subtle bg-bg-surface/40 backdrop-blur-sm p-5 hover:border-accent-emerald/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent-emerald/5","children":[["$","span",null,{"className":"text-[10px] font-semibold uppercase tracking-wider text-text-tertiary mb-2 block","children":"2026-05-13"}],["$","h3",null,{"className":"font-semibold text-text-primary text-sm leading-snug group-hover:text-accent-emerald transition-colors line-clamp-2","children":"ATS Resume Guide: How to Beat Applicant Tracking Systems in 2026"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/_next/static/chunks/0i9f97z2xmh-6.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

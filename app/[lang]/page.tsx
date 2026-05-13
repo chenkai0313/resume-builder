@@ -322,9 +322,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-accent-emerald/10 text-accent-emerald">
                     {lang === 'zh' ? (
-                      post.category === 'interview' ? '面试题' : post.category === 'ai-tools' ? 'AI工具' : '技术文章'
+                      post.category === 'interview' ? '面试题' : post.category === 'ai-tools' ? 'AI工具' : post.category === 'career' ? '求职简历' : '技术文章'
                     ) : (
-                      post.category === 'interview' ? 'Interview Prep' : post.category === 'ai-tools' ? 'AI Tools' : 'Tech'
+                      post.category === 'interview' ? 'Interview Prep' : post.category === 'ai-tools' ? 'AI Tools' : post.category === 'career' ? 'Career' : 'Tech'
                     )}
                   </span>
                   <span className="text-xs text-text-tertiary">{post.date}</span>

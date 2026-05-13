@@ -1,0 +1,138 @@
+1:"$Sreact.fragment"
+2:I[36281,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js","/_next/static/chunks/0ld302es.eryw.js","/_next/static/chunks/0i9f97z2xmh-6.js"],""]
+3:I[97632,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js","/_next/static/chunks/0ld302es.eryw.js","/_next/static/chunks/0i9f97z2xmh-6.js"],"default"]
+9:I[71496,["/_next/static/chunks/0~2p-~xtlhcpn.js","/_next/static/chunks/0a0xhy._6~v2g.js"],"OutletBoundary"]
+a:"$Sreact.suspense"
+4:T1efd,我在担任技术主管和招聘经理期间，看过超过800份简历。有一个规律几乎从未被打破：80%的简历在打开后60秒内就被筛掉了。不是因为候选人能力不足，而是因为简历没有清晰地把他们的能力表达出来。
+
+这份指南是我希望每个求职者在点击"投递"按钮之前都能看到的东西。没有理论，没有空话——只有真正有效的方法。
+
+## 这份指南适合谁看
+
+如果你是应届毕业生、打算转行、或者不知道为什么明明条件不错却收不到面试通知——这份指南就是写给你的。我会逐个拆解简历的每一个部分，解释招聘经理真正在找什么，并用改写前后的实例来对比说明。
+
+## 黄金法则：你的简历是一份营销文件
+
+大多数人把简历当作个人生平记录。大错特错。简历是一份营销文件，它只有一个目标：让你拿到电话面试。
+
+一份好简历不会列出你做过的所有事情，而是挑选出最相关的事情，用让人读完想说"我想和这个人聊聊"的方式呈现出来。
+
+记住这一点，再往下看每一节的建议。
+
+## 第一部分：联系方式
+
+这部分不应该超过3行。只包含：
+- 你的全名
+- 所在城市（不需要完整地址，还可能带来偏见）
+- 一个专业邮箱（最好是 firstname.lastname@domain 格式）
+- 一个手机号码
+- LinkedIn 链接
+- 与你岗位相关的 GitHub 或作品集链接
+
+请不要放：身份证号、完整家庭住址、多个手机号、照片（除非在你所在的市场是标准做法）、出生日期、婚姻状况。
+
+## 第二部分：个人总结
+
+这是招聘方首先看到的内容，而大多数人的个人总结写得很糟糕。先看一个反面例子：
+
+"工作认真负责，沟通能力强，期望在快速发展的公司中寻求有挑战性的岗位，发挥我的技能和经验。"
+
+这等于什么都没说。几乎每个词都是套话。再对比一下正面例子：
+
+"全栈工程师，6年支付系统建设经验。主导了一个单体 Rails 应用到微服务的迁移，将部署时间从45分钟降到3分钟。寻找高级后端岗位，希望能运用我的分布式系统经验。"
+
+第二版告诉了我：你实际做什么、在什么层级、有具体成果作为证据、你下一步想做什么。这就是个人总结的模板。
+
+**公式**：我是 [角色]，有 [X年] [领域] 经验。[一项具体的、有数据支撑的成就]。[期望的发展方向]。
+
+如果你是应届毕业生或正在转行，可以把成就换成相关项目或课程经历，并明确你的目标方向。
+
+## 第三部分：工作经历
+
+这是最重要的部分。每个工作经历应该回答一个问题："你实际做到了什么，我为什么要在乎？"
+
+每个工作经历的标准格式：
+- 公司名称、所在城市（可选）
+- 岗位名称、在职时间
+- 3-5条成就描述，而非职责描述
+
+候选人最大的错误就是把"职责"当成"成就"来写。看下面的区别：
+
+**职责（错误写法）**："负责管理客服团队。"
+**成就（正确写法）**："管理8人客服团队，将平均响应时间从6小时降到45分钟，CSAT评分从82%提升到94%。"
+
+每条描述尽可能遵循这个结构："做了什么，带来了什么结果，用数据来衡量。"
+
+更多示例：
+- "重新设计了结账流程，转化率从2.1%提升到4.3%（增长105%）。"
+- "开发了一个内部CLI工具，自动化了12个微服务的数据库迁移，每次发版节省约40小时的人工操作时间。"
+- "带教了5名初级工程师，所有人都在入职一个月内成功上线了第一个生产特性。"
+
+注意：每个例子都包含数字。数字让成就变得具体可信。哪怕是粗略估算也远比没有强。
+
+**常见问题：**
+
+*如果我的工作没有直接可量化的成果怎么办？* 找到它们。如果你在零售行业："平均每班次处理80笔顾客交易，两年无收银差异。"如果你是行政助理："为12位高管协调差旅安排，将行程冲突减少30%。"每个岗位都有数据，找到属于你的。
+
+*每个工作经历写多少条？* 最近的一份：4-6条。更早的：3-4条。超过10年前的工作：考虑精简到2条或完全删除。
+
+*工作经历追溯到多久？* 高级职位10-15年。初级更短。如果你有超过这个时间段的亮眼经历，可以在"早期经历"中不展开列出。
+
+## 第四部分：教育背景
+
+对于有经验的专业人士，这部分非常简短：学校、学位、专业、毕业年份（可选）。应届毕业生应把教育背景放在工作经历之前，并包括：
+- GPA 如果高于 3.5/4.0（或你所在国家的同等水平）
+- 相关课程（4-6门即可，不要全部列出来）
+- 学术荣誉和奖项
+- 学生组织的领导角色
+
+## 第五部分：技能
+
+保持这个部分简洁易读。如果技能类型多样可以分组：
+
+**编程语言**：Python、TypeScript、Go、SQL
+**框架**：React、FastAPI、Django
+**基础设施**：Kubernetes、Terraform、AWS（ECS、RDS、SQS）
+**工具**：Datadog、GitHub Actions、pprof
+
+不要使用技能进度条、星级评分或"熟练度百分比"。它们毫无意义且浪费空间。"Python: 4/5星"说明不了任何问题——4/5是根据谁的标准？实际上，你在工作经历的成就描述中已经通过实际使用展示了你的技能水平。
+
+非技术领域同理：列出具体技能如"财务建模、情景分析、利益相关者管理"，而不是笼统的评分。
+
+## 第六部分：项目或作品集
+
+以下情况应包含此部分：应届毕业生、转行求职者、或你所在的领域看重作品集（设计、写作、开发）。
+
+每个项目包括：项目名称、一句话描述、使用的技术、以及链接（如有）。如果你的 GitHub 有好的项目，在此列出 2-3 个最好的并附上完整主页链接即可。
+
+## 第七部分：证书和语言能力
+
+列出与岗位相关的证书。"AWS解决方案架构师"对云岗位很重要。"Excel 2013认证"对于2026年的大多数岗位来说不重要。注明发证机构和年份（如果仍然有效）。
+
+语言能力：列出语言及你的水平（母语、流利、工作水平、日常对话）。诚实填写——如果面试时有人用那种语言和你交流，立刻就会被发现。
+
+## 真正重要的格式规则
+
+在内容之后，格式是区分专业和业余的无声信号：
+
+1. **工作经验不满10年，一页就够。** 10年以上或高级/管理职位可以两页。只有学术简历或20年以上高管才需要三页。
+2. **保持间距一致。** 如果一个段落标题上方12pt间距，另一个6pt，会显得非常外行。使用模板或工具自动处理这些（比如本站的简历生成器）。
+3. **最多使用两种字体。** 大多岗位用无衬线字体（更干净、屏幕阅读体验更好）。保守行业（法律、金融）用衬线字体。绝不超过两种字体。
+4. **只发PDF格式。** 绝不发Word文档——不同版本的Word之间格式会偏移。绝不发需要权限的Google Doc链接。
+5. **文件命名**：姓名-简历.pdf。不是"简历_最终版_最终版2_真的最终版.pdf"。招聘方看得到你的文件名，让它看起来有质量。
+
+## 投递之前的检查清单
+
+- 拼写检查三遍（出声读一遍、找朋友看一遍、再用检查工具过一遍）
+- 联系方式正确且可点击（邮箱 + LinkedIn）
+- 每条描述用动词开头（主导、构建、设计、上线、减少、增加）
+- 每个关键主张都有数字或具体细节支撑
+- 文件是PDF且文件名干净
+- 简历能在15秒内回答"我为什么该面试这个人？"
+
+记住，简历永远没有"真正完成"——它只是为下一次投递做好了准备。针对每个岗位调整，持续打磨，等你拿到面试机会，真正的对话才开始。0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen relative overflow-hidden","children":[["$","div",null,{"className":"fixed inset-0 pointer-events-none z-0","children":[["$","div",null,{"className":"absolute inset-0 bg-grid-animated opacity-50"}],["$","div",null,{"className":"absolute top-[5%] right-0 w-[500px] h-[600px] rounded-full bg-accent-emerald/2 blur-[150px]"}],["$","div",null,{"className":"absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent-teal/2 blur-[120px]"}]]}],["$","article",null,{"className":"relative z-10 max-w-3xl mx-auto px-4 py-12 sm:py-20","children":[["$","$L2",null,{"href":"/zh/blog","className":"inline-flex items-center gap-2 text-sm text-text-tertiary hover:text-accent-emerald transition-colors mb-10 group","children":[["$","svg",null,{"className":"w-4 h-4 group-hover:-translate-x-1 transition-transform","fill":"none","viewBox":"0 0 24 24","stroke":"currentColor","children":["$","path",null,{"strokeLinecap":"round","strokeLinejoin":"round","strokeWidth":2,"d":"M7 16l-4-4m0 0l4-4m-4 4h18"}]}],"返回博客"]}],["$","header",null,{"className":"mb-10","children":[["$","div",null,{"className":"flex items-center gap-3 mb-5","children":[["$","span",null,{"className":"text-[11px] font-semibold uppercase tracking-wider px-3 py-1 rounded-full","style":{"color":"#FF6B6B","backgroundColor":"#FF6B6B14"},"children":"求职与简历"}],["$","span",null,{"className":"w-1 h-1 rounded-full bg-border-subtle"}],["$","time",null,{"className":"text-sm text-text-tertiary","children":"2026-05-13"}],["$","span",null,{"className":"w-1 h-1 rounded-full bg-border-subtle"}],["$","span",null,{"className":"text-sm text-text-tertiary","children":[12," min read"]}]]}],["$","h1",null,{"className":"text-3xl sm:text-4xl lg:text-5xl font-extrabold text-text-primary leading-[1.15] tracking-tight","children":"如何撰写一份能获得面试机会的简历：2026年完整指南"}]]}],["$","div",null,{"className":"mt-8","children":["$","$L3",null,{"content":"$4"}]}],"$L5","$L6"]}]]}],["$L7"],"$L8"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"nX1PiuYccvib-g4Gs0dNU"}
+5:["$","div",null,{"className":"my-16 border-t border-border-subtle"}]
+6:["$","section",null,{"children":[["$","div",null,{"className":"flex items-center gap-3 mb-6","children":[["$","div",null,{"className":"w-1.5 h-1.5 rounded-full","style":{"backgroundColor":"#FF6B6B"}}],["$","h2",null,{"className":"text-sm font-bold text-text-primary uppercase tracking-wider","children":"相关文章"}]]}],["$","div",null,{"className":"grid grid-cols-1 sm:grid-cols-3 gap-4","children":[["$","$L2","ats-resume-guide",{"href":"/zh/blog/ats-resume-guide","className":"group block rounded-xl border border-border-subtle bg-bg-surface/40 backdrop-blur-sm p-5 hover:border-accent-emerald/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent-emerald/5","children":[["$","span",null,{"className":"text-[10px] font-semibold uppercase tracking-wider text-text-tertiary mb-2 block","children":"2026-05-13"}],["$","h3",null,{"className":"font-semibold text-text-primary text-sm leading-snug group-hover:text-accent-emerald transition-colors line-clamp-2","children":"ATS简历优化指南：如何通过申请人追踪系统筛选"}]]}],["$","$L2","resume-mistakes-to-avoid",{"href":"/zh/blog/resume-mistakes-to-avoid","className":"group block rounded-xl border border-border-subtle bg-bg-surface/40 backdrop-blur-sm p-5 hover:border-accent-emerald/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent-emerald/5","children":[["$","span",null,{"className":"text-[10px] font-semibold uppercase tracking-wider text-text-tertiary mb-2 block","children":"2026-05-13"}],["$","h3",null,{"className":"font-semibold text-text-primary text-sm leading-snug group-hover:text-accent-emerald transition-colors line-clamp-2","children":"10个让你错失面试机会的简历错误"}]]}]]}]]}]
+7:["$","script","script-0",{"src":"/_next/static/chunks/0i9f97z2xmh-6.js","async":true}]
+8:["$","$L9",null,{"children":["$","$a",null,{"name":"Next.MetadataOutlet","children":"$@b"}]}]
+b:null

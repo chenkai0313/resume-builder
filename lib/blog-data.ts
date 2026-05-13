@@ -1,4 +1,4 @@
-export type BlogCategory = 'ai-tools' | 'tech' | 'interview'
+export type BlogCategory = 'ai-tools' | 'tech' | 'interview' | 'career'
 
 export interface BlogPostMeta {
   slug: string
@@ -18,6 +18,7 @@ export const categories: { id: BlogCategory; name: { en: string; zh: string }; c
   { id: 'ai-tools', name: { en: 'AI Tools News', zh: 'AI工具新闻' }, color: '#00E676' },
   { id: 'tech', name: { en: 'Tech Articles', zh: '技术文章分享' }, color: '#00BFA5' },
   { id: 'interview', name: { en: 'Interview Prep', zh: '面试题分享' }, color: '#69F0AE' },
+  { id: 'career', name: { en: 'Career & Resume', zh: '求职与简历' }, color: '#FF6B6B' },
 ]
 
 export const posts: BlogPostMeta[] = [
@@ -828,5 +829,626 @@ Live with it when business pressure is high, the team is stretched, and the modu
 *以上覆盖高可用、高并发、微服务、分布式、MQ、缓存、To B 多租户与权限、技术选型与落地、软技能等，可作为架构师与 To B 方向面试准备。*`,
     },
     readTime: 25,
+  },
+  {
+    slug: 'how-to-write-a-resume',
+    category: 'career',
+    date: '2026-05-13',
+    title: {
+      en: 'How to Write a Resume That Gets Interviews: A Step-by-Step Guide for 2026',
+      zh: '如何撰写一份能获得面试机会的简历：2026年完整指南',
+    },
+    excerpt: {
+      en: 'A practical, step-by-step guide to writing a resume that actually gets callbacks. Covers every section from summary to skills, with before-and-after examples and advice from a hiring manager\'s perspective.',
+      zh: '一份实战简历撰写指南，从个人总结到技能证书逐一拆解，附带改写前后对比示例，从招聘经理角度告诉你什么样的简历才能获得面试机会。',
+    },
+    content: {
+      en: `I have reviewed over 800 resumes in my career as a hiring manager and tech lead. The pattern is so consistent it is almost a law of nature: 80% of resumes are filtered out within 60 seconds of being opened. Not because the candidates are unqualified, but because the resume fails to communicate their qualifications clearly.
+
+This guide is everything I wish every candidate knew before hitting "Apply." No theory, no filler — just what actually works, backed by real hiring experience.
+
+## Who This Guide Is For
+
+If you are writing your first resume, switching careers, or just wondering why you are not getting callbacks despite being qualified — this guide is for you. I will walk through every section of a resume, explain what hiring managers actually look for, and show you concrete before-and-after examples.
+
+## The Golden Rule: Your Resume Is a Marketing Document
+
+Most people treat their resume like a biography. It is not. It is a marketing document with one job: to get you a phone screen.
+
+A good resume does not list everything you have ever done. It highlights the most relevant things you have done, framed in a way that makes the reader think "I want to talk to this person."
+
+Keep this in mind as you work through each section.
+
+## Section 1: Contact Information
+
+This section should take up no more than 3 lines. Include only:
+- Your full name (as you want to be addressed)
+- City and state/province (your full address is unnecessary and can introduce bias)
+- One email address (professional — ideally firstname.lastname@domain.com)
+- One phone number
+- LinkedIn URL
+- GitHub or portfolio URL if relevant to your role
+
+Do not include: your full street address, multiple phone numbers, a photo (unless you are in a market where it is standard), your date of birth, or marital status.
+
+## Section 2: Professional Summary
+
+This is the first thing a recruiter reads, and most summaries are terrible. Here is what a bad summary looks like:
+
+"Hardworking professional with excellent communication skills seeking a challenging position at a growth-oriented company where I can utilize my skills and experience."
+
+This says nothing. Every word except "professional" is a cliche. Compare it with:
+
+"Full-stack engineer with 6 years of experience building payment systems at scale. Led migration of a monolithic Rails app to microservices, reducing deploy time from 45 minutes to 3 minutes. Looking for a senior backend role where I can apply my distributed systems experience."
+
+The second version tells me: what you actually do, at what level, with concrete proof, and what you want next. That is the template. Use it.
+
+**Formula**: [Role] with [X years] of experience in [domain]. [One specific, quantified achievement]. Seeking [what you want next].
+
+If you are entry-level or switching careers, replace the achievement with a relevant project or coursework, and make your target clear.
+
+## Section 3: Work Experience
+
+This is the most important section. It should answer one question for each role: "What did you actually achieve, and why should I care?"
+
+The standard format for each entry:
+- Company name, location (optional)
+- Job title, dates employed
+- 3-5 bullet points of achievements, not responsibilities
+
+The single biggest mistake candidates make is listing responsibilities instead of achievements. Here is the difference:
+
+**Responsibility (bad)**: "Responsible for managing the customer support team."
+**Achievement (good)**: "Managed a team of 8 support agents, reduced average response time from 6 hours to 45 minutes, and improved CSAT from 82% to 94% over 12 months."
+
+Every bullet point should, where possible, follow this structure: "Did X, resulting in Y, measured by Z."
+
+More examples:
+- "Redesigned the checkout flow, increasing conversion from 2.1% to 4.3% (a 105% improvement) within the first quarter."
+- "Built an internal CLI tool that automated database migrations across 12 microservices, saving the team an estimated 40 hours of manual work per release cycle."
+- "Onboarded and mentored 5 junior engineers who all shipped their first production feature within their first month."
+
+Notice how every example includes a number. Numbers make achievements concrete and believable. Even rough estimates are better than none.
+
+**Common questions:**
+
+*What if my job does not have measurable outcomes?* Find them. If you are in retail: "Processed an average of 80 customer transactions per shift with zero register discrepancies over 2 years." If you are an administrative assistant: "Coordinated travel arrangements for 12 executives, reducing travel-related scheduling conflicts by 30%." Every role has metrics. Find yours.
+
+*How many bullet points per role?* For your most recent role: 4-6. For older roles: 3-4. For roles more than 10 years old: consider reducing to 2 or even removing them entirely.
+
+*How far back should I go?* 10-15 years for senior roles. Less for junior roles. If you have relevant experience older than that, you can list it without bullet points under an "Earlier Experience" section.
+
+## Section 4: Education
+
+For experienced professionals, this section is brief: school, degree, major, graduation year (optional). For new graduates, place this section above work experience and include:
+- GPA if above 3.5 (or the equivalent in your country)
+- Relevant coursework
+- Academic honors and awards
+- Leadership roles in student organizations
+
+Do not list every course you took. List 4-6 courses most relevant to the job you want.
+
+## Section 5: Skills
+
+Keep this section a clean, scannable list. Divide it into categories if you have a diverse skill set:
+
+**Languages**: Python, TypeScript, Go, SQL
+**Frameworks**: React, FastAPI, Django
+**Infrastructure**: Kubernetes, Terraform, AWS (ECS, RDS, SQS)
+**Tools**: Datadog, GitHub Actions, pprof
+
+Do not use skill bars, star ratings, or "proficiency percentage" indicators. They are meaningless and waste space. "Python: 4/5 stars" tells me nothing — 4/5 by whose standard? Instead, the skills you list in your work experience bullets already communicate your proficiency through actual usage.
+
+If you are in a non-technical field, the same principle applies: list concrete skills like "Financial modeling, scenario analysis, stakeholder management" instead of vague ratings.
+
+## Section 6: Projects or Portfolio
+
+Include this section if: you are a new graduate, changing careers, or in a field where portfolios matter (design, writing, development).
+
+For each project: name, a one-line description, technologies used, and a link if available. If you have a GitHub profile with good projects, listing 2-3 of the best ones here with a link to your full profile works well.
+
+## Section 7: Certifications and Languages
+
+List certifications that are relevant to the role. "AWS Solutions Architect Associate" matters for a cloud role. "Excel 2013 Certified" does not matter for most roles in 2026. Include the issuing organization and year if it is still active.
+
+Language proficiency: list the language and your level (Native, Fluent, Professional Working, Conversational). Be honest — if someone interviews you in that language, it will become obvious immediately.
+
+## Formatting Rules That Actually Matter
+
+After content, formatting is the quiet signal that separates professional from amateur:
+
+1. **One page for under 10 years of experience.** Two pages for 10+ years or senior/executive roles. Three pages only for academic CVs or 20+ year executives.
+2. **Consistent spacing.** If there is a 12pt gap above one section heading and a 6pt gap above another, it looks sloppy. Hire a template or use a tool that handles this for you (like the one on this site).
+3. **One font, maximum two.** Sans-serif for most roles (cleaner, easier to read on screen). Serif for conservative industries (law, finance). Never more than two fonts.
+4. **PDF format only.** Never send a Word document — formatting shifts between versions of Word. Never send a Google Doc link that requires permissions.
+5. **File name**: FirstName-LastName-Resume.pdf. Not resume_final_v3_FINAL.pdf. Recruiters see your file name. Make it look intentional.
+
+## Before You Hit Send
+
+Run this checklist:
+- Spell-checked three times (read it out loud, have a friend read it, use a tool)
+- Contact info is correct and clickable (email + LinkedIn)
+- Bullet points use action verbs (led, built, designed, shipped, reduced, increased)
+- Every claim is backed by a number or concrete detail
+- File is a PDF with a clean filename
+- The resume answers "Why should I interview this person?" within 15 seconds of reading
+
+Remember, a resume is never really finished — it is just ready for the next application. Tailor it for each role, keep improving it, and when you get the interview, that is where the real conversation begins.`,
+      zh: `我在担任技术主管和招聘经理期间，看过超过800份简历。有一个规律几乎从未被打破：80%的简历在打开后60秒内就被筛掉了。不是因为候选人能力不足，而是因为简历没有清晰地把他们的能力表达出来。
+
+这份指南是我希望每个求职者在点击"投递"按钮之前都能看到的东西。没有理论，没有空话——只有真正有效的方法。
+
+## 这份指南适合谁看
+
+如果你是应届毕业生、打算转行、或者不知道为什么明明条件不错却收不到面试通知——这份指南就是写给你的。我会逐个拆解简历的每一个部分，解释招聘经理真正在找什么，并用改写前后的实例来对比说明。
+
+## 黄金法则：你的简历是一份营销文件
+
+大多数人把简历当作个人生平记录。大错特错。简历是一份营销文件，它只有一个目标：让你拿到电话面试。
+
+一份好简历不会列出你做过的所有事情，而是挑选出最相关的事情，用让人读完想说"我想和这个人聊聊"的方式呈现出来。
+
+记住这一点，再往下看每一节的建议。
+
+## 第一部分：联系方式
+
+这部分不应该超过3行。只包含：
+- 你的全名
+- 所在城市（不需要完整地址，还可能带来偏见）
+- 一个专业邮箱（最好是 firstname.lastname@domain 格式）
+- 一个手机号码
+- LinkedIn 链接
+- 与你岗位相关的 GitHub 或作品集链接
+
+请不要放：身份证号、完整家庭住址、多个手机号、照片（除非在你所在的市场是标准做法）、出生日期、婚姻状况。
+
+## 第二部分：个人总结
+
+这是招聘方首先看到的内容，而大多数人的个人总结写得很糟糕。先看一个反面例子：
+
+"工作认真负责，沟通能力强，期望在快速发展的公司中寻求有挑战性的岗位，发挥我的技能和经验。"
+
+这等于什么都没说。几乎每个词都是套话。再对比一下正面例子：
+
+"全栈工程师，6年支付系统建设经验。主导了一个单体 Rails 应用到微服务的迁移，将部署时间从45分钟降到3分钟。寻找高级后端岗位，希望能运用我的分布式系统经验。"
+
+第二版告诉了我：你实际做什么、在什么层级、有具体成果作为证据、你下一步想做什么。这就是个人总结的模板。
+
+**公式**：我是 [角色]，有 [X年] [领域] 经验。[一项具体的、有数据支撑的成就]。[期望的发展方向]。
+
+如果你是应届毕业生或正在转行，可以把成就换成相关项目或课程经历，并明确你的目标方向。
+
+## 第三部分：工作经历
+
+这是最重要的部分。每个工作经历应该回答一个问题："你实际做到了什么，我为什么要在乎？"
+
+每个工作经历的标准格式：
+- 公司名称、所在城市（可选）
+- 岗位名称、在职时间
+- 3-5条成就描述，而非职责描述
+
+候选人最大的错误就是把"职责"当成"成就"来写。看下面的区别：
+
+**职责（错误写法）**："负责管理客服团队。"
+**成就（正确写法）**："管理8人客服团队，将平均响应时间从6小时降到45分钟，CSAT评分从82%提升到94%。"
+
+每条描述尽可能遵循这个结构："做了什么，带来了什么结果，用数据来衡量。"
+
+更多示例：
+- "重新设计了结账流程，转化率从2.1%提升到4.3%（增长105%）。"
+- "开发了一个内部CLI工具，自动化了12个微服务的数据库迁移，每次发版节省约40小时的人工操作时间。"
+- "带教了5名初级工程师，所有人都在入职一个月内成功上线了第一个生产特性。"
+
+注意：每个例子都包含数字。数字让成就变得具体可信。哪怕是粗略估算也远比没有强。
+
+**常见问题：**
+
+*如果我的工作没有直接可量化的成果怎么办？* 找到它们。如果你在零售行业："平均每班次处理80笔顾客交易，两年无收银差异。"如果你是行政助理："为12位高管协调差旅安排，将行程冲突减少30%。"每个岗位都有数据，找到属于你的。
+
+*每个工作经历写多少条？* 最近的一份：4-6条。更早的：3-4条。超过10年前的工作：考虑精简到2条或完全删除。
+
+*工作经历追溯到多久？* 高级职位10-15年。初级更短。如果你有超过这个时间段的亮眼经历，可以在"早期经历"中不展开列出。
+
+## 第四部分：教育背景
+
+对于有经验的专业人士，这部分非常简短：学校、学位、专业、毕业年份（可选）。应届毕业生应把教育背景放在工作经历之前，并包括：
+- GPA 如果高于 3.5/4.0（或你所在国家的同等水平）
+- 相关课程（4-6门即可，不要全部列出来）
+- 学术荣誉和奖项
+- 学生组织的领导角色
+
+## 第五部分：技能
+
+保持这个部分简洁易读。如果技能类型多样可以分组：
+
+**编程语言**：Python、TypeScript、Go、SQL
+**框架**：React、FastAPI、Django
+**基础设施**：Kubernetes、Terraform、AWS（ECS、RDS、SQS）
+**工具**：Datadog、GitHub Actions、pprof
+
+不要使用技能进度条、星级评分或"熟练度百分比"。它们毫无意义且浪费空间。"Python: 4/5星"说明不了任何问题——4/5是根据谁的标准？实际上，你在工作经历的成就描述中已经通过实际使用展示了你的技能水平。
+
+非技术领域同理：列出具体技能如"财务建模、情景分析、利益相关者管理"，而不是笼统的评分。
+
+## 第六部分：项目或作品集
+
+以下情况应包含此部分：应届毕业生、转行求职者、或你所在的领域看重作品集（设计、写作、开发）。
+
+每个项目包括：项目名称、一句话描述、使用的技术、以及链接（如有）。如果你的 GitHub 有好的项目，在此列出 2-3 个最好的并附上完整主页链接即可。
+
+## 第七部分：证书和语言能力
+
+列出与岗位相关的证书。"AWS解决方案架构师"对云岗位很重要。"Excel 2013认证"对于2026年的大多数岗位来说不重要。注明发证机构和年份（如果仍然有效）。
+
+语言能力：列出语言及你的水平（母语、流利、工作水平、日常对话）。诚实填写——如果面试时有人用那种语言和你交流，立刻就会被发现。
+
+## 真正重要的格式规则
+
+在内容之后，格式是区分专业和业余的无声信号：
+
+1. **工作经验不满10年，一页就够。** 10年以上或高级/管理职位可以两页。只有学术简历或20年以上高管才需要三页。
+2. **保持间距一致。** 如果一个段落标题上方12pt间距，另一个6pt，会显得非常外行。使用模板或工具自动处理这些（比如本站的简历生成器）。
+3. **最多使用两种字体。** 大多岗位用无衬线字体（更干净、屏幕阅读体验更好）。保守行业（法律、金融）用衬线字体。绝不超过两种字体。
+4. **只发PDF格式。** 绝不发Word文档——不同版本的Word之间格式会偏移。绝不发需要权限的Google Doc链接。
+5. **文件命名**：姓名-简历.pdf。不是"简历_最终版_最终版2_真的最终版.pdf"。招聘方看得到你的文件名，让它看起来有质量。
+
+## 投递之前的检查清单
+
+- 拼写检查三遍（出声读一遍、找朋友看一遍、再用检查工具过一遍）
+- 联系方式正确且可点击（邮箱 + LinkedIn）
+- 每条描述用动词开头（主导、构建、设计、上线、减少、增加）
+- 每个关键主张都有数字或具体细节支撑
+- 文件是PDF且文件名干净
+- 简历能在15秒内回答"我为什么该面试这个人？"
+
+记住，简历永远没有"真正完成"——它只是为下一次投递做好了准备。针对每个岗位调整，持续打磨，等你拿到面试机会，真正的对话才开始。`,
+    },
+    readTime: 12,
+  },
+  {
+    slug: 'ats-resume-guide',
+    category: 'career',
+    date: '2026-05-13',
+    title: {
+      en: 'ATS Resume Guide: How to Beat Applicant Tracking Systems in 2026',
+      zh: 'ATS简历优化指南：如何通过申请人追踪系统筛选',
+    },
+    excerpt: {
+      en: 'Most resumes are rejected by ATS software before a human ever sees them. Learn how ATS actually works, what formatting choices get you auto-rejected, and a keyword strategy that gets your resume through the filter.',
+      zh: '大多数简历在被人看到之前就已经被ATS系统自动筛掉了。了解ATS的真实工作原理，哪些格式选择会导致自动淘汰，以及能让你的简历通过筛选的关键词策略。',
+    },
+    content: {
+      en: `Here is a statistic that should reshape how you think about job applications: an estimated 75% of resumes submitted online are filtered out by software before a human lays eyes on them. Not because the candidates are unqualified, but because their resumes were not designed to survive an ATS (Applicant Tracking System).
+
+I learned this lesson the hard way early in my career. I submitted dozens of applications with what I thought was a solid resume — clean formatting, tasteful design elements, multi-column layout. Silence. Then I stripped out every visual element, reformatted to a single-column text layout, and carefully added keywords from the job descriptions. The callback rate tripled within a week.
+
+This guide explains what I wish I had known from day one.
+
+## What Is an ATS and Why Should You Care?
+
+An ATS is software that companies use to manage their hiring pipeline. Think of it as a CRM for recruiting. The big players — Workday, Greenhouse, Lever, Taleo, BambooHR — are used by companies of all sizes, from tech giants to local enterprises.
+
+When you upload your resume to a company's career portal, it does not go to a recruiter's inbox. It goes into the ATS, where it is parsed, stored, and most importantly — filtered. The system extracts text from your resume, compares it against the job description, and assigns a relevance score. Resumes below a certain threshold are never seen by a human.
+
+This is not some conspiracy or dystopian plot. Recruiters at large companies often handle 50-200 open requisitions simultaneously. They literally cannot read every resume. The ATS is a filter, and your job is to make sure your resume passes through it.
+
+## How ATS Parsing Actually Works
+
+When you upload a PDF or Word document, the ATS extracts raw text from it. This process is surprisingly fragile. Here is what commonly goes wrong:
+
+**Multi-column layouts confuse the parser.** An ATS typically reads left to right, top to bottom. If your resume has a left sidebar with contact info and skills, and a right column with work experience, the parser might interleave text from both columns into a garbled mess. The result: your skills end up mixed with your job titles, and nothing makes sense.
+
+**Graphics, icons, and images are invisible to the parser.** That nice set of icons next to your contact info, the skill bars, the company logos — the ATS sees none of it. If your name is inside a graphic (e.g., a designed header), the ATS might not capture your name at all.
+
+**Custom fonts and special characters can get corrupted.** Bullet points, em dashes, and non-standard characters sometimes parse as garbage characters, making sections of your resume unreadable to the ATS.
+
+**Tables and text boxes are risky.** Many ATS parsers cannot extract text from table cells or floating text boxes reliably. Your content is simply lost.
+
+**Headers and footers may be skipped.** Some ATS parsers ignore text in headers and footers entirely. If you put your contact information there, it might not be captured.
+
+## The ATS-Safe Formatting Checklist
+
+Follow these rules and your resume will parse correctly in virtually every ATS on the market:
+
+1. **Single-column layout.** No sidebars, no multi-column sections, no text wrapping around images. A straightforward top-to-bottom flow.
+
+2. **Standard section headings.** Use clear, conventional labels: Work Experience, Education, Skills, Projects, Certifications. Do not get creative — "Where I Have Made an Impact" is cute but the ATS is looking for "Work Experience."
+
+3. **Standard fonts.** Arial, Helvetica, Times New Roman, Calibri, Georgia, Garamond. Avoid custom, decorative, or script fonts.
+
+4. **No graphics, no icons, no images.** No skill bars, no star ratings, no headshot, no logo. All text, all the time.
+
+5. **No tables, no text boxes, no columns.** Use paragraph text and simple lists. Tabs and spaces for indentation are fine; table cells are not.
+
+6. **Use standard date formats.** "January 2022 - March 2025" or "2022-01 to 2025-03." The ATS can parse these; it might fail on "Jan '22 - Mar '25."
+
+7. **PDF is preferred over Word, but verify.** Most modern ATS handle PDF well, but some older systems prefer Word. If you are applying to an older or conservative company, consider submitting both PDF and Word if the portal allows it.
+
+## Keyword Strategy: How to Actually Beat the Filter
+
+This is the part most people get wrong. They either stuff keywords awkwardly or ignore them entirely. Here is the smart approach.
+
+**Step 1: Extract keywords from the job description.** Read the job posting and pull out:
+- Hard skills mentioned (e.g., Kubernetes, financial modeling, Adobe Premiere)
+- Soft skills mentioned (e.g., cross-functional collaboration, stakeholder management)
+- Tools, platforms, and technologies
+- Certifications or qualifications explicitly required or preferred
+- Domain-specific terminology (e.g., patient care, supply chain, unit economics)
+
+**Step 2: Map these keywords to your actual experience.** Do not just list them. For each keyword, identify where in your career you actually used or demonstrated it. If the job asks for "Kubernetes" and you used Kubernetes to orchestrate a microservices deployment, include that in the relevant work experience bullet: "Deployed and scaled 14 microservices on Kubernetes (EKS), reducing infrastructure costs by 35%."
+
+**Step 3: Integrate keywords naturally into your bullet points and summary.** The ATS checks for presence and frequency, but a human will read it too. If your resume reads "Kubernetes Kubernetes Kubernetes" like a broken robot, you will get past the ATS only to be rejected by the human. Natural integration means: the keyword appears because it is part of a genuine description of what you did.
+
+**Step 4: Include both the spelled-out version and the acronym.** "Search Engine Optimization (SEO)" covers both. The ATS might search for either term.
+
+**Step 5: Tailor your resume for each application.** Yes, this takes time. It also produces dramatically better results. Make a master resume with everything, then for each application, trim and adjust to match the specific job description keywords. Spending 30 minutes customizing for a role that could change your career is a good investment.
+
+## Common ATS Myths, Debunked
+
+**Myth: "Use white text to hide keywords."** This is ancient SEO spam logic, and it does not work on ATS. Most modern ATS strips formatting and displays all text in a readable color to the recruiter. Even if it didn't, parsed text is what the system indexes — hidden or not, the recruiter can search and find it. You will look dishonest and get rejected.
+
+**Myth: "You need to pay for an ATS scan service."** Some services charge $30-$50 to "scan" your resume against an ATS. Most of these are using simple keyword-matching algorithms no better than what you can do yourself by carefully reading the job description. Save your money.
+
+**Myth: "All companies use ATS."** Small companies, startups under ~50 people, and many local businesses do not use an ATS. But the majority of large and mid-size companies do. You should always assume an ATS is in play unless you know otherwise.
+
+**Myth: "Once your resume is in the ATS, you cannot update it."** Most ATS allow you to upload a new resume even after submitting. The system typically keeps the most recent version. If you realize you missed a keyword or found a typo, update and re-upload.
+
+## Putting It All Together
+
+An ATS-optimized resume is fundamentally a clean, well-structured, keyword-aware document. The same choices that make it parse well also make it easier for a human to scan quickly. That is the hidden benefit: ATS optimization and good resume design are not at odds. A single-column, cleanly formatted, well-written resume works for both machines and humans.
+
+The worst thing you can do is create a visually elaborate resume that parses into gibberish and gets auto-rejected before anyone reads it. Erring on the side of simplicity protects you at every stage of the process.
+
+If you are building a resume now, use one of the General category templates on this site — they are designed to be ATS-compatible out of the box. The Minimalist, ATS-Optimized, and Traditional Corporate templates all use single-column layouts with standard section headings and no graphics.`,
+      zh: `有一个数据应该改变你对求职的认知：据估计，网上投递的简历中约75%在被人看到之前就被软件自动筛掉了。不是因为候选人不合格，而是因为他们的简历设计没有考虑到 ATS（申请人追踪系统）的存在。
+
+我在职业生涯早期就吃过这个亏。我投了几十份申请，用的是一份我认为很不错的简历——干净的排版、有品位的设计元素、双栏布局。石沉大海。后来我删掉所有视觉元素，改成纯文本单栏布局，并仔细从职位描述中提取关键词加入简历。一周之内，电话面试率翻了三倍。
+
+这份指南解释了我当初就应该知道的一切。
+
+## 什么是 ATS，为什么它很重要？
+
+ATS 是公司用来管理招聘流程的软件，可以理解为招聘领域的 CRM 系统。主流产品——Workday、Greenhouse、Lever、Taleo、北森、Moka——被从科技巨头到本地企业的各种规模的公司使用。
+
+当你在公司招聘门户上传简历时，它并不会直接进入招聘人员的收件箱。它进入 ATS，在那里被解析、存储，最重要的是——被筛选。系统从你的简历中提取文本，与职位描述进行比对，生成一个匹配度评分。低于某个阈值分数线的简历永远不会被人看到。
+
+这不是阴谋论。大公司的招聘人员往往同时处理50-200个岗位需求。他们真的不可能逐份阅读所有简历。ATS 是一道筛子，你的任务就是确保你的简历能通过这道筛子。
+
+## ATS 解析简历的真实原理
+
+当你上传 PDF 或 Word 文件时，ATS 会从中提取纯文本。这个过程出奇地脆弱。以下是常见的问题：
+
+**多栏布局会让解析器混乱。** ATS 通常从左到右、从上到下读取内容。如果你的简历左侧是联系方式和技能的侧边栏，右侧是工作经历，解析器可能会把两栏的内容交错混在一起。结果：你的技能和工作头衔混成一团，什么都对不上。
+
+**图形、图标和图片对解析器是不可见的。** 那些漂亮的联系方式图标、技能进度条、公司 logo——ATS 什么都看不到。如果你的名字嵌在图片里（比如设计过的头图），ATS 甚至可能捕捉不到你的名字。
+
+**自定义字体和特殊字符会被乱码。** 项目符号、破折号和非标准字符有时会被解析成垃圾字符，导致部分内容在 ATS 中无法阅读。
+
+**表格和文本框是有风险的。** 很多 ATS 解析器无法可靠地从表格单元格或浮动文本框中提取文字。你的内容直接丢失了。
+
+**页眉和页脚可能被跳过。** 一些 ATS 会完全忽略页眉和页脚中的文字。如果你把联系方式放在那里，可能根本不被捕获。
+
+## ATS 安全格式检查清单
+
+遵循以下规则，你的简历在几乎所有 ATS 系统中都能正确解析：
+
+1. **单栏布局。** 无侧边栏、无多栏分区、无文字环绕图片。简单的自上而下的排版。
+
+2. **用标准的章节标题。** 使用清晰、传统的标签：工作经历、教育背景、技能、项目经验、证书。不要别出心裁——"我创造过影响的地方"听起来很文艺，但 ATS 在找的是"工作经历"。
+
+3. **标准字体。** 使用宋体、黑体、微软雅黑、Arial、Helvetica、Times New Roman。避免自定义字体、装饰性字体或手写体。
+
+4. **无图形、无图标、无图片。** 无技能进度条、无星级评分、无头像、无 logo。纯文字到底。
+
+5. **无表格、无文本框、无分栏。** 使用段落文字和简单列表。用空格缩进可以，表格不行。
+
+6. **使用标准日期格式。** "2022年1月 - 2025年3月"或"2022-01 至 2025-03"。ATS 能解析这些格式。
+
+7. **PDF 优先于 Word，但请确认。** 大多数现代 ATS 都能处理好 PDF，但有些老系统偏好 Word。如果申请传统公司，可以在系统允许的情况下同时提交 PDF 和 Word 两份。
+
+## 关键词策略：真正通过筛选的方法
+
+这是大多数人做错的部分。要么僵硬地堆砌关键词，要么完全忽略。以下是正确做法。
+
+**第一步：从职位描述中提取关键词。** 阅读招聘信息，找出：
+- 硬技能（如 Kubernetes、财务建模、Adobe Premiere）
+- 软技能（如跨部门协作、利益相关者管理）
+- 工具、平台和技术
+- 明确要求或优先考虑的证书和资质
+- 领域专业术语（如患者护理、供应链、单位经济学）
+
+**第二步：将这些关键词映射到你的实际经历。** 不要只是把它们列出来。对每个关键词，找出你在职业经历中实际使用或展示它的地方。如果职位要求"Kubernetes"，而你确实用过它来编排微服务部署，就把它写入相关的工作描述："在 Kubernetes (EKS) 上部署和扩展了14个微服务，基础设施成本降低35%。"
+
+**第三步：自然地融入你的描述和总结。** ATS 会检查关键词的存在和频率，但最终读它的还是人。如果你的简历读起来像"Kubernetes Kubernetes Kubernetes"这种坏掉的机器人，你通过了 ATS 也会被真人拒绝。自然融入的意思是：关键词出现是因为它确实是你真实经历的有机组成部分。
+
+**第四步：同时包含全称和缩写。** 写"搜索引擎优化 (SEO)"两个都覆盖了。ATS 可能会搜索任意一种写法。
+
+**第五步：为每个申请定制你的简历。** 是的，这需要时间。但它的效果也好得多。做一份包含所有内容的"母版简历"，然后对每个申请，删减和调整以匹配具体的职位描述关键词。花30分钟为一份可能改变你职业生涯的岗位做定制化，是划算的投资。
+
+## 常见的 ATS 谣言，逐一戳破
+
+**谣言："用白色文字隐藏关键词。"** 这是古老的 SEO 垃圾手段，对 ATS 没用。大多数现代 ATS 会去掉格式将全部文字以可读颜色展示给招聘人员。就算不展示，解析后的文本才是系统索引的内容——不管隐藏与否，招聘人员都能搜到。你的简历会被认定为不诚信并被直接拒绝。
+
+**谣言："需要花钱用 ATS 扫描服务。"** 一些服务收费几十块钱帮你扫描简历的"ATS通过率"。大多数用的就是简单的关键词匹配算法，你自己仔细阅读职位描述就能做到。省下这笔钱。
+
+**谣言："所有公司都用 ATS。"** 小公司、50人以下的初创企业和很多本地企业不用 ATS。但大多数中大型公司都用。在没有确切信息的情况下，你应该始终假设有 ATS 在起作用。
+
+**谣言："简历提交进 ATS 后就不能更新了。"** 大多数 ATS 允许你提交后重新上传简历。系统通常保留最新版本。如果你发现自己漏了一个关键词或发现了一个错字，更新后重新上传即可。
+
+## 总结
+
+一份经过 ATS 优化的简历本质上是一份干净、结构清晰、关键词识别度高的文档。让简历能通过 ATS 解析的优化策略，恰好也是让人能快速浏览的策略。这是一种隐藏的收益：ATS 优化和好的简历设计互不冲突。一份单栏、排版干净、内容扎实的简历，同时对机器和人类友善。
+
+最糟糕的事就是做一份视觉上很精美的简历，但解析出来是一堆乱码，在读第一行之前就被淘汰。宁可偏向简洁，这会在求职流程的每个环节保护你。
+
+如果你正在制作简历，推荐使用本站"通用模板"分类下的模板——它们从一开始就被设计为 ATS 兼容。极简、ATS 优化和传统商务这几款模板都采用单栏布局，使用标准章节标题，不含图形元素。`,
+    },
+    readTime: 10,
+  },
+  {
+    slug: 'resume-mistakes-to-avoid',
+    category: 'career',
+    date: '2026-05-13',
+    title: {
+      en: '10 Resume Mistakes That Are Costing You Interviews',
+      zh: '10个让你错失面试机会的简历错误',
+    },
+    excerpt: {
+      en: 'From "References available upon request" to generic objective statements — these ten common resume mistakes are quietly hurting your chances. Fix them before your next application.',
+      zh: '从"如有需要可提供证明人"到千篇一律的求职目标——这十个常见错误正在悄悄降低你的求职成功率。在下一次投递之前修正它们。',
+    },
+    content: {
+      en: `Some resume mistakes are obvious, like misspelling your own name. But most are not. They are subtle, widespread, and silently sabotaging candidates who are otherwise perfectly qualified. I have seen every one of these mistakes hundreds of times, across every level of seniority and every industry. Here they are — and how to fix them.
+
+## Mistake 1: A Generic Objective Statement
+
+"Seeking a challenging position where I can utilize my skills and contribute to organizational growth."
+
+This sentence has communicated zero information. It could belong to anyone, from a software engineer to a sales associate. A summary or objective statement is valuable — but only if it is specific.
+
+The fix: Be concrete. "Software engineer with 4 years of Android development experience, seeking a mid-level mobile role on a product team building consumer-facing applications." Now the reader knows exactly who you are and what you want. The generic version goes straight into the mental trash bin.
+
+## Mistake 2: Listing Responsibilities Instead of Achievements
+
+"Was responsible for managing social media accounts." OK, but what happened while you were managing them? Did follower count go up? Engagement improve? Any campaigns that performed particularly well?
+
+Hiring managers do not want to know what your job description said. They want to know whether you were good at the job. Achievement-based bullet points answer that question. Responsibility-based ones do not.
+
+The fix: For every bullet point, ask yourself "so what?" If the answer is not obvious from the bullet point itself, rewrite it until it is. "Grew Instagram following from 2,000 to 25,000 in 8 months through a user-generated content strategy" tells the reader you were good at the job. "Managed social media accounts" tells them you had a job.
+
+## Mistake 3: The "References Available Upon Request" Line
+
+This is the single most unnecessary line in resume history, and yet it persists. Of course your references are available upon request. That is how references work. Writing it out occupies valuable real estate on a one-page document and signals that you are following outdated advice.
+
+The fix: Delete the line. Use the space for something that matters. If a company wants references, they will ask for them.
+
+## Mistake 4: Using an Unprofessional Email Address
+
+If your email is anything like sk8terboi420@domain.com, create a new one. It takes five minutes. Recruiters do judge email addresses — I have seen it happen. A professional email (firstname.lastname@domain.com is the standard) is table stakes.
+
+The fix: Create a new, professional email address and forward it to your personal inbox. No recruiter should ever see an email that embarrasses you.
+
+## Mistake 5: Skill Bars and Self-Ratings
+
+This issue deserves special attention because it has become extremely common in the template era. "Python: 4/5 stars." "Communication: 90%." "React: intermediate." These self-assessments are worse than useless — they are actively harmful.
+
+First, your 4/5 is someone else's 2/5. There is no universal standard, so the numbers communicate nothing. Second, if you rate yourself 3/5 in a skill, you are advertising that you are mediocre at it before the interview even starts. Why would you do that? Third, rating yourself 5/5 in anything comes across as arrogance rather than confidence.
+
+The fix: Delete all skill ratings. Replace them with a clean list of concrete skills. Let your work experience bullets demonstrate your proficiency through actual usage. If you list "PostgreSQL" and your work experience says "Optimized a 200GB PostgreSQL database, reducing query latency from 12s to 800ms," the reader understands your level without a star rating.
+
+## Mistake 6: Too Much Information — Or Not Enough
+
+Some resumes drown the reader in detail: every project, every course, every certificate, every summer internship from 15 years ago. Others are so sparse that the reader learns nothing beyond job titles and dates. Both extremes get rejected.
+
+The Goldilocks zone: enough detail that each role tells a story, but not so much that the story gets lost in noise. A good rule of thumb: if a bullet point does not add new information about your capabilities, remove it. Two bullet points that say the same thing in different words is one too many.
+
+## Mistake 7: Inconsistent Formatting
+
+Spacing changes between sections. Font sizes drift. Dates are formatted "Jan 2022" in one place and "2022.01" in another. Bullet points switch from circles to dashes to arrows. None of these alone is fatal, but together they create an impression of carelessness — and a resume is a document that should demonstrate attention to detail above all else.
+
+The fix: Use a template or a tool that enforces consistency. If formatting by hand, do a final pass looking only at formatting, not content. Check that every date uses the same format, every section has the same spacing, and every font is applied uniformly.
+
+## Mistake 8: Buzzwords Without Substance
+
+"Results-driven professional with a proven track record of success." "Innovative thinker." "Team player." "Detail-oriented." These phrases appear on so many resumes that they have lost all meaning. Worse, they use up space that could contain actual evidence of these qualities.
+
+The fix: Show, do not tell. Do not say you are results-driven — describe the results you drove. Do not say you are detail-oriented — describe a situation where your attention to detail caught a critical issue before it reached production. Every buzzword you remove creates space for a specific example, and specific examples are what convince hiring managers.
+
+## Mistake 9: Not Accounting for the Six-Second Scan
+
+Multiple studies have confirmed that recruiters spend an average of 6-7 seconds on an initial resume scan before deciding whether to read further. In those six seconds, their eyes typically move in an F-shaped pattern: across the top (name, title, summary), then down the left side for section headings, then across the middle for the first bullet point or two.
+
+If your most impressive achievement is buried in the fourth bullet point of your third-listed job, it will not be seen in that initial scan.
+
+The fix: Put your strongest content where the F-pattern catches it. Lead with your best bullet point, not a chronological one. Place your most relevant role first if you are using a hybrid resume format. Make sure your section headings are clearly visible so the eye can navigate quickly.
+
+## Mistake 10: Spelling and Grammar Errors
+
+This should go without saying, but it happens so often that it must be said. A single typo on a resume sends a signal that you either did not review your work or did not care enough to fix it. In a document whose entire purpose is to demonstrate your professionalism and attention to detail, that signal is devastating.
+
+The most common typos I see: "Manger" instead of "Manager." "Lead" past-tense confusion (using "lead" when the correct past tense is "led"). "There/their/they're" confusion. "Principle" vs "Principal" engineer. "Responsible for" followed by a typo in the very first word of the description.
+
+The fix: Read your resume out loud — your ear catches errors your eyes skip over. Have another person read it. Run spell check. Then do all three again. Every round of review will catch something the previous round missed.
+
+## Bonus: Not Using Tools That Exist
+
+It is 2026. You do not need to format a resume from scratch in Microsoft Word, fighting with margins and font spacing for two hours. There are excellent free tools — including the one on this site — that handle formatting, ATS compatibility, and PDF generation instantly. Spend your time on what matters: writing strong bullet points, quantifying your achievements, and tailoring your content to each role. Let the tool handle the layout.`,
+      zh: `有些简历错误很明显，比如把自己的名字拼错。但大多数错误并非如此。它们是隐蔽的、普遍存在的，在不知不觉中消耗着原本条件优秀的候选人。我见过这每一个错误数百次，跨越各个级别和各个行业。以下就是这些错误——以及如何修正。
+
+## 错误一：千篇一律的求职目标
+
+"寻求一个具有挑战性的岗位，发挥我的技能并为公司发展做出贡献。"
+
+这句话传达的信息是零。它适用于任何人，从软件工程师到销售专员。个人总结或求职目标是有价值的内容——但前提是它必须具体。
+
+如何修正：说具体。"Android开发工程师，4年经验，寻找中级移动端岗位，期望加入面向消费者的产品团队开发移动应用。"现在读者清楚地知道你是谁、你想要什么。那个笼统的版本会直接进入心理垃圾桶。
+
+## 错误二：列职责而不是列成就
+
+"负责管理社交媒体账号。" 好吧，但在你管理期间到底发生了什么？粉丝增长了？互动率提升了？有没有什么特别成功的活动？
+
+招聘经理不想知道你的岗位说明书上写了什么。他们想知道你是否把这份工作做好了。基于成就的描述能回答这个问题，基于职责的描述不能。
+
+如何修正：对每条描述问自己"所以呢？" 如果答案从描述本身看不出来，就重写直到看得见。"通过UGC内容策略，8个月内将Instagram粉丝从2000增长到25000"——这能告诉读者你把工作做好了。"管理社交媒体账号"——这只告诉读者你有过一份工作。
+
+## 错误三："如有需要可提供证明人"
+
+这是简历史上最没必要存在的一行字，但它仍然普遍出现。当然你的证明人在需要的时候可以提供，这就是证明人的定义。写下这句话占据了珍贵的一页空间，还暴露了你参考的是过时的建议。
+
+如何修正：删掉这行。把空间留给有意义的内容。如果公司需要证明人，他们会问的。
+
+## 错误四：不专业的邮箱地址
+
+如果你的邮箱是类似"xiaopangzi520@domain.com"这种，请注册一个新的。五分钟就搞定了。招聘人员真的会根据邮箱地址评判候选人——我亲眼见过。专业邮箱（推荐格式：firstname.lastname@domain.com）是基本要求。
+
+如何修正：注册一个新的专业邮箱并转发到你的个人收件箱。任何招聘人员都不应该看到让你感到尴尬的邮箱地址。
+
+## 错误五：技能进度条和自我评分
+
+这个问题值得专门强调，因为在模板时代它变得极其常见。"Python: 4/5星"、"沟通能力: 90%"、"React: 中级"。这些自我评估比没用更糟——它们是有害的。
+
+首先，你的4/5可能是别人的2/5。没有统一标准，所以这些数字无法传达任何信息。其次，如果你给某项技能打3/5，你等于在面试开始前就广而告之你在这方面的能力是平庸的。你为什么要这样做？第三，在任何方面给自己打满分看起来不是自信，而是自大。
+
+如何修正：删除所有技能评级。替换为具体的技能清单。让你的工作经历描述通过实际使用来展示你的水平。如果你列出"PostgreSQL"，而你的工作经历写着"优化了一个200GB的PostgreSQL数据库，查询延迟从12秒降至800毫秒"，读者自然就了解你的水平，不需要星级评分。
+
+## 错误六：信息太多——或者太少
+
+有些简历把读者淹没在细节里：每个项目、每门课程、每个证书、15年前的每次暑期实习。另一些则过于稀疏，读者除了岗位名称和时间什么都看不到。两种极端都会导致被拒。
+
+合适的表达量：足够让每段经历讲出一个故事，但又不会让故事被噪音淹没。一个实用的标准：如果一条描述没有增加关于你能力的新信息，就删除它。用不同的措辞说了同一件事情的两条描述，多了一条。
+
+## 错误七：格式不一致
+
+章节之间的间距变化，字体大小飘忽不定，日期格式一处写"2022年1月"另一处写"2022.01"，项目符号在圆点、横线、箭头之间切换。单个问题都不致命，但加在一起会制造一种"粗心草率"的印象——而简历恰恰是最应该体现注重细节的文件。
+
+如何修正：使用模板或工具来强制保持一致性。如果手动排版，做最后一轮只检查格式不看内容的审阅。检查每个日期格式是否统一、每个章节间距是否一致、每种字体是否统一应用。
+
+## 错误八：空洞的流行语
+
+"结果导向的专业人士，拥有可靠的成功记录。" "有着创新性思考能力。" "善于团队合作。" "注重细节。" 这些措辞在太多简历中出现以至于失去了所有意义。更糟的是，它们占据了本来可以用来展示这些品质的真实证据的空间。
+
+如何修正：展示，不要告知。不要说"结果导向"——描述你驱动了什么结果。不要说"注重细节"——描述一个你的细致发现了一个关键问题在它上线之前的场景。你删除的每个流行语都为具体的例子创造了空间，而具体的例子才能说服招聘经理。
+
+## 错误九：忽视了6秒扫视规则
+
+多项研究证实，招聘人员在决定是否仔细阅读之前，平均只花6-7秒进行初步浏览。在这6秒里，他们的视线通常遵循F型模式移动：从顶部横向扫过（姓名、头衔、总结），然后向下沿左侧看章节标题，再横向扫到中间看前面一两条描述。
+
+如果你最有说服力的成就被埋藏在第三个列出岗位的第四行描述里，在初步浏览时根本不会被看到。
+
+如何修正：把你最强的内容放在F型浏览能抓住的位置。用最好的描述打头阵，而不是按时间顺序。最有分量、最相关的经历放在最前面。确保章节标题清晰可见，让视线能快速导航。
+
+## 错误十：拼写和语法错误
+
+这看起来应该是常识，但因为太频繁发生了所以必须强调。简历上的一个错别字传递的信号是：你要么没有检查自己的工作，要么根本不在乎去修正它。在一份整体目的就是展示你专业性和注重细节的文件里，这个信号是毁灭性的。
+
+我看到最常见的错别字："简历"写成"建立"、"负责"写成"复杂"、"经历"写成"精力"、中英文标点混用、空格不统一。
+
+如何修正：出声朗读你的简历——你的耳朵能捕捉到眼睛跳过的错误。另找一个人读一遍。用拼写检查工具过一遍。然后三种方法再来一轮。每一轮检查都能发现上一轮遗漏的问题。
+
+## 额外提醒：不要忽视已有的工具
+
+现在是2026年。你不需要在 Word 里从零开始排版，花两小时和页边距、字体间距斗争。有优秀的免费工具——包括本站的工具——能即时处理排版、ATS 兼容和 PDF 生成。把你的时间花在真正重要的事情上：写出有力量的描述、量化你的成就、为每个岗位定制内容。排版的事让工具来处理。`,
+    },
+    readTime: 9,
   },
 ]
