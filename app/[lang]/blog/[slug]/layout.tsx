@@ -29,11 +29,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       locale: lang === 'zh' ? 'zh_CN' : 'en_US',
       type: 'article',
       publishedTime: post.date,
+      images: [{ url: 'https://resbu.top/og-image.png', width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: ['https://resbu.top/og-image.png'],
     },
   }
 }

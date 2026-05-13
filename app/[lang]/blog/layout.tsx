@@ -28,11 +28,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       siteName: 'Resume Builder - resbu.top',
       locale: lang === 'zh' ? 'zh_CN' : 'en_US',
       type: 'website',
+      images: [{ url: 'https://resbu.top/og-image.png', width: 1200, height: 630, alt: 'Resume Builder Blog' }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
+      images: ['https://resbu.top/og-image.png'],
     },
   }
 }

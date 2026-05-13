@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import AnimatedCounter from '@/components/AnimatedCounter'
+import { posts } from '@/lib/blog-data'
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       siteName: 'Resume Builder - resbu.top',
       locale: lang === 'zh' ? 'zh_CN' : 'en_US',
       type: 'website',
+      images: [{ url: 'https://resbu.top/og-image.png', width: 1200, height: 630, alt: 'Free Online Resume Builder' }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -36,6 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       description: lang === 'zh'
         ? '免费在线制作专业简历，支持20种精美模板，实时预览，一键下载PDF。无需注册，不限次数。'
         : 'Create a professional resume online for free. 20 templates, live preview, PDF download. No sign-up required.',
+      images: ['https://resbu.top/og-image.png'],
     },
   }
 }
@@ -287,6 +290,72 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               ))}
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ---- BLOG RECOMMENDATIONS ---- */}
+      <section className="relative z-10 py-24 sm:py-32">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <p className="text-accent-emerald/70 text-xs font-semibold tracking-[0.2em] uppercase mb-4">
+              {t('Learning Center', '学习中心')}
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">
+              {t('Resume Writing & Interview Guides', '简历撰写与面试指南')}
+            </h2>
+            <p className="text-text-secondary max-w-xl mx-auto">
+              {t(
+                'Practical guides on resume writing, system design interviews, and career growth — written from real industry experience.',
+                '实用的简历撰写、系统设计面试与职业成长指南——源自真实的行业经验。'
+              )}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+            {posts.slice(0, 3).map((post, i) => (
+              <Link
+                key={post.slug}
+                href={`/${lang}/blog/${post.slug}`}
+                className="group relative rounded-2xl border border-border-subtle bg-bg-surface/40 backdrop-blur-sm p-6 hover:border-accent-emerald/25 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-emerald/5"
+                style={{ animation: `fade-in-up 0.6s ease-out ${0.1 + i * 0.1}s forwards`, opacity: 0 }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-accent-emerald/10 text-accent-emerald">
+                    {lang === 'zh' ? (
+                      post.category === 'interview' ? '面试题' : post.category === 'ai-tools' ? 'AI工具' : '技术文章'
+                    ) : (
+                      post.category === 'interview' ? 'Interview Prep' : post.category === 'ai-tools' ? 'AI Tools' : 'Tech'
+                    )}
+                  </span>
+                  <span className="text-xs text-text-tertiary">{post.date}</span>
+                </div>
+                <h3 className="font-semibold text-text-primary mb-2 group-hover:text-accent-emerald transition-colors line-clamp-2">
+                  {lang === 'zh' ? post.title.zh : post.title.en}
+                </h3>
+                <p className="text-sm text-text-tertiary leading-relaxed line-clamp-2">
+                  {lang === 'zh' ? post.excerpt.zh : post.excerpt.en}
+                </p>
+                <div className="mt-4 flex items-center gap-1.5 text-xs text-accent-emerald font-medium">
+                  {lang === 'zh' ? '阅读文章' : 'Read article'}
+                  <svg className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link
+              href={`/${lang}/blog`}
+              className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-accent-emerald transition-colors border border-border-subtle hover:border-accent-emerald/30 px-6 py-3 rounded-xl font-medium"
+            >
+              {t('View All Articles', '查看所有文章')}
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
 

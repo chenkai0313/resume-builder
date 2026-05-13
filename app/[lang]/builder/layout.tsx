@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       siteName: 'Resume Builder - resbu.top',
       locale: lang === 'zh' ? 'zh_CN' : 'en_US',
       type: 'website',
+      images: [{ url: 'https://resbu.top/og-image.png', width: 1200, height: 630, alt: 'Resume Builder' }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       description: lang === 'zh'
         ? '使用我们的免费简历生成器，在线制作专业简历。支持多种模板、实时预览、PDF下载。'
         : 'Create a professional resume with our free online resume builder. Multiple templates, live preview, PDF download.',
+      images: ['https://resbu.top/og-image.png'],
     },
   }
 }

@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       siteName: 'Resume Builder - resbu.top',
       locale: lang === 'zh' ? 'zh_CN' : 'en_US',
       type: 'website',
+      images: [{ url: 'https://resbu.top/og-image.png', width: 1200, height: 630, alt: 'Resume Builder' }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       description: lang === 'zh'
         ? '使用简历生成器即表示您同意我们的服务条款。了解使用规则、免责声明和责任限制。'
         : 'By using Resume Builder, you agree to our Terms of Service.',
+      images: ['https://resbu.top/og-image.png'],
     },
   }
 }
