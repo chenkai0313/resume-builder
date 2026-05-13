@@ -181,7 +181,7 @@ const en = {
       },
       {
         title: 'Contact',
-        content: 'If you have any questions about this privacy policy, please contact us at privacy@resbu.top.',
+        content: 'If you have any questions about this privacy policy, please contact us at ckck0313@gmail.com.',
       },
     ],
   },
@@ -201,7 +201,7 @@ So I built this tool with three principles:
 
 **Templates built for specific industries.** A software engineer's resume should look different from a marketing director's. Our 20 templates span four categories — General (ATS-optimized), Technical (Web3, AI/ML, DevOps), Executive (Leadership KPIs), and Creative (Portfolio-style) — so you can find a layout that matches your industry conventions.
 
-This is a one-person project. I maintain it, write the articles, and handle support. If something is broken or you have a suggestion, I read every email at support@resbu.top.`,
+This is a one-person project. I maintain it, write the articles, and handle support. If something is broken or you have a suggestion, I read every email at ckck0313@gmail.com.`,
   },
   terms: {
     title: 'Terms of Service',
@@ -233,7 +233,7 @@ This is a one-person project. I maintain it, write the articles, and handle supp
       },
       {
         title: 'Contact',
-        content: 'For questions about these terms, please contact us at support@resbu.top.',
+        content: 'For questions about these terms, please contact us at ckck0313@gmail.com.',
       },
     ],
   },
@@ -268,7 +268,7 @@ This is a one-person project. I maintain it, write the articles, and handle supp
     },
     contact: {
       title: 'Questions',
-      content: 'If you have questions about this Cookie Policy, contact us at privacy@resbu.top.',
+      content: 'If you have questions about this Cookie Policy, contact us at ckck0313@gmail.com.',
     },
   },
   contact: {
@@ -277,12 +277,12 @@ This is a one-person project. I maintain it, write the articles, and handle supp
     email: {
       title: 'Email',
       content: 'For general inquiries, support, and feedback:',
-      address: 'support@resbu.top',
+      address: 'ckck0313@gmail.com',
     },
     privacy: {
       title: 'Privacy Concerns',
       content: 'For privacy-related matters:',
-      address: 'privacy@resbu.top',
+      address: 'ckck0313@gmail.com',
     },
     responseTime: {
       title: 'Response Time',

@@ -183,7 +183,7 @@ const zh: Translations = {
       },
       {
         title: '联系方式',
-        content: '如果您对本隐私政策有任何疑问，请通过 privacy@resbu.top 联系我们。',
+        content: '如果您对本隐私政策有任何疑问，请通过 ckck0313@gmail.com 联系我们。',
       },
     ],
   },
@@ -203,7 +203,7 @@ const zh: Translations = {
 
 **针对特定行业的模板。** 软件工程师的简历应该和市场营销总监的看起来不同。我们的 20 个模板涵盖四个分类——通用（ATS 优化）、技术（Web3、AI/ML、DevOps）、高管（领导力 KPI）和创意（作品集风格）——让你找到匹配行业规范的布局。
 
-这是一个个人项目。我在维护它、写文章、处理用户支持。如果有任何问题或有建议，我会阅读每封邮件：support@resbu.top。`,
+这是一个个人项目。我在维护它、写文章、处理用户支持。如果有任何问题或有建议，我会阅读每封邮件：ckck0313@gmail.com。`,
   },
   terms: {
     title: '服务条款',
@@ -235,7 +235,7 @@ const zh: Translations = {
       },
       {
         title: '联系方式',
-        content: '如有关于这些条款的问题，请联系 support@resbu.top。',
+        content: '如有关于这些条款的问题，请联系 ckck0313@gmail.com。',
       },
     ],
   },
@@ -270,7 +270,7 @@ const zh: Translations = {
     },
     contact: {
       title: '问题',
-      content: '如果您对本 Cookie 政策有任何疑问，请通过 privacy@resbu.top 联系我们。',
+      content: '如果您对本 Cookie 政策有任何疑问，请通过 ckck0313@gmail.com 联系我们。',
     },
   },
   contact: {
@@ -279,12 +279,12 @@ const zh: Translations = {
     email: {
       title: '邮箱',
       content: '用于一般咨询、支持和反馈：',
-      address: 'support@resbu.top',
+      address: 'ckck0313@gmail.com',
     },
     privacy: {
       title: '隐私相关',
       content: '用于隐私相关事宜：',
-      address: 'privacy@resbu.top',
+      address: 'ckck0313@gmail.com',
     },
     responseTime: {
       title: '回复时间',
