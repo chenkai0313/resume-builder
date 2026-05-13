@@ -14,8 +14,9 @@ export function proxy(request: NextRequest) {
   const cookieLocale = request.cookies.get('locale')?.value
   const locale = cookieLocale || DEFAULT_LOCALE
 
-  request.nextUrl.pathname = `/${locale}${pathname === '/' ? '' : pathname}`
-  return NextResponse.redirect(request.nextUrl)
+  const newUrl = request.nextUrl.clone()
+  newUrl.pathname = `/${locale}${pathname === '/' ? '' : pathname}`
+  return NextResponse.rewrite(newUrl)
 }
 
 export const config = {
