@@ -58,6 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={cn(GeistSans.className, "font-sans", geist.variable, "dark")}>
       <head>
+        <meta name="baidu-site-verification" content="codeva-3qvzh3aZYo" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
       </head>
       <body>
