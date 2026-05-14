@@ -8,6 +8,7 @@ export interface BlogPostMeta {
   excerpt: { en: string; zh: string }
   content?: { en: string; zh: string }
   readTime: number
+  keywords?: { en: string; zh: string }
 }
 
 export function getPost(slug: string): BlogPostMeta | undefined {
@@ -410,6 +411,10 @@ Preparation: load testing before the event, capacity planning, and feature flags
 - 预案：提前压测、容量评估、开关配置（如关掉积分、关掉部分活动页），随时可降级。`,
     },
     readTime: 22,
+    keywords: {
+      en: 'backend interview, system design, flash sale, membership system, points system, balance ledger, architecture design, interview questions',
+      zh: '后端面试,系统设计,秒杀系统,会员系统,积分系统,余额系统,架构设计,面试题',
+    },
   },
   {
     slug: 'architect-tob-interview-guide',
@@ -829,6 +834,10 @@ Live with it when business pressure is high, the team is stretched, and the modu
 *以上覆盖高可用、高并发、微服务、分布式、MQ、缓存、To B 多租户与权限、技术选型与落地、软技能等，可作为架构师与 To B 方向面试准备。*`,
     },
     readTime: 25,
+    keywords: {
+      en: 'architect interview, ToB system design, high availability, distributed systems, multi-tenancy, RBAC, microservices, tech leadership',
+      zh: '架构师面试,ToB系统设计,高可用,分布式系统,多租户,RBAC,微服务,技术管理',
+    },
   },
   {
     slug: 'how-to-write-a-resume',
@@ -1104,6 +1113,10 @@ Remember, a resume is never really finished — it is just ready for the next ap
 记住，简历永远没有"真正完成"——它只是为下一次投递做好了准备。针对每个岗位调整，持续打磨，等你拿到面试机会，真正的对话才开始。`,
     },
     readTime: 12,
+    keywords: {
+      en: 'how to write a resume, resume writing tips, resume format, professional resume, resume examples, job application, CV writing guide',
+      zh: '如何写简历,简历写作技巧,简历格式,专业简历,简历范例,求职申请,CV写作指南',
+    },
   },
   {
     slug: 'ats-resume-guide',
@@ -1284,6 +1297,10 @@ ATS 是公司用来管理招聘流程的软件，可以理解为招聘领域的 
 如果你正在制作简历，推荐使用本站"通用模板"分类下的模板——它们从一开始就被设计为 ATS 兼容。极简、ATS 优化和传统商务这几款模板都采用单栏布局，使用标准章节标题，不含图形元素。`,
     },
     readTime: 10,
+    keywords: {
+      en: 'ATS resume guide, applicant tracking system, resume optimization, ATS-friendly resume, beat ATS, resume keywords, resume scanner',
+      zh: 'ATS简历指南,申请人追踪系统,简历优化,ATS友好简历,简历关键词,通过ATS筛选,简历扫描',
+    },
   },
   {
     slug: 'resume-mistakes-to-avoid',
@@ -1450,5 +1467,9 @@ It is 2026. You do not need to format a resume from scratch in Microsoft Word, f
 现在是2026年。你不需要在 Word 里从零开始排版，花两小时和页边距、字体间距斗争。有优秀的免费工具——包括本站的工具——能即时处理排版、ATS 兼容和 PDF 生成。把你的时间花在真正重要的事情上：写出有力量的描述、量化你的成就、为每个岗位定制内容。排版的事让工具来处理。`,
     },
     readTime: 9,
+    keywords: {
+      en: 'resume mistakes, common resume errors, resume tips, job application mistakes, resume red flags, avoid resume mistakes, resume dos and donts',
+      zh: '简历错误,常见简历问题,简历技巧,求职错误,简历雷区,避免简历错误,简历注意事项',
+    },
   },
 ]

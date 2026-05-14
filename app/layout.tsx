@@ -4,6 +4,7 @@ import './globals.css'
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 import ScriptsLoader from '@/components/ScriptsLoader'
+import HtmlLangSetter from '@/components/HtmlLangSetter'
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -62,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
       </head>
       <body>
+        <HtmlLangSetter />
         {children}
         <ScriptsLoader />
       </body>

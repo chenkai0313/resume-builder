@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { posts } from '@/lib/blog-data'
 
 export const dynamic = 'force-static'
 
@@ -6,7 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://resbu.top'
   const languages = ['en', 'zh']
   const routes = ['', '/builder', '/privacy', '/about', '/terms', '/cookie-policy', '/contact']
-  const blogRoutes = ['/blog', '/blog/backend-system-design-interview-guide', '/blog/architect-tob-interview-guide']
 
   const pages = routes.flatMap(route =>
     languages.map(lang => ({
@@ -17,14 +17,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   )
 
-  const blogPages = blogRoutes.flatMap(route =>
+  const blogIndexPages = languages.map(lang => ({
+    url: `${baseUrl}/${lang}/blog`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }))
+
+  const blogPostPages = posts.flatMap(post =>
     languages.map(lang => ({
-      url: `${baseUrl}/${lang}${route}`,
-      lastModified: new Date(),
+      url: `${baseUrl}/${lang}/blog/${post.slug}`,
+      lastModified: new Date(post.date),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     }))
   )
 
-  return [...pages, ...blogPages]
+  return [...pages, ...blogIndexPages, ...blogPostPages]
 }

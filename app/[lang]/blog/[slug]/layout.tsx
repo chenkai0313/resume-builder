@@ -10,9 +10,11 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   return {
     title,
     description,
-    keywords: lang === 'zh'
-      ? '后端面试,系统设计,秒杀系统,会员系统,积分系统,余额系统,架构设计,面试题'
-      : 'backend interview, system design, flash sale, membership system, points system, balance ledger, architecture design, interview questions',
+    keywords: post.keywords
+      ? (lang === 'zh' ? post.keywords.zh : post.keywords.en)
+      : (lang === 'zh'
+        ? '后端面试,系统设计,秒杀系统,会员系统,积分系统,余额系统,架构设计,面试题'
+        : 'backend interview, system design, flash sale, membership system, points system, balance ledger, architecture design, interview questions'),
     alternates: {
       canonical: `https://resbu.top/${lang}/blog/${slug}`,
       languages: {
@@ -41,7 +43,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 export default async function BlogPostLayout({ params, children }: { params: Promise<{ lang: string; slug: string }>; children: React.ReactNode }) {
-  const { slug } = await params
+  const { lang, slug } = await params
   const post = posts.find((p) => p.slug === slug)
 
   const jsonLd = post ? {
@@ -51,8 +53,8 @@ export default async function BlogPostLayout({ params, children }: { params: Pro
         '@type': 'BreadcrumbList',
         itemListElement: [
           { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://resbu.top' },
-          { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://resbu.top/en/blog' },
-          { '@type': 'ListItem', position: 3, name: post.title.en, item: `https://resbu.top/en/blog/${slug}` },
+          { '@type': 'ListItem', position: 2, name: 'Blog', item: `https://resbu.top/${lang}/blog` },
+          { '@type': 'ListItem', position: 3, name: post.title.en, item: `https://resbu.top/${lang}/blog/${slug}` },
         ],
       },
       {
@@ -60,7 +62,7 @@ export default async function BlogPostLayout({ params, children }: { params: Pro
         headline: post.title.en,
         description: post.excerpt.en,
         datePublished: post.date,
-        url: `https://resbu.top/en/blog/${slug}`,
+        url: `https://resbu.top/${lang}/blog/${slug}`,
         inLanguage: ['en', 'zh'],
         author: { '@type': 'Organization', name: 'resbu.top' },
         publisher: { '@type': 'Organization', name: 'resbu.top', url: 'https://resbu.top' },
