@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 30001",
-    "build": "next build && rm -rf docs && cp -r out docs && touch docs/.nojekyll && cp docs/en.html docs/index.html && sed -i '' 's|\"canonical\" href=\"https://resbu.top/en\"|\"canonical\" href=\"https://resbu.top\"|g' docs/index.html && sed -i '' 's|\"alternate\" hreflang=\"en\" href=\"https://resbu.top/en\"|\"alternate\" hreflang=\"en\" href=\"https://resbu.top\"|g' docs/index.html && sed -i '' 's|\"alternate\" hreflang=\"x-default\" href=\"https://resbu.top/en\"|\"alternate\" hreflang=\"x-default\" href=\"https://resbu.top\"|g' docs/index.html && sed -i '' 's|href=\"/en\"|href=\"/\"|g' docs/index.html && sed -i '' 's|href=\"//|href=\"/en/|g' docs/index.html",
+    "build": "next build && rm -rf docs && cp -r out docs && touch docs/.nojekyll && cp docs/en.html docs/index.html && cp docs/en/__next.*.txt docs/ && sed -i '' 's|\"canonical\" href=\"https://resbu.top/en\"|\"canonical\" href=\"https://resbu.top\"|g' docs/index.html && sed -i '' 's|\"alternate\" hreflang=\"en\" href=\"https://resbu.top/en\"|\"alternate\" hreflang=\"en\" href=\"https://resbu.top\"|g' docs/index.html && sed -i '' 's|\"alternate\" hreflang=\"x-default\" href=\"https://resbu.top/en\"|\"alternate\" hreflang=\"x-default\" href=\"https://resbu.top\"|g' docs/index.html && sed -i '' 's|href=\"/en\"|href=\"/\"|g' docs/index.html && sed -i '' 's|href=\"//|href=\"/en/|g' docs/index.html",
     "lint": "next lint"
   },
   "dependencies": {
