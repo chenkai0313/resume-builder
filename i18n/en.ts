@@ -153,6 +153,7 @@ const en = {
     cookies: 'Cookie Policy',
     contact: 'Contact',
     friendLink: 'Tool Site',
+    friendLink2: 'Periodic Table',
     contactText: 'Have suggestions? Contact us at',
   },
   privacy: {

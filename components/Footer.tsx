@@ -37,6 +37,10 @@ export default function Footer() {
           <a href="https://schg.xyz/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
             {t.footer.friendLink}
           </a>
+          <span aria-hidden>·</span>
+          <a href="https://ptable.top/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">
+            {t.footer.friendLink2}
+          </a>
         </nav>
       </div>
       <div className="border-t border-border-default/50">

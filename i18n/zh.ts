@@ -155,6 +155,7 @@ const zh: Translations = {
     cookies: 'Cookie 政策',
     contact: '联系我们',
     friendLink: '站长工具',
+    friendLink2: '元素周期表',
     contactText: '有任何建议？请联系',
   },
   privacy: {
