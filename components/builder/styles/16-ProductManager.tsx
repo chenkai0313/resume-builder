@@ -107,7 +107,7 @@ export default function ProductManager({ data, lang = 'en' }: { data: ResumeData
               {data.education.map((edu) => (
                 <div key={edu.id} className="mb-3">
                   <h3 className="font-semibold text-xs text-gray-900">{edu.school}</h3>
-                  <p className="text-xs text-gray-500">{edu.degree} in {edu.major}</p>
+                  <p className="text-xs text-gray-500">{edu.degree}{lang === 'zh' ? ' ' : ' in '}{edu.major}</p>
                   <p className="text-xs text-gray-400">{edu.startDate} — {edu.endDate}</p>
                   {edu.gpa && <p className="text-xs text-blue-600 font-medium">GPA: {edu.gpa}</p>}
                 </div>

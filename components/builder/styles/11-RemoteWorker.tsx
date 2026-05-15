@@ -133,7 +133,7 @@ export default function RemoteWorker({ data, lang = 'en' }: { data: ResumeData; 
             {data.education.map((edu) => (
               <div key={edu.id} className="mb-2">
                 <h3 className="text-xs font-bold text-gray-900">{edu.school}</h3>
-                <p className="text-[10px] text-gray-600">{edu.degree} in {edu.major}</p>
+                <p className="text-[10px] text-gray-600">{edu.degree}{lang === 'zh' ? ' ' : ' in '}{edu.major}</p>
                 <p className="text-[10px] text-gray-400">{edu.startDate} — {edu.endDate}</p>
               </div>
             ))}

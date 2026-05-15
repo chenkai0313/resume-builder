@@ -99,7 +99,7 @@ export default function Web3({ data, lang = 'en' }: { data: ResumeData; lang?: s
             {data.education.map((edu) => (
               <div key={edu.id} className="mb-2">
                 <h3 className="text-sm font-bold text-gray-900">{edu.school}</h3>
-                <p className="text-xs text-gray-600">{edu.degree} in {edu.major}</p>
+                <p className="text-xs text-gray-600">{edu.degree}{lang === 'zh' ? ' ' : ' in '}{edu.major}</p>
                 <p className="text-xs text-gray-400">{edu.startDate} — {edu.endDate}</p>
               </div>
             ))}

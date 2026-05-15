@@ -65,7 +65,7 @@ export default function ExecutiveLeadership({ data, lang = 'en' }: { data: Resum
               {data.education.map((edu) => (
                 <div key={edu.id} className="mb-3">
                   <h3 className="font-bold text-xs text-gray-900">{edu.school}</h3>
-                  <p className="text-xs text-gray-500">{edu.degree} in {edu.major}</p>
+                  <p className="text-xs text-gray-500">{edu.degree}{lang === 'zh' ? ' ' : ' in '}{edu.major}</p>
                   <p className="text-xs text-gray-400">{edu.startDate} — {edu.endDate}</p>
                 </div>
               ))}
