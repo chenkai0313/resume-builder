@@ -24,6 +24,314 @@ export const categories: { id: BlogCategory; name: { en: string; zh: string }; c
 
 export const posts: BlogPostMeta[] = [
   {
+    slug: 'job-interview-guide-from-hiring-manager',
+    category: 'career',
+    date: '2026-05-15',
+    title: {
+      en: 'After Interviewing 300 People, Here\'s What Nobody Tells You About Getting Hired',
+      zh: '面试了300人之后，我写下了这份没人会告诉你的求职指南',
+    },
+    excerpt: {
+      en: 'From startups to big tech, I\'ve sat through 300+ interviews as the hiring manager. Most candidates don\'t fail on skills — they fail on things they never thought about. No fluff, just what actually matters.',
+      zh: '从创业公司到大厂，我作为面试官参与了300多场面试。大多数人不是输在能力上，而是根本不知道面试官在考察什么。这篇文章没有鸡汤，只有过来人的大实话。',
+    },
+    content: {
+      en: `I started leading a team in 2018, first at a mid-size internet company, then later at a big tech firm. Over the years I have sat through more than 300 interviews, covering frontend, backend, new grads, and senior engineers alike.
+
+After sitting on both sides of the table, one thing became painfully clear: most people do not fail interviews because they lack skill. They fail because they have no idea what the interviewer is actually evaluating.
+
+This is not one of those "top 10 tips to ace any interview" listicles. These are lessons learned the hard way — from my own mistakes, from watching candidates crash and burn, and from debriefing with recruiters after the fact.
+
+## The resume filter: what HR actually looks at in those 6 seconds
+
+I have had frank conversations with several HR colleagues about this. Their exact words: "It is not that the content is bad. It is that we cannot find the content."
+
+The average time an HR person spends scanning a resume is six to eight seconds. Not an exaggeration — they genuinely glance at it and decide whether to keep reading. In that window, your most critical information has to be instantly visible.
+
+What gets a resume tossed immediately?
+
+- Cramped formatting. Tiny fonts, zero line spacing, walls of text — no recruiter is zooming in. They skip.
+- Key information buried. You have been doing Java for five years, but the word "Java" does not appear until page three. Page one is all self-assessments and hobbies.
+- One generic resume blasted to every opening. Recruiters spot this instantly. Applying for a backend role with a resume dominated by student club activities.
+- Unexplained gaps. A blank period with no note. HR will not fill in the blanks for you — they will assume you are hiding something.
+
+My personal habit: top of the resume, one line — name, phone, email, target role. Next line, a row of skill keywords so HR can tell in one second whether you match. Then jump straight into work experience. For each role, the first bullet is a one-sentence summary of what you did and the impact it had — then you expand.
+
+Concrete example. Do not write "Responsible for system development and maintenance." Write "Led order system overhaul: QPS from 300 to 3,000, P99 latency from 2s to 200ms." These two sentences land completely differently with a recruiter.
+
+## "Tell me about yourself" — this is where most people start losing points
+
+This question kicks off nearly every interview. And about 90% of people proceed to recite their own resume back to the interviewer.
+
+The interviewer already has your resume in front of them. They do not need you to read it aloud. What they are actually looking for: your ability to summarize your experience and connect the dots.
+
+A solid self-introduction should be 90 seconds to 2 minutes. Structure: who I am (10 seconds) → the one or two things most worth talking about from my past work (60 seconds) → why this role interests me (20 seconds).
+
+Do not say "I am hardworking, a fast learner, and a team player." These words carry zero information. Replace them with specifics: "I led a three-person team, built the CI/CD pipeline from scratch, and took test coverage from 10% to 80% in six months." The interviewer will infer your capabilities from the facts.
+
+## Technical interviews: interviewers don't care how much you memorized
+
+I have interviewed candidates who could recite fundamentals flawlessly — HashMap internals, JVM memory model, MySQL index structures. Zero hesitation. Then I gave them a real scenario to design, and they froze.
+
+Interviewers ask foundational questions not because they want you to recite a textbook. They want to see whether you can apply that knowledge to real problems.
+
+For instance, I might ask: "Why does MySQL use B+ trees for indexes instead of hash tables?" A memorization candidate says: "Because B+ trees support range queries and the leaf nodes form a sorted linked list." Correct, but then I follow up: "What if all our queries are point lookups with no range queries — would you use hash indexes then? Why does MySQL still default to B+ trees?"
+
+That is where the scripted answers fall apart.
+
+A candidate who genuinely understands says: "Hash is O(1) for point queries, faster than B+ tree's O(log n). But hash does not support leftmost prefix matching, so composite indexes break. And under heavy collisions, hash degrades to O(n). B+ tree performance is stable. Plus hash indexes cannot handle sorting or GROUP BY optimization."
+
+See the difference? One is memorized. The other is understood.
+
+One practical tip: for every concept you study, ask yourself one more "why." Why was it designed this way? In what scenario would it fail? If I had to build it myself, how would I approach it?
+
+Here is a real technical interview scenario — the interviewer hands you this code and asks you to review it:
+
+\`\`\`go
+func GetUserOrders(userID int) ([]Order, error) {
+    orders := []Order{}
+    rows, err := db.Query("SELECT * FROM orders WHERE user_id = ?", userID)
+    if err != nil {
+        return nil, err
+    }
+    defer rows.Close()
+    for rows.Next() {
+        var o Order
+        rows.Scan(&o.ID, &o.UserID, &o.Amount, &o.Status, &o.CreatedAt)
+        orders = append(orders, o)
+    }
+    return orders, nil
+}
+\`\`\`
+
+A strong review hits these points: (1) \`SELECT *\` is a production liability — adding a column to the table breaks this code. (2) No pagination — tens of thousands of orders for one user ID means OOM. (3) \`rows.Scan\` errors are silently ignored. (4) \`rows.Err()\` is never checked after the loop. Being able to articulate these things in an interview matters more than listing them on your resume.
+
+## What HR will never tell you about their screening process
+
+At large companies, HR screens hundreds of resumes a day. They have filtering rules.
+
+Years of experience mismatches are automatic rejections. JD says "3-5 years" and you have one — it is not because you are not good enough. It is because HR needs to justify their pass/fail decisions to the hiring manager, and hard criteria are the easiest filter.
+
+Job hopping is a red flag. Three companies in two years? HR is not betting on you "finding the right fit." They assume you will leave quickly again.
+
+Industry mismatch drops your priority. Not a dealbreaker, but all else equal, the candidate with relevant industry experience goes to the top of the pile.
+
+Education is a filter, not a bonus. A prestigious degree does not add points. A non-prestigious one subtracts them. Once you are past the resume screen, nobody cares where you went to school.
+
+Knowing these rules is not meant to make you anxious. It is meant to explain why some applications vanish into a black hole. Sometimes it genuinely is not about you.
+
+## "Do you have any questions for me?" — this is the final test
+
+At the end of every interview, the interviewer will ask this. It is not small talk.
+
+When I ask this, what I am really looking for: genuine interest in the role, and whether you have thought about the challenges it involves.
+
+Bad answer: "Nope, I think you covered everything." — Signals zero enthusiasm.
+Mediocre answer: "What projects is the team working on right now?" — Passable but forgettable.
+Good answer: "I noticed you have been exploring direction X recently. I worked on something similar at my last company and ran into problems A, B, and C. How has your team handled those?"
+
+Good questions require homework. Spend 30 minutes before the interview reading the company's tech blog, product updates, or public talks. Prepare two to three genuinely thoughtful questions. The ROI on this is absurdly high.
+
+## Salary negotiation: timing matters more than the number
+
+When do you talk about money? One rule: let them bring it up first.
+
+If HR asks for your salary expectation during the phone screen, you can say: "I am more focused on the scope and growth potential of the role — I am happy to discuss compensation relative to the position's budget." Make them show their hand first.
+
+If they insist, give a range. The bottom of the range is what you can genuinely accept. The top is 10-15% above your ideal. For example: "My expectation is in the 25k to 30k range, depending on the exact scope of the role."
+
+Also: salary is not just monthly base pay. Annual bonus, equity, allowances, whether the probation period is fully paid, the base used for social insurance contributions — these can add up to significant differences. Confirm every line item when you get to the formal offer stage.
+
+## What to do after the interview
+
+Send a thank-you email the same day — not a template. Reference a specific topic from the conversation. Something like: "I kept thinking about the system architecture problem we discussed, and I wanted to share an additional thought..." This makes you memorable.
+
+If you have not heard back after a week, one polite follow-up is fine. Two follow-ups with no response, stop.
+
+Getting rejected stings, but do not spiral. I have seen too many cases of "rejected by Company A, went to Company B, and Company B ended up being the better outcome." Luck plays a real role in interviews — the interviewer's mood that day, whether the role already had an internal candidate, whether your competition happened to be unusually strong. None of that is within your control.
+
+## FAQ
+
+### Should I wear a suit to an interview?
+
+Depends on the industry. Finance and consulting — suit required. Tech — clean and neat is fine, a suit actually looks out of place. When in doubt, dress half a notch more formal than the company's daily dress code.
+
+### Should I include a photo on my resume?
+
+In China, yes — a clean, professional headshot. No selfies, no casual photos. For pure tech roles abroad, it is unnecessary and sometimes discouraged due to anti-bias policies.
+
+### What if I get asked something I genuinely do not know?
+
+Do not bluff. Say: "I am not deeply familiar with that, but my understanding is roughly X — I would want to research it properly." Honesty beats pretending. The interviewer is more senior than you; they can tell when you are making things up.
+
+### How do I explain an employment gap?
+
+Tell the truth, but frame it differently. Instead of "I could not find a job," say: "I spent that period systematically studying X / building personal projects / handling a family matter — and now I am ready to jump back in."
+
+### Should I put my expected salary on my resume?
+
+No. Salary is negotiated. Putting a number on your resume locks you into a corner before the conversation even starts.
+
+### How do I answer "what is your greatest weakness?"
+
+Do not say "I am a perfectionist" — everyone sees through that. Name a real but non-fatal weakness, and explain what you are doing about it. Example: "I used to avoid public speaking and technical presentations. In the last six months I have volunteered to present at team meetings a few times, and I am getting more comfortable with it."`,
+      zh: `我2018年开始带团队，从一家中型互联网公司到后来的大厂，前前后后作为面试官参与过的面试加起来有300多场。岗位覆盖前端、后端、校招、社招，从P5到P8都面过。
+
+面试桌的两边都坐过之后，我有一个很深的感受：大多数人面试失败，不是因为能力不够，而是因为根本不知道面试官在考察什么。
+
+这篇文章不是那种"面试必过十大技巧"的流水线文章。是我自己踩过的坑、见过的案例，以及一些你可能从来没想过的视角。
+
+## 简历关：HR那6秒到底在看什么
+
+我跟好几个HR认真聊过这个问题。他们原话是："不是内容不好，是找不到内容。"
+
+HR扫一份简历的平均时间确实是6到8秒。不是夸张——就是扫一眼决定要不要继续看。在这个时间窗口里，你简历上的核心信息必须被一眼抓住。
+
+哪些东西会让简历被秒扔？
+
+- 排版密到窒息。字体小、行间距窄、段落堆在一起——HR不会放大看的，直接跳过。
+- 关键信息找不到。你做了5年Java开发，但"Java"这个词在简历第三页才出现。第一页全在写自我评价、兴趣爱好、大学社团。
+- 一份简历海投所有岗位。HR一眼就能看出来。应聘后端开发，简历上大段写的是学生会经历和志愿者活动。
+- 时间线对不上。有一段空白期没有任何说明，HR不会替你脑补，只会觉得你在隐瞒什么。
+
+我自己的做法是：简历最上面，姓名、电话、邮箱、求职意向，一行搞定。紧跟着是技能关键词一行，让HR在1秒内能判断你匹配不匹配。然后直接进入工作经历。工作经历每一段，第一行用一句话概括你做了什么、产生了什么可量化的结果，再展开细节。
+
+举个具体的例子。
+
+不要写："负责系统日常开发与维护工作"。
+
+写："主导订单系统重构，QPS从300提升到3000，P99延迟从2s降至200ms"。
+
+这两句话给HR的感受是根本不同的。前者是"这个人上过班"，后者是"这个人做过事"。
+
+## "请做一下自我介绍"——大多数人在这里就开始丢分
+
+这个问题几乎是每场面试的固定开场。然后90%的人会花两分钟把自己的简历从头到尾念一遍。
+
+面试官手里有你的简历。他不需要你念。他问这个问题真正想看的是：你对自己经历的理解、总结和表达能力。
+
+好的自我介绍控制在1分半到2分钟，结构是：我是谁（10秒）→ 我做过什么、最值得说的1-2个成果（1分钟）→ 为什么我对这个岗位感兴趣（20秒）。
+
+不要说"我工作认真负责、学习能力强、善于团队合作"——这些词没有任何信息量。换成"我带过3个人的开发小组、从零搭建了项目的CI/CD流水线、半年内把测试覆盖率从10%拉到了80%"，面试官自己会判断你的能力。
+
+## 技术面试：面试官不在乎你背了多少八股文
+
+我面过一些候选人，基础知识背得滚瓜烂熟。HashMap的原理、JVM的内存模型、MySQL的索引结构，对答如流。但给他一个实际场景让他设计解决方案，立刻就卡住了。
+
+为什么？因为面试官问基础知识，目的不是为了让你背书。是想看你把知识用在真实问题上的能力。
+
+举个例子。我问："MySQL的索引为什么用B+树而不是哈希表？"
+
+背诵型候选人回答："因为B+树支持范围查询，叶子节点形成有序链表，适合范围扫描。"
+
+说得没错。但追问一句："如果我们的查询场景100%是等值查询，没有范围查询，你会选哈希索引吗？MySQL默认为什么不选哈希？"
+
+到这一步，背答案的人就开始慌了。
+
+真正理解的候选人会说："哈希在等值查询上确实是O(1)，比B+树的O(log n)快。但哈希不支持最左前缀匹配，联合索引就废了。哈希冲突严重的时候会退化成O(n)，B+树的性能是稳定的。而且哈希索引没法做排序和GROUP BY优化，数据库内部很多操作依赖有序性。"
+
+看出区别了吗？前者是背的，后者是理解了的。
+
+给你一个小建议：准备技术面试的时候，每学一个知识点，多问自己一句"为什么"。为什么这么设计？在什么场景下它会出问题？如果换我来设计，我会怎么处理？
+
+下面是一个真实的面试场景——面试官给你一段代码让你review：
+
+\`\`\`go
+func GetUserOrders(userID int) ([]Order, error) {
+    orders := []Order{}
+    rows, err := db.Query("SELECT * FROM orders WHERE user_id = ?", userID)
+    if err != nil {
+        return nil, err
+    }
+    defer rows.Close()
+    for rows.Next() {
+        var o Order
+        rows.Scan(&o.ID, &o.UserID, &o.Amount, &o.Status, &o.CreatedAt)
+        orders = append(orders, o)
+    }
+    return orders, nil
+}
+\`\`\`
+
+一个好的review会指出：(1) \`SELECT *\` 在生产环境是定时炸弹——表结构加了字段这里直接崩。(2) 没有分页，user_id下面有几万条订单直接OOM。(3) \`rows.Scan\` 返回的error被忽略了。(4) 循环结束后的 \`rows.Err()\` 没检查。能把这些说清楚，比你简历上写"精通Go"有说服力一百倍。
+
+## 那些HR不会明说的筛选规则
+
+大厂的HR一天看几百份简历，他们有自己的筛人逻辑。
+
+年限不够直接pass。JD写"3-5年经验"，你只有1年。不是你不够好，是HR要用硬性条件交差。
+
+跳槽太频繁是红线。两年三家，HR不会觉得你在"找合适的平台"，只会预判你干不久。
+
+行业不匹配会被降优先级。不是一定不行，但同等条件下，有行业经验的人排你前面。
+
+学历是减分项不是加分项。好学历不加分，差学历会扣分。过了简历关之后，学历基本没人看了。
+
+了解这些规则不是为了制造焦虑。是为了让你理解，为什么有些投递石沉大海。有时候真的不是你的问题，是规则在淘汰人。
+
+## "你有什么想问我的吗"——最后一道测试题
+
+面试到最后，面试官一定会问这句话。这不是客套。
+
+我问这个问题的时候，真正想看的是：你对这个岗位有没有真正的兴趣？你有没有思考过这个岗位面临的挑战是什么？
+
+烂回答："没有了，都挺清楚的。"——面试官会觉得你根本没有认真想过这个岗位。
+一般回答："团队目前在做什么项目？"——及格，但不出彩。
+好回答："我注意到你们最近在做XX方向，我在上一家公司也做过类似的事情，遇到了A、B、C这几个坑，你们这边是怎么解决的？"
+
+好问题需要提前做功课。面试前花半小时看看公司的技术博客、产品更新、公开的技术分享，准备2-3个真正有深度的提问。这个投入产出比高到离谱。
+
+## 谈薪：时机比数字重要
+
+什么时候谈工资？一句话：等对方先开口。
+
+HR在电话里就问"你期望薪资多少"，你可以说"我更看重岗位本身的发展空间，薪资可以根据岗位的预算来谈"。先让对方出牌。
+
+如果对方坚持让你给数字，报一个区间。下限是你真正能接受的，上限比你理想的稍微高一截。比如"我的期望在25k到30k之间，具体看岗位scope"。
+
+另外一条经验：薪资不止是月base。年终奖怎么算、股票期权、补贴、试用期是否全薪、五险一金的缴纳基数——这些加起来可能差好几万。到正式谈offer的阶段逐项确认，别不好意思问。
+
+## 面试结束后的正确姿势
+
+当天发一封感谢邮件。不是那种"感谢您的时间"的模板——提一个面试中聊到的具体话题。比如"今天聊到XX架构的问题，我回去又想了想，有一个补充思路..."这个动作能让面试官记住你。
+
+一周没回复可以礼貌地跟进一次。两次没回就别再发了。
+
+被拒了也别否定自己。我见过太多"被A拒了去B结果B发展更好"的真实案例。面试本身就有运气成分——面试官当天的心情、岗位是不是已经有内定人选、你的竞争对手这次是不是刚好特别强——这些都不是你能控制的。
+
+## FAQ
+
+### 面试要不要穿正装？
+
+看行业。金融、咨询——必须正装。互联网——干净整洁就行，穿正装反而奇怪。不确定的话，比日常稍微正式半级就行。
+
+### 简历要不要放照片？
+
+国内建议放。一张干净的职业照。不要放生活照、自拍照、或者很随意的照片。技术岗不放照片也完全没问题。
+
+### 面试被问到不会的问题怎么办？
+
+千万千万别硬编。直接说"这个我不太熟，但我理解大概是XX，我回去会深入研究一下"。坦诚比假装懂重要得多。面试官比你资深，你编不出来的。
+
+### 空窗期怎么解释？
+
+说实话，换一种表达方式。不要说"找不到工作"，说"这段时间我在系统学习XX方向，做了几个个人项目/处理了一些家庭事务，现在准备好了重新出发"。
+
+### 要不要在简历里写期望薪资？
+
+不要。薪资是谈出来的，写在简历上等于自己框死自己。
+
+### 面试官问"你最大的缺点是什么"怎么回？
+
+别说"追求完美"——太假了人人都知道。说一个真实但不致命的缺点，再说明你正在怎么改。比如"我之前不太擅长做技术分享，最近半年主动在组里做了几次分享，感觉进步了不少"——真实、可信、还展示了自我认知。`,
+    },
+    readTime: 14,
+    keywords: {
+      en: 'job interview tips, interview guide, how to pass an interview, resume tips, salary negotiation, technical interview preparation, common interview questions, hiring manager advice',
+      zh: '面试技巧,求职指南,面试经验,简历优化,薪资谈判,技术面试准备,常见面试问题,面试官视角,求职干货',
+    },
+  },
+  {
     slug: 'backend-system-design-interview-guide',
     category: 'interview',
     date: '2026-05-11',
