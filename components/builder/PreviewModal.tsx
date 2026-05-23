@@ -7,7 +7,7 @@ import { styles, categories } from './styles/registry'
 import { X, Download } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import type { ResumeCategory } from '@/lib/types'
-import { generatePDF, downloadPDF } from '@/lib/pdf-service'
+import { printPDF } from '@/lib/pdf-service'
 
 interface Props {
   onClose: () => void
@@ -34,10 +34,9 @@ export default function PreviewModal({ onClose }: Props) {
     setPdfError('')
     try {
       const el = previewRef.current
-      const blob = await generatePDF(el)
-      downloadPDF(blob)
+      await printPDF(el)
     } catch (err) {
-      console.error('PDF generation failed:', err)
+      console.error('PDF print failed:', err)
       setPdfError(String(err))
     } finally {
       setDownloading(false)
