@@ -60,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={cn(GeistSans.className, "font-sans", geist.variable, "dark")}>
       <head>
         <meta name="baidu-site-verification" content="codeva-3qvzh3aZYo" />
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2300E676'/><stop offset='50%25' stop-color='%2300BFA5'/><stop offset='100%25' stop-color='%2369F0AE'/></linearGradient></defs><rect width='32' height='32' rx='6' fill='url(%23g)'/><rect x='7' y='8' width='18' height='2' rx='1' fill='%230D0D0D' opacity='0.9'/><rect x='7' y='13' width='14' height='2' rx='1' fill='%230D0D0D' opacity='0.7'/><rect x='7' y='18' width='16' height='2' rx='1' fill='%230D0D0D' opacity='0.7'/><rect x='7' y='23' width='10' height='2' rx='1' fill='%230D0D0D' opacity='0.5'/></svg>" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
       </head>
       <body>
