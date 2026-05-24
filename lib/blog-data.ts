@@ -1427,6 +1427,212 @@ Remember, a resume is never really finished — it is just ready for the next ap
     },
   },
   {
+    slug: 'how-to-write-a-resume-2026',
+    category: 'career',
+    date: '2026-05-16',
+    title: {
+      en: 'How to Write a Resume in 2026: A Step-by-Step Guide for Job Seekers',
+      zh: '2026年如何写简历：求职者分步指南',
+    },
+    excerpt: {
+      en: 'I spent three weeks rewriting my resume after getting laid off. Zero responses. Then I fixed five mistakes, and suddenly I had three interviews in one week. Learn how to write a resume the right way.',
+      zh: '我失业后花了三周改简历。零回复。后来我修正了五个错误，突然一周内收到三个面试邀请。学习如何正确写简历。',
+    },
+    content: {
+      en: `I spent three weeks rewriting my resume after getting laid off. Zero responses. Then I fixed five mistakes, and suddenly I had three interviews in one week. The difference? I finally learned how to write a resume the right way.
+
+If you're staring at a blank page right now, I get it. Writing a resume feels overwhelming. But here's the truth: you don't need fancy design or perfect words. You need a clear format and the right information. That's it.
+
+## What is a Resume and Why It Matters
+
+A resume is a one-page document that shows your work history, skills, and education. Think of it as your marketing tool. Recruiters spend 6 seconds scanning each resume. If yours doesn't grab attention fast, it goes in the trash.
+
+Your resume needs to pass two tests. First, the ATS (Applicant Tracking System) scans for keywords. Second, a human reads it. Most resumes fail at step one. They use fancy fonts or images that confuse the software. Keep it simple. Use a clean template. Focus on results, not duties.
+
+## How to Write a Resume: 7 Steps
+
+### Step 1: Choose the Right Format
+
+Use reverse chronological format. List your most recent job first. This is what 90% of employers expect. Don't get creative with functional or hybrid formats unless you have big employment gaps.
+
+Your resume should have these sections: contact info, professional summary, work experience, education, and skills. That's the standard. Stick to it.
+
+### Step 2: Write Your Contact Info
+
+Put your name, phone number, email, and LinkedIn at the top. Use a professional email address. No "partygirl2000@gmail.com" stuff.
+
+Don't include your photo, age, or marital status. In the U.S., this can cause legal issues for employers. They'll skip your resume to avoid problems. Also, skip your full street address. City and state are enough.
+
+### Step 3: Add a Professional Summary
+
+Write 2-3 sentences at the top. Explain who you are and what you offer. This is your elevator pitch.
+
+**Example for recent grads:** "Recent marketing graduate with internship experience in social media management. Increased Instagram engagement by 40% for local business. Seeking entry-level role in digital marketing."
+
+**Example for experienced workers:** "Sales manager with 5 years of B2B experience. Grew territory revenue from $2M to $5M. Expert in CRM systems and team leadership."
+
+See the pattern? Start with your role. Add a specific achievement with numbers. End with what you want.
+
+### Step 4: List Work Experience
+
+This is the most important section. For each job, include: company name, your title, dates, and 3-5 bullet points.
+
+Use the formula: Action verb + what you did + result with numbers.
+
+**Bad:** "Responsible for managing social media accounts."
+
+**Good:** "Managed 4 social media accounts and increased followers by 2,500 in 6 months."
+
+Numbers prove your impact. Use percentages, dollar amounts, or quantities whenever possible. "Increased sales by 25%" beats "improved sales performance."
+
+If you're writing a resume for the first time with no experience, list internships, volunteer work, or school projects. Focus on transferable skills like communication, teamwork, and problem-solving.
+
+### Step 5: Include Education
+
+List your degree, school name, and graduation year. If you graduated recently (within 2 years), you can add relevant coursework or your GPA if it's above 3.5.
+
+For experienced workers, keep this section short. Your work experience matters more. Just list your degree and school. No need for high school info once you have a college degree.
+
+### Step 6: Add Skills Section
+
+Split this into two parts: technical skills and soft skills.
+
+**Technical skills:** List software, tools, or certifications. Examples: "Excel, Salesforce, Google Analytics, Project Management Professional (PMP)."
+
+**Soft skills:** Keep it brief. Examples: "Team leadership, client communication, problem-solving."
+
+Don't lie about your skills. If you put "advanced Excel" on your resume, be ready to prove it in an interview.
+
+### Step 7: Proofread and Save as PDF
+
+Read your resume out loud. You'll catch typos and awkward sentences. Ask a friend to review it too.
+
+Save your resume as a PDF. This keeps the formatting clean on any device. Never send a Word doc or JPG. I used an ATS-friendly template from [resbu.top](https://resbu.top) to make sure my formatting was clean and professional.
+
+## Common Resume Mistakes to Avoid
+
+Here are five mistakes that kill your chances:
+
+1. **Typos and grammar errors** — One mistake makes you look careless.
+2. **Using "responsible for" instead of action verbs** — Start bullets with "managed," "created," "increased."
+3. **Listing duties instead of achievements** — Show results, not just what you did.
+4. **Making it longer than one page** — Unless you have 10+ years of experience, keep it to one page.
+5. **Using a generic resume for every job** — Customize your resume for each application. Match keywords from the job description.
+
+## Free Resume Template Download
+
+You don't need to design a resume from scratch. I wasted hours trying to format mine in Word. Then I found a free resume builder that did it in 3 minutes.
+
+I used [resbu.top](https://resbu.top) to create my resume. It's free, ATS-friendly, and you can download it as a PDF instantly. Just fill in your info and pick a template. The resume format 2026 employers expect is already built in. No design skills needed.
+
+If you want a resume example to follow, the site has templates for different industries. Pick one that matches your field and customize it.
+
+## Final Thoughts
+
+Writing a resume doesn't have to be painful. Follow these steps. Use specific examples. Keep it simple. Don't overthink it—just start writing.
+
+Your resume is a tool, not a masterpiece. Get it done, send it out, and move on to the next application. The faster you apply, the faster you'll land interviews.`,
+      zh: `我失业后花了三周改简历。零回复。后来我修正了五个错误，突然一周内收到三个面试邀请。区别在哪？我终于学会了如何正确写简历。
+
+如果你现在正盯着空白页面，我懂。写简历让人压力山大。但真相是：你不需要花哨的设计或完美的文字。你需要清晰的格式和正确的信息。就这么简单。
+
+## 什么是简历，为什么重要
+
+简历是一页纸的文档，展示你的工作经历、技能和教育背景。把它当作你的营销工具。招聘人员扫描每份简历只花 6 秒。如果你的简历不能快速抓住注意力，就会被扔进垃圾桶。
+
+你的简历需要通过两个测试。首先，ATS（申请人跟踪系统）扫描关键词。其次，真人阅读。大多数简历在第一步就失败了。它们使用花哨的字体或图片，让软件混乱。保持简单。使用干净的模板。专注于结果，而不是职责。
+
+## 如何写简历：7 个步骤
+
+### 步骤 1：选择正确的格式
+
+使用倒序时间格式。先列出最近的工作。这是 90% 雇主期望的格式。不要尝试功能型或混合型格式，除非你有很大的就业空白期。
+
+你的简历应该包含这些部分：联系信息、专业总结、工作经历、教育背景和技能。这是标准格式。坚持使用它。
+
+### 步骤 2：写联系信息
+
+在顶部放上你的姓名、电话、邮箱和 LinkedIn。使用专业的邮箱地址。不要用"派对女孩2000@gmail.com"这种。
+
+不要包含照片、年龄或婚姻状况。在美国，这可能给雇主带来法律问题。他们会跳过你的简历以避免麻烦。另外，跳过完整的街道地址。城市和州就够了。
+
+### 步骤 3：添加专业总结
+
+在顶部写 2-3 句话。解释你是谁，你能提供什么。这是你的电梯演讲。
+
+**应届生示例：** "市场营销专业应届毕业生，有社交媒体管理实习经验。为本地企业将 Instagram 互动率提高了 40%。寻求数字营销入门职位。"
+
+**有经验者示例：** "拥有 5 年 B2B 经验的销售经理。将区域收入从 200 万美元增长到 500 万美元。精通 CRM 系统和团队领导。"
+
+看到规律了吗？从你的角色开始。添加一个带数字的具体成就。以你想要的结束。
+
+### 步骤 4：列出工作经历
+
+这是最重要的部分。对于每份工作，包括：公司名称、你的职位、日期和 3-5 个要点。
+
+使用公式：动作动词 + 你做了什么 + 带数字的结果。
+
+**不好的：** "负责管理社交媒体账户。"
+
+**好的：** "管理 4 个社交媒体账户，6 个月内增加了 2,500 名粉丝。"
+
+数字证明你的影响力。尽可能使用百分比、金额或数量。"销售额增长 25%"胜过"改善销售业绩"。
+
+如果你是第一次写简历，没有经验，列出实习、志愿工作或学校项目。专注于可转移的技能，如沟通、团队合作和解决问题。
+
+### 步骤 5：包含教育背景
+
+列出你的学位、学校名称和毕业年份。如果你最近毕业（2 年内），可以添加相关课程或 GPA（如果高于 3.5）。
+
+对于有经验的工作者，保持这部分简短。你的工作经验更重要。只列出学位和学校。一旦有了大学学位，就不需要高中信息了。
+
+### 步骤 6：添加技能部分
+
+将其分为两部分：技术技能和软技能。
+
+**技术技能：** 列出软件、工具或认证。示例："Excel、Salesforce、Google Analytics、项目管理专业人士（PMP）。"
+
+**软技能：** 保持简短。示例："团队领导、客户沟通、解决问题。"
+
+不要在技能上撒谎。如果你在简历上写"高级 Excel"，准备好在面试中证明它。
+
+### 步骤 7：校对并保存为 PDF
+
+大声朗读你的简历。你会发现拼写错误和尴尬的句子。也让朋友帮你审查。
+
+将简历保存为 PDF。这样可以在任何设备上保持格式整洁。永远不要发送 Word 文档或 JPG。我使用了 [resbu.top](https://resbu.top) 的 ATS 友好模板，确保我的格式干净专业。
+
+## 避免常见的简历错误
+
+以下是五个会毁掉你机会的错误：
+
+1. **拼写和语法错误** — 一个错误让你看起来粗心。
+2. **使用"负责"而不是动作动词** — 用"管理"、"创建"、"增加"开始要点。
+3. **列出职责而不是成就** — 展示结果,而不仅仅是你做了什么。
+4. **超过一页** — 除非你有 10 年以上的经验，否则保持一页。
+5. **对每份工作使用通用简历** — 为每个申请定制简历。匹配职位描述中的关键词。
+
+## 免费简历模板下载
+
+你不需要从头设计简历。我浪费了几个小时试图在 Word 中格式化我的简历。然后我找到了一个免费的简历生成器，3 分钟就搞定了。
+
+我使用 [resbu.top](https://resbu.top) 创建了我的简历。它是免费的，ATS 友好，你可以立即下载为 PDF。只需填写你的信息并选择模板。2026 年雇主期望的简历格式已经内置。不需要设计技能。
+
+如果你想要一个简历示例来参考，该网站有不同行业的模板。选择一个与你的领域匹配的并自定义它。
+
+## 最后的想法
+
+写简历不必痛苦。遵循这些步骤。使用具体的例子。保持简单。不要想太多——开始写就行了。
+
+你的简历是一个工具，不是杰作。完成它，发送出去，然后继续下一个申请。你申请得越快，就越快获得面试。`,
+    },
+    readTime: 8,
+    keywords: {
+      en: 'how to write a resume, resume example, resume template, write a resume for the first time, resume format 2026, ATS-friendly resume, free resume builder',
+      zh: '如何写简历,简历示例,简历模板,第一次写简历,2026简历格式,ATS友好简历,免费简历生成器',
+    },
+  },
+  {
     slug: 'ats-resume-guide',
     category: 'career',
     date: '2026-05-13',
