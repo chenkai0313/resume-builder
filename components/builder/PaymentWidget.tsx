@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 
-const ALIPAY_QR = 'http://babayimg.schg.xyz/pay/36d383a601abba60466147f1aab2cc81.jpg'
-const WECHAT_QR = 'http://babayimg.schg.xyz/pay/413a11aa2e6054239b0b180e88daece5.jpg'
+const ALIPAY_QR = '/pay-alipay.jpg'
+const WECHAT_QR = '/pay-wechat.jpg'
 const EMAIL = 'ckck0313@gmail.com'
 
 export default function PaymentWidget() {
