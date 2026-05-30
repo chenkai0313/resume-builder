@@ -1,9 +1,11 @@
 'use client'
 
 import { useState } from 'react'
+import alipayImg from '@/public/pay-alipay.jpg'
+import wechatImg from '@/public/pay-wechat.jpg'
 
-const ALIPAY_QR = '/pay-alipay.jpg'
-const WECHAT_QR = '/pay-wechat.jpg'
+const ALIPAY_QR = alipayImg.src
+const WECHAT_QR = wechatImg.src
 const EMAIL = 'ckck0313@gmail.com'
 
 export default function PaymentWidget() {
