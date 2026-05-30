@@ -6,7 +6,7 @@ import { useEffect } from 'react'
 export default function HtmlLangSetter() {
   const pathname = usePathname()
   useEffect(() => {
-    document.documentElement.lang = pathname.startsWith('/zh') ? 'zh' : 'en'
+    document.documentElement.lang = pathname.startsWith('/en') ? 'en' : 'zh'
   }, [pathname])
   return null
 }

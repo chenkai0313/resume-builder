@@ -9,7 +9,7 @@ type Dict = typeof en
 
 export function useTranslations() {
   const params = useParams()
-  const lang = (params.lang as string) || 'en'
+  const lang = (params.lang as string) || 'zh'
   const dict: Dict = lang === 'zh' ? zh : en
 
   return {
