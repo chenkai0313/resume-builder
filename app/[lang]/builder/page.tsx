@@ -12,6 +12,7 @@ import ProjectsForm from '@/components/builder/ProjectsForm'
 import CertificationsForm from '@/components/builder/CertificationsForm'
 import LanguagesForm from '@/components/builder/LanguagesForm'
 import PreviewModal from '@/components/builder/PreviewModal'
+import PaymentWidget from '@/components/builder/PaymentWidget'
 import { Button } from '@/components/ui/button'
 import { Eye, Sparkles, RotateCcw, Lightbulb, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
@@ -186,6 +187,7 @@ export default function BuilderPage() {
       </div>
 
       {previewOpen && <PreviewModal onClose={() => setPreviewOpen(false)} />}
+      <PaymentWidget />
     </div>
   )
 }

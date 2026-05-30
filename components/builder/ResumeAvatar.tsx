@@ -15,7 +15,7 @@ export default function ResumeAvatar({
       alt=""
       width={size}
       height={size}
-      className={`rounded-full object-cover shrink-0 ${className}`}
+      className={`rounded-full object-cover shrink-0 aspect-square ${className}`}
       onError={(e) => {
         (e.currentTarget).style.display = 'none'
       }}

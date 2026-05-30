@@ -19,6 +19,16 @@ import CreativeDesigner from './17-CreativeDesigner'
 import Freelancer from './18-Freelancer'
 import SalesBD from './19-SalesBD'
 import MarketingDigital from './20-MarketingDigital'
+import DenseProfessional from './21-DenseProfessional'
+import Timeline from './22-Timeline'
+import Academic from './23-Academic'
+import Frontend from './24-Frontend'
+import CloudSRE from './25-CloudSRE'
+import BoardDirector from './26-BoardDirector'
+import Founder from './27-Founder'
+import Consultant from './28-Consultant'
+import VisualDesigner from './29-VisualDesigner'
+import ContentCreator from './30-ContentCreator'
 
 export interface StyleTemplate {
   id: string
@@ -43,6 +53,9 @@ export const styles: StyleTemplate[] = [
   { id: 'tech-stack', name: { en: 'Tech Stack Focus', zh: '技术栈聚焦' }, category: 'general', component: TechStack },
   { id: 'entry-level', name: { en: 'Entry-Level', zh: '应届入门' }, category: 'general', component: EntryLevel },
   { id: 'career-changer', name: { en: 'Career Changer', zh: '转行功能型' }, category: 'general', component: CareerChanger },
+  { id: 'dense-professional', name: { en: 'Dense Professional', zh: '紧凑专业型' }, category: 'general', component: DenseProfessional },
+  { id: 'timeline', name: { en: 'Timeline', zh: '时间线经历型' }, category: 'general', component: Timeline },
+  { id: 'academic', name: { en: 'Academic / Research', zh: '学术研究型' }, category: 'general', component: Academic },
   { id: 'web3', name: { en: 'Web3/Blockchain', zh: 'Web3/区块链' }, category: 'tech', component: Web3 },
   { id: 'aiml', name: { en: 'AI/ML Engineer', zh: 'AI/ML 工程师' }, category: 'tech', component: AIML },
   { id: 'remote-worker', name: { en: 'Remote Worker', zh: '远程工作者' }, category: 'tech', component: RemoteWorker },
@@ -55,4 +68,11 @@ export const styles: StyleTemplate[] = [
   { id: 'freelancer', name: { en: 'Freelancer', zh: '自由职业者' }, category: 'creative', component: Freelancer },
   { id: 'sales-bd', name: { en: 'Sales / BD', zh: '销售/BD' }, category: 'creative', component: SalesBD },
   { id: 'marketing-digital', name: { en: 'Marketing / Digital', zh: '营销/数字' }, category: 'creative', component: MarketingDigital },
+  { id: 'frontend', name: { en: 'Frontend Engineer', zh: '前端工程师' }, category: 'tech', component: Frontend },
+  { id: 'cloud-sre', name: { en: 'Cloud / SRE', zh: '云计算/SRE' }, category: 'tech', component: CloudSRE },
+  { id: 'board-director', name: { en: 'Board Director', zh: '董事会/高管' }, category: 'executive', component: BoardDirector },
+  { id: 'founder', name: { en: 'Founder', zh: '创业者' }, category: 'executive', component: Founder },
+  { id: 'consultant', name: { en: 'Management Consultant', zh: '管理咨询' }, category: 'executive', component: Consultant },
+  { id: 'visual-designer', name: { en: 'Visual Designer', zh: '视觉设计师' }, category: 'creative', component: VisualDesigner },
+  { id: 'content-creator', name: { en: 'Content Creator', zh: '内容创作者' }, category: 'creative', component: ContentCreator },
 ]
